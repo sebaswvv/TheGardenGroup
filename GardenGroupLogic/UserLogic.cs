@@ -6,6 +6,7 @@ namespace GardenGroupLogic
 {
     public class UserLogic
     {
+        // JUST A REFERENCE!!! DONT USE
         private UserDAO userDAO;
 
         public UserLogic()

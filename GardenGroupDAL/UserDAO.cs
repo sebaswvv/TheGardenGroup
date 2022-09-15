@@ -8,6 +8,7 @@ using MongoDB.Driver;
 
 namespace GardenGroupDAL
 {
+    // JUST A REFERENCE!!! DONT USE
     public class UserDAO : BaseDAO
     {
         private IMongoCollection<User> collection;
