@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GardenGroupLogic\GardenGroupLogic.csproj" />
     <ProjectReference Include="..\GardenGroupModel\GardenGroupModel.csproj" />
   </ItemGroup>
 
