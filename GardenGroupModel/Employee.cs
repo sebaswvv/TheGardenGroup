@@ -4,16 +4,15 @@ using System;
 
 namespace GardenGroupModel
 {
-    public class User
-    {
-        // JUST A REFERENCE!!! DONT USE
+    public class Employee
+    {        
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public User(string firstName, string lastName)
+        public Employee(string firstName, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;
