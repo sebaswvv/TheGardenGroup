@@ -1,6 +1,6 @@
 ﻿namespace GradenGroupUI
 {
-    partial class testForm
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -65,7 +65,6 @@
             this.addUserButton.TabIndex = 3;
             this.addUserButton.Text = "add user";
             this.addUserButton.UseVisualStyleBackColor = true;
-            this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
             // Form1
             // 

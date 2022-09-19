@@ -7,23 +7,22 @@ using GardenGroupModel;
 using MongoDB.Driver;
 
 namespace GardenGroupDAL
-{
-    // JUST A REFERENCE!!! DONT USE
-    public class UserDAO : BaseDAO
+{    
+    public class EmployeeDAO : BaseDAO
     {
-        private IMongoCollection<User> collection;
+        private IMongoCollection<Employee> collection;
 
-        public UserDAO()
+        public EmployeeDAO()
         {
-            this.collection = this.db.GetCollection<User>("Users");
+            this.collection = this.db.GetCollection<Employee>("Employees");
         }
 
-        public void AddUser(User newUser) 
+        public void AddUser(Employee newUser) 
         {
             this.collection.InsertOne(newUser);
         }
 
-        public User GetUser(string username)
+        public Employee GetUser(string username)
         {
             return this.collection.Find(u => u.FirstName == username).FirstOrDefault();
         }
