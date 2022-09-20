@@ -4,7 +4,7 @@ using System;
 
 namespace GardenGroupModel
 {
-    public abstract class Employee
+    public class Employee
     {        
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
