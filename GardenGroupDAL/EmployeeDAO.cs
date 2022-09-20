@@ -14,7 +14,7 @@ namespace GardenGroupDAL
 
         public EmployeeDAO()
         {
-            this.collection = this.db.GetCollection<Employee>("Employees");
+            this.collection = this.db.GetCollection<Employee>("employees");
         }
 
         public void AddUser(Employee newUser) 

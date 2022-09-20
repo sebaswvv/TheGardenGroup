@@ -4,11 +4,11 @@ using GardenGroupModel;
 
 namespace GardenGroupLogic
 {
-    public class EmployeeLogic
+    public class EmployeeService
     {        
         private EmployeeDAO userDAO;
 
-        public EmployeeLogic()
+        public EmployeeService()
         {
             this.userDAO = new EmployeeDAO();
         }

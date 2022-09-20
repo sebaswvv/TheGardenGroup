@@ -8,7 +8,7 @@ namespace GardenGroupModel
 {
     public class Password
     {
-        public string PasswordHash { get; set; }
-        public string PasswordSalt { get; set; }
+        public string Hash { get; set; }
+        public string Salt { get; set; }
     }
 }

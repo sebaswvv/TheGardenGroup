@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using GardenGroupModel.Enums;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 

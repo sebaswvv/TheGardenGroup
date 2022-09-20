@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GardenGroupModel
+namespace GardenGroupModel.Enums
 {
-    public enum Deadline
+    public enum Priority
     {
     }
 }
