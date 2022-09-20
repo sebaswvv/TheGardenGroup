@@ -1,6 +1,6 @@
 ﻿namespace GradenGroupUI
 {
-    partial class MainForm
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.
