@@ -12,4 +12,4 @@ const employeeSchema = new Schema<IEmployee>({
     Avatar: String,
 })
 
-export const Employee = model<IEmployee>("Employees", employeeSchema)
+export const Employee = model<IEmployee>("employees", employeeSchema)
