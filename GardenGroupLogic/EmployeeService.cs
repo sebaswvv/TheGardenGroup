@@ -4,21 +4,21 @@ using GardenGroupModel;
 
 namespace GardenGroupLogic
 {
-    public class UserLogic
-    {
-        private UserDAO userDAO;
+    public class EmployeeService
+    {        
+        private EmployeeDAO userDAO;
 
-        public UserLogic()
+        public EmployeeService()
         {
-            this.userDAO = new UserDAO();
+            this.userDAO = new EmployeeDAO();
         }
         
-        public User GetUser(string username)
+        public Employee GetUser(string username)
         {
             return this.userDAO.GetUser(username);
         }
 
-        public void AddUser(User user)
+        public void AddUser(Employee user)
         {
             this.userDAO.AddUser(user);
         }
