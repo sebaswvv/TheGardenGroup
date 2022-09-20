@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "target": "ES2022",
+      "module": "commonjs",
+      "lib": [],
+
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "baseUrl": "./",
+      "skipLibCheck": true,
+
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+
+      "forceConsistentCasingInFileNames": true,
+      "experimentalDecorators": true,
+    },
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
