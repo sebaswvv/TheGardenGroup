@@ -8,5 +8,6 @@ namespace GardenGroupModel.Enums
 {
     public enum Status
     {
+        Open, WorkingOn, Solved
     }
 }

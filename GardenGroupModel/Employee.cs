@@ -14,16 +14,17 @@ namespace GardenGroupModel
         public string LastName { get; set; }
         public string Email { get; set; }
         public Password Password { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public Location Location { get; set; }
 
-        public Employee(string firstName, string lastName, string email, int phoneNumber, Location location)
+        public Employee(string firstName, string lastName, string email, string phoneNumber,Password password, Location location)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             PhoneNumber = phoneNumber;
             Location = location;
+            Password = password;
         }                
     }
 }

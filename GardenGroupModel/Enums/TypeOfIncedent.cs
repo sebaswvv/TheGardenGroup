@@ -8,5 +8,6 @@ namespace GardenGroupModel.Enums
 {
     public enum TypeOfIncedent
     {
+        Software, Hardware, Service
     }
 }
