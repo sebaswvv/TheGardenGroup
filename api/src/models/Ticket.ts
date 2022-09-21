@@ -15,8 +15,8 @@ export enum Deadline {
 
 export enum Status {
     Open, 
-    WorkingOn, 
-    Solved
+    Resolved, 
+    Closed
 }
 
 export interface ITicket {
