@@ -1,15 +1,21 @@
-import { Schema, model } from "mongoose"
+import { model, Schema } from "mongoose"
 
 export interface IEmployee {
-    Name: string;
-    Email?: string;
-    Avatar?: string;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    Password?: string;
+    PhoneNumber: string;
+    Location?: string;
 }
 
 const employeeSchema = new Schema<IEmployee>({
-    Name: { type: String, required: false },
-    Email: { type: String, required: false },
-    Avatar: String,
+    FirstName: String,
+    LastName: String,
+    Email: String,
+    Password: { type: String, required: false },
+    PhoneNumber: String,
+    Location: { type: String, required: false },
 })
 
 export const Employee = model<IEmployee>("employees", employeeSchema)

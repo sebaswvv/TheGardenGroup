@@ -6,7 +6,7 @@ using System;
 namespace GardenGroupModel
 {
     public class Employee
-    {        
+    {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
@@ -17,7 +17,7 @@ namespace GardenGroupModel
         public string PhoneNumber { get; set; }
         public Location Location { get; set; }
 
-        public Employee(string firstName, string lastName, string email, string phoneNumber,Password password, Location location)
+        public Employee(string firstName, string lastName, string email, string phoneNumber, Password password, Location location)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -25,6 +25,6 @@ namespace GardenGroupModel
             PhoneNumber = phoneNumber;
             Location = location;
             Password = password;
-        }                
+        }
     }
 }
