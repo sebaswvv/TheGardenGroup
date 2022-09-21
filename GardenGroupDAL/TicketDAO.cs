@@ -21,5 +21,12 @@ namespace GardenGroupDAL
         {
             this.collection.InsertOne(ticket);
         }
+
+        // get all tickets of a user
+        public List<Ticket> GetTicketsOfUser(string employeeID)            
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq("EmployeeID", employeeID);
+            return this.collection.Find(filter).ToList();
+        }
     }
 }
