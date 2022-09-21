@@ -28,13 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.viewTicketsPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // viewTicketsPanel
+            // 
+            this.viewTicketsPanel.Location = new System.Drawing.Point(12, 12);
+            this.viewTicketsPanel.Name = "viewTicketsPanel";
+            this.viewTicketsPanel.Size = new System.Drawing.Size(1412, 728);
+            this.viewTicketsPanel.TabIndex = 0;
             // 
             // RegularEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1436, 752);
+            this.Controls.Add(this.viewTicketsPanel);
             this.Name = "RegularEmployeeForm";
             this.Text = "RegularEmployeeForm";
             this.ResumeLayout(false);
@@ -42,5 +51,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel viewTicketsPanel;
     }
 }
