@@ -21,5 +21,10 @@ namespace GardenGroupLogic
         {
             this.ticketDAO.AddTicket(ticket);
         }
+
+        public List<Ticket> GetTicketsOfUser(string employeeID)
+        {
+            return this.ticketDAO.GetTicketsOfUser(employeeID);
+        }
     }
 }
