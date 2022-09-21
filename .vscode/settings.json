@@ -1,0 +1,9 @@
+{
+    "typescript.format.semicolons": "remove",
+    "[typescript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true,
+            "source.organizeImports": true,
+        },
+    },
+}
