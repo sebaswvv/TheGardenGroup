@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LightningChart" Version="10.3.2.2" />
+    <PackageReference Include="ChartDirector.Net" Version="7.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.17.1" />
   </ItemGroup>
 

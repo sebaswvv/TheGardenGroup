@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.showTicketsButton = new System.Windows.Forms.Button();
             this.showDashboardTicketsButton = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // showTicketsButton
@@ -67,6 +70,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ViewTicketsUC";
             this.Size = new System.Drawing.Size(1614, 971);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -75,5 +79,6 @@
 
         private System.Windows.Forms.Button showTicketsButton;
         private System.Windows.Forms.Button showDashboardTicketsButton;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
