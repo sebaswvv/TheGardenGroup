@@ -60,7 +60,7 @@
             // dateTimeReportedLabel
             // 
             this.dateTimeReportedLabel.AutoSize = true;
-            this.dateTimeReportedLabel.Location = new System.Drawing.Point(96, 267);
+            this.dateTimeReportedLabel.Location = new System.Drawing.Point(96, 309);
             this.dateTimeReportedLabel.Name = "dateTimeReportedLabel";
             this.dateTimeReportedLabel.Size = new System.Drawing.Size(169, 25);
             this.dateTimeReportedLabel.TabIndex = 1;
@@ -69,7 +69,7 @@
             // ticketSubjectIncidentLabel
             // 
             this.ticketSubjectIncidentLabel.AutoSize = true;
-            this.ticketSubjectIncidentLabel.Location = new System.Drawing.Point(96, 302);
+            this.ticketSubjectIncidentLabel.Location = new System.Drawing.Point(96, 352);
             this.ticketSubjectIncidentLabel.Name = "ticketSubjectIncidentLabel";
             this.ticketSubjectIncidentLabel.Size = new System.Drawing.Size(163, 25);
             this.ticketSubjectIncidentLabel.TabIndex = 2;
@@ -78,7 +78,7 @@
             // ticketTypeIncidentLabel
             // 
             this.ticketTypeIncidentLabel.AutoSize = true;
-            this.ticketTypeIncidentLabel.Location = new System.Drawing.Point(96, 341);
+            this.ticketTypeIncidentLabel.Location = new System.Drawing.Point(96, 394);
             this.ticketTypeIncidentLabel.Name = "ticketTypeIncidentLabel";
             this.ticketTypeIncidentLabel.Size = new System.Drawing.Size(142, 25);
             this.ticketTypeIncidentLabel.TabIndex = 3;
@@ -87,25 +87,26 @@
             // ticketReportedUserLabel
             // 
             this.ticketReportedUserLabel.AutoSize = true;
-            this.ticketReportedUserLabel.Location = new System.Drawing.Point(96, 383);
+            this.ticketReportedUserLabel.Location = new System.Drawing.Point(96, 270);
             this.ticketReportedUserLabel.Name = "ticketReportedUserLabel";
             this.ticketReportedUserLabel.Size = new System.Drawing.Size(152, 25);
             this.ticketReportedUserLabel.TabIndex = 4;
             this.ticketReportedUserLabel.Text = "Reported by user:";
+            this.ticketReportedUserLabel.Visible = false;
             // 
             // ticketPriorityLabel
             // 
             this.ticketPriorityLabel.AutoSize = true;
-            this.ticketPriorityLabel.Location = new System.Drawing.Point(96, 424);
+            this.ticketPriorityLabel.Location = new System.Drawing.Point(96, 433);
             this.ticketPriorityLabel.Name = "ticketPriorityLabel";
-            this.ticketPriorityLabel.Size = new System.Drawing.Size(68, 25);
+            this.ticketPriorityLabel.Size = new System.Drawing.Size(72, 25);
             this.ticketPriorityLabel.TabIndex = 5;
-            this.ticketPriorityLabel.Text = "Priority";
+            this.ticketPriorityLabel.Text = "Priority:";
             // 
             // ticketDeadlineFollowUpLabel
             // 
             this.ticketDeadlineFollowUpLabel.AutoSize = true;
-            this.ticketDeadlineFollowUpLabel.Location = new System.Drawing.Point(96, 464);
+            this.ticketDeadlineFollowUpLabel.Location = new System.Drawing.Point(96, 472);
             this.ticketDeadlineFollowUpLabel.Name = "ticketDeadlineFollowUpLabel";
             this.ticketDeadlineFollowUpLabel.Size = new System.Drawing.Size(167, 25);
             this.ticketDeadlineFollowUpLabel.TabIndex = 6;
@@ -122,7 +123,7 @@
             // 
             // ticketSubjectIncidentTextBox
             // 
-            this.ticketSubjectIncidentTextBox.Location = new System.Drawing.Point(306, 302);
+            this.ticketSubjectIncidentTextBox.Location = new System.Drawing.Point(306, 346);
             this.ticketSubjectIncidentTextBox.Name = "ticketSubjectIncidentTextBox";
             this.ticketSubjectIncidentTextBox.Size = new System.Drawing.Size(286, 31);
             this.ticketSubjectIncidentTextBox.TabIndex = 8;
@@ -144,7 +145,7 @@
             "Software",
             "Hardware",
             "Service"});
-            this.ticketTypeIncidentComboBox.Location = new System.Drawing.Point(306, 341);
+            this.ticketTypeIncidentComboBox.Location = new System.Drawing.Point(306, 386);
             this.ticketTypeIncidentComboBox.Name = "ticketTypeIncidentComboBox";
             this.ticketTypeIncidentComboBox.Size = new System.Drawing.Size(286, 33);
             this.ticketTypeIncidentComboBox.TabIndex = 12;
@@ -153,16 +154,17 @@
             // 
             this.ticketReportedUserComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketReportedUserComboBox.FormattingEnabled = true;
-            this.ticketReportedUserComboBox.Location = new System.Drawing.Point(306, 383);
+            this.ticketReportedUserComboBox.Location = new System.Drawing.Point(306, 270);
             this.ticketReportedUserComboBox.Name = "ticketReportedUserComboBox";
             this.ticketReportedUserComboBox.Size = new System.Drawing.Size(286, 33);
             this.ticketReportedUserComboBox.TabIndex = 13;
+            this.ticketReportedUserComboBox.Visible = false;
             // 
             // ticketPriorityComboBox
             // 
             this.ticketPriorityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketPriorityComboBox.FormattingEnabled = true;
-            this.ticketPriorityComboBox.Location = new System.Drawing.Point(306, 424);
+            this.ticketPriorityComboBox.Location = new System.Drawing.Point(306, 425);
             this.ticketPriorityComboBox.Name = "ticketPriorityComboBox";
             this.ticketPriorityComboBox.Size = new System.Drawing.Size(286, 33);
             this.ticketPriorityComboBox.TabIndex = 14;
@@ -180,7 +182,7 @@
             // 
             // TicketReportedDateTimePicker
             // 
-            this.TicketReportedDateTimePicker.Location = new System.Drawing.Point(306, 267);
+            this.TicketReportedDateTimePicker.Location = new System.Drawing.Point(306, 309);
             this.TicketReportedDateTimePicker.Name = "TicketReportedDateTimePicker";
             this.TicketReportedDateTimePicker.Size = new System.Drawing.Size(286, 31);
             this.TicketReportedDateTimePicker.TabIndex = 16;
