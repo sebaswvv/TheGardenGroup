@@ -67,6 +67,6 @@ namespace GradenGroupUI
 
         #endregion
 
-        private System.Windows.Forms.Panel userControlPanel;
+        
     }
 }
