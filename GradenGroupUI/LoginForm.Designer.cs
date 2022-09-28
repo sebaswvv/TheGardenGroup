@@ -37,6 +37,15 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonForgot = new System.Windows.Forms.Button();
             this.panelForgotPassword = new System.Windows.Forms.Panel();
+            this.panelNewPassword = new System.Windows.Forms.Panel();
+            this.labelPasswordMatch = new System.Windows.Forms.Label();
+            this.buttonConfirmPassword = new System.Windows.Forms.Button();
+            this.textBoxNewPasswordReentered = new System.Windows.Forms.TextBox();
+            this.textBoxNewPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelNewPassword = new System.Windows.Forms.Label();
+            this.labelErrorCode = new System.Windows.Forms.Label();
             this.labelErrorPasswordForgotten = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonConfirmCode = new System.Windows.Forms.Button();
@@ -46,9 +55,8 @@
             this.textBoxEmailPassword = new System.Windows.Forms.TextBox();
             this.labelEmail = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.panelNewPassword = new System.Windows.Forms.Panel();
-            this.labelErrorCode = new System.Windows.Forms.Label();
             this.panelForgotPassword.SuspendLayout();
+            this.panelNewPassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelUsername
@@ -124,11 +132,12 @@
             this.buttonForgot.TabIndex = 7;
             this.buttonForgot.Text = "Forgot password?";
             this.buttonForgot.UseVisualStyleBackColor = true;
+            this.buttonForgot.Click += new System.EventHandler(this.buttonForgot_Click);
             // 
             // panelForgotPassword
             // 
-            this.panelForgotPassword.Controls.Add(this.labelErrorCode);
             this.panelForgotPassword.Controls.Add(this.panelNewPassword);
+            this.panelForgotPassword.Controls.Add(this.labelErrorCode);
             this.panelForgotPassword.Controls.Add(this.labelErrorPasswordForgotten);
             this.panelForgotPassword.Controls.Add(this.label3);
             this.panelForgotPassword.Controls.Add(this.buttonConfirmCode);
@@ -143,6 +152,94 @@
             this.panelForgotPassword.Name = "panelForgotPassword";
             this.panelForgotPassword.Size = new System.Drawing.Size(545, 502);
             this.panelForgotPassword.TabIndex = 8;
+            this.panelForgotPassword.Visible = false;
+            // 
+            // panelNewPassword
+            // 
+            this.panelNewPassword.Controls.Add(this.labelPasswordMatch);
+            this.panelNewPassword.Controls.Add(this.buttonConfirmPassword);
+            this.panelNewPassword.Controls.Add(this.textBoxNewPasswordReentered);
+            this.panelNewPassword.Controls.Add(this.textBoxNewPassword);
+            this.panelNewPassword.Controls.Add(this.label5);
+            this.panelNewPassword.Controls.Add(this.label4);
+            this.panelNewPassword.Controls.Add(this.labelNewPassword);
+            this.panelNewPassword.Location = new System.Drawing.Point(0, 0);
+            this.panelNewPassword.Name = "panelNewPassword";
+            this.panelNewPassword.Size = new System.Drawing.Size(545, 502);
+            this.panelNewPassword.TabIndex = 9;
+            this.panelNewPassword.Visible = false;
+            // 
+            // labelPasswordMatch
+            // 
+            this.labelPasswordMatch.AutoSize = true;
+            this.labelPasswordMatch.ForeColor = System.Drawing.Color.Red;
+            this.labelPasswordMatch.Location = new System.Drawing.Point(191, 344);
+            this.labelPasswordMatch.Name = "labelPasswordMatch";
+            this.labelPasswordMatch.Size = new System.Drawing.Size(130, 15);
+            this.labelPasswordMatch.TabIndex = 6;
+            this.labelPasswordMatch.Text = "Passwords don\'t match";
+            this.labelPasswordMatch.Visible = false;
+            // 
+            // buttonConfirmPassword
+            // 
+            this.buttonConfirmPassword.Location = new System.Drawing.Point(194, 372);
+            this.buttonConfirmPassword.Name = "buttonConfirmPassword";
+            this.buttonConfirmPassword.Size = new System.Drawing.Size(125, 29);
+            this.buttonConfirmPassword.TabIndex = 5;
+            this.buttonConfirmPassword.Text = "Confirm";
+            this.buttonConfirmPassword.UseVisualStyleBackColor = true;
+            this.buttonConfirmPassword.Click += new System.EventHandler(this.buttonConfirmPassword_Click);
+            // 
+            // textBoxNewPasswordReentered
+            // 
+            this.textBoxNewPasswordReentered.Location = new System.Drawing.Point(186, 304);
+            this.textBoxNewPasswordReentered.Name = "textBoxNewPasswordReentered";
+            this.textBoxNewPasswordReentered.Size = new System.Drawing.Size(140, 23);
+            this.textBoxNewPasswordReentered.TabIndex = 4;
+            // 
+            // textBoxNewPassword
+            // 
+            this.textBoxNewPassword.Location = new System.Drawing.Point(186, 214);
+            this.textBoxNewPassword.Name = "textBoxNewPassword";
+            this.textBoxNewPassword.Size = new System.Drawing.Size(140, 23);
+            this.textBoxNewPassword.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(191, 264);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 15);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Re-enter new password";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(197, 184);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 15);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Enter new password:";
+            // 
+            // labelNewPassword
+            // 
+            this.labelNewPassword.AutoSize = true;
+            this.labelNewPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelNewPassword.Location = new System.Drawing.Point(142, 94);
+            this.labelNewPassword.Name = "labelNewPassword";
+            this.labelNewPassword.Size = new System.Drawing.Size(207, 25);
+            this.labelNewPassword.TabIndex = 0;
+            this.labelNewPassword.Text = "Create a new password";
+            // 
+            // labelErrorCode
+            // 
+            this.labelErrorCode.AutoSize = true;
+            this.labelErrorCode.Location = new System.Drawing.Point(201, 443);
+            this.labelErrorCode.Name = "labelErrorCode";
+            this.labelErrorCode.Size = new System.Drawing.Size(10, 15);
+            this.labelErrorCode.TabIndex = 10;
+            this.labelErrorCode.Text = ".";
             // 
             // labelErrorPasswordForgotten
             // 
@@ -226,23 +323,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panelNewPassword
-            // 
-            this.panelNewPassword.Location = new System.Drawing.Point(0, 0);
-            this.panelNewPassword.Name = "panelNewPassword";
-            this.panelNewPassword.Size = new System.Drawing.Size(545, 502);
-            this.panelNewPassword.TabIndex = 9;
-            this.panelNewPassword.Visible = false;
-            // 
-            // labelErrorCode
-            // 
-            this.labelErrorCode.AutoSize = true;
-            this.labelErrorCode.Location = new System.Drawing.Point(201, 443);
-            this.labelErrorCode.Name = "labelErrorCode";
-            this.labelErrorCode.Size = new System.Drawing.Size(10, 15);
-            this.labelErrorCode.TabIndex = 10;
-            this.labelErrorCode.Text = ".";
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -263,6 +343,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelForgotPassword.ResumeLayout(false);
             this.panelForgotPassword.PerformLayout();
+            this.panelNewPassword.ResumeLayout(false);
+            this.panelNewPassword.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,5 +372,12 @@
         private System.Windows.Forms.Label labelErrorPasswordForgotten;
         private System.Windows.Forms.Panel panelNewPassword;
         private System.Windows.Forms.Label labelErrorCode;
+        private System.Windows.Forms.Button buttonConfirmPassword;
+        private System.Windows.Forms.TextBox textBoxNewPasswordReentered;
+        private System.Windows.Forms.TextBox textBoxNewPassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelNewPassword;
+        private System.Windows.Forms.Label labelPasswordMatch;
     }
 }
