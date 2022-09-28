@@ -3,14 +3,7 @@ import type { Response as RESTResponse } from "express"
 import { Ticket } from "src/models/Ticket"
 
 @Controller("/tickets")
-export class TicketsController {
-    // get all tickets for a specific employee
-    @Get("/:id")
-    async getTicketsForEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
-        const tickets = await Ticket.find({ employee: id })
-        res.json(tickets)
-    }  
-
+export class TicketsController {  
     // get ticket by ticket id
     @Get("/:id")
     async getEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
