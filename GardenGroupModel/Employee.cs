@@ -16,8 +16,9 @@ namespace GardenGroupModel
         public Password Password { get; set; }
         public string PhoneNumber { get; set; }
         public Location Location { get; set; }
+        public bool IsServiceDeskEmployee{ get; set; }
 
-        public Employee(string firstName, string lastName, string email, string phoneNumber, Password password, Location location)
+        public Employee(string firstName, string lastName, string email, string phoneNumber, Password password, Location location, bool isServiceDeskEmployee)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -25,6 +26,7 @@ namespace GardenGroupModel
             PhoneNumber = phoneNumber;
             Location = location;
             Password = password;
+            IsServiceDeskEmployee = isServiceDeskEmployee;
         }
     }
 }
