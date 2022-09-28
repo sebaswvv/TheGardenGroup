@@ -34,7 +34,16 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pieChartPanel = new System.Windows.Forms.Panel();
             this.panelViewTickets = new System.Windows.Forms.Panel();
+            this.allTicketsListView = new System.Windows.Forms.ListView();
+            this.id = new System.Windows.Forms.ColumnHeader();
+            this.reportedAt = new System.Windows.Forms.ColumnHeader();
+            this.subject = new System.Windows.Forms.ColumnHeader();
+            this.description = new System.Windows.Forms.ColumnHeader();
+            this.priority = new System.Windows.Forms.ColumnHeader();
+            this.deadline = new System.Windows.Forms.ColumnHeader();
+            this.status = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.panelViewTickets.SuspendLayout();
             this.SuspendLayout();
             // 
             // showTicketsButton
@@ -65,31 +74,84 @@
             // 
             // pieChartPanel
             // 
-            this.pieChartPanel.Location = new System.Drawing.Point(394, 185);
+            this.pieChartPanel.Location = new System.Drawing.Point(252, 91);
             this.pieChartPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pieChartPanel.Name = "pieChartPanel";
-            this.pieChartPanel.Size = new System.Drawing.Size(645, 529);
+            this.pieChartPanel.Size = new System.Drawing.Size(787, 623);
             this.pieChartPanel.TabIndex = 2;
             // 
             // panelViewTickets
             // 
-            this.panelViewTickets.Location = new System.Drawing.Point(345, 87);
+            this.panelViewTickets.Controls.Add(this.allTicketsListView);
+            this.panelViewTickets.Location = new System.Drawing.Point(252, 87);
             this.panelViewTickets.Name = "panelViewTickets";
-            this.panelViewTickets.Size = new System.Drawing.Size(804, 641);
+            this.panelViewTickets.Size = new System.Drawing.Size(1337, 641);
             this.panelViewTickets.TabIndex = 3;
+            // 
+            // allTicketsListView
+            // 
+            this.allTicketsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
+            this.reportedAt,
+            this.subject,
+            this.description,
+            this.priority,
+            this.deadline,
+            this.status});
+            this.allTicketsListView.Location = new System.Drawing.Point(3, 3);
+            this.allTicketsListView.Name = "allTicketsListView";
+            this.allTicketsListView.Size = new System.Drawing.Size(1331, 624);
+            this.allTicketsListView.TabIndex = 0;
+            this.allTicketsListView.UseCompatibleStateImageBehavior = false;
+            this.allTicketsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // id
+            // 
+            this.id.Text = "id:";
+            // 
+            // reportedAt
+            // 
+            this.reportedAt.Text = "Date reported:";
+            this.reportedAt.Width = 150;
+            // 
+            // subject
+            // 
+            this.subject.Text = "Subject:";
+            this.subject.Width = 200;
+            // 
+            // description
+            // 
+            this.description.Text = "Description:";
+            this.description.Width = 610;
+            // 
+            // priority
+            // 
+            this.priority.Text = "Priority:";
+            this.priority.Width = 100;
+            // 
+            // deadline
+            // 
+            this.deadline.Text = "Deadline:";
+            this.deadline.Width = 100;
+            // 
+            // status
+            // 
+            this.status.Text = "Status:";
+            this.status.Width = 100;
             // 
             // ViewTicketsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelViewTickets);
             this.Controls.Add(this.pieChartPanel);
+            this.Controls.Add(this.panelViewTickets);
             this.Controls.Add(this.showDashboardTicketsButton);
             this.Controls.Add(this.showTicketsButton);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ViewTicketsUC";
             this.Size = new System.Drawing.Size(1614, 971);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.panelViewTickets.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -101,5 +163,13 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Panel pieChartPanel;
         private System.Windows.Forms.Panel panelViewTickets;
+        private System.Windows.Forms.ListView allTicketsListView;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader reportedAt;
+        private System.Windows.Forms.ColumnHeader subject;
+        private System.Windows.Forms.ColumnHeader description;
+        private System.Windows.Forms.ColumnHeader priority;
+        private System.Windows.Forms.ColumnHeader deadline;
+        private System.Windows.Forms.ColumnHeader status;
     }
 }
