@@ -19,10 +19,10 @@ namespace GradenGroupUI
     {
 
         private string code;
+        private Employee employee;
         public LoginForm()
         {            
             InitializeComponent();
-
         }
 
 
@@ -33,7 +33,7 @@ namespace GradenGroupUI
         {
             string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
-            Employee employee = employeeService.GetEmployee(username);
+            employee = employeeService.GetEmployee(username);
             if (employee == null)
             {
                 labelErrorText.Text = "Email does not exist";
@@ -41,8 +41,8 @@ namespace GradenGroupUI
             }
             
            
-            RegularEmployeeForm regularEmployeeForm = new RegularEmployeeForm();
-            ServiceDeskEmployeeForm serviceDeskEmployeeForm = new ServiceDeskEmployeeForm();
+            RegularEmployeeForm regularEmployeeForm = new RegularEmployeeForm(employee);
+            ServiceDeskEmployeeForm serviceDeskEmployeeForm = new ServiceDeskEmployeeForm(employee);
             if (!passwordService.VerifyPassword(password, employee.Password))
             {
                 labelErrorText.Text = "Password Incorrect";
@@ -68,7 +68,7 @@ namespace GradenGroupUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Employee employee = employeeService.GetEmployee(textBoxEmailPassword.Text);
+            employee = employeeService.GetEmployee(textBoxEmailPassword.Text);
             if (employee == null)
             {
                 labelErrorPasswordForgotten.Text = "Email does not exist in our system";
@@ -131,6 +131,26 @@ namespace GradenGroupUI
             {
                 labelErrorCode.Text = "Inncorrect code entered";
             }
+        }
+
+        private void buttonConfirmPassword_Click(object sender, EventArgs e)
+        {
+            if (textBoxNewPassword.Text == textBoxNewPasswordReentered.Text)
+            {
+                employee.Password = passwordService.GenerateSaltedHash(64, textBoxNewPassword.Text);
+                employeeService.UpdateEmployee(employee);
+                panelForgotPassword.Visible = false;
+                panelNewPassword.Visible = false;
+            }
+            else
+            {
+                labelPasswordMatch.Visible = true;
+            }
+        }
+
+        private void buttonForgot_Click(object sender, EventArgs e)
+        {
+            panelForgotPassword.Visible=true;
         }
     }
 }

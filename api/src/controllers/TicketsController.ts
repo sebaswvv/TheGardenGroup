@@ -1,41 +1,46 @@
-import { Controller, Get, Params, Patch, Post, Request, Response, Delete } from "@decorators/express"
-import type { Response as RESTResponse } from "express"
-import { Ticket } from "src/models/Ticket"
+import { Controller, Get, Params, Patch, Post, Response, Delete, Request, Query } from "@decorators/express"
+import type { query, Request as RESTRequest, Response as RESTResponse } from "express"
+import { Status, Ticket } from "src/models/Ticket"
 
 @Controller("/tickets")
-export class TicketsController {
-    // get all tickets for a specific employee
-    @Get("/:id")
-    async getTicketsForEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
-        const tickets = await Ticket.find({ employee: id })
-        res.json(tickets)
-    }  
-
+export class TicketsController {    
     // get ticket by ticket id
     @Get("/:id")
-    async getEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
+    async getTicket(@Response() res: RESTResponse, @Params("id") id: string) {
         try {
             const ticket = await Ticket.findById(id)
             res.status(200).json({
                 message: "success",
                 ticket,
             })
-        } catch (err) {
-            console.error(err)
-            res.status(500).send("error")
+        } catch (err) {            
+            res.status(500).send({
+                message: "error",
+                description: "Sorry, we couldn't find a ticket with that ID",
+            })
         }
     }
 
     // get all tickets
     @Get("/")
-    async getEmployees(@Response() res: RESTResponse) {
-        try {
-            const tickets = await Ticket.find()
+    async getTickets(@Response() res: RESTResponse, @Query() query) {
+        try {     
+            // build a new query for security purposes
+            const newQuery = {}
+            if (query.Status) newQuery["Status"] = query.Status
+            if (query.Priority) newQuery["Priority"] = query.Priority
+            if (query.EmployeeID) newQuery["EmployeeID"] = query.EmployeeID 
+            if (query.Deadline) newQuery["Deadline"] = query.Deadline                                
+
+            let tickets
+            query ? tickets = await Ticket.find(newQuery) : tickets = await Ticket.find()            
             res.status(200).json({
                 message: "success",
-                amout: tickets.length,
+                amount: tickets.length,
                 tickets,
             })
+            res.send("hello")
+                                         
         } catch (err) {
             console.error(err)
             res.status(500).send("error")
@@ -44,7 +49,7 @@ export class TicketsController {
 
     // create a new ticket
     @Post("/")
-    async addEmployee(@Response() res: RESTResponse, @Request() request: any) {
+    async createTicket(@Response() res: RESTResponse, @Request() request: any) {
         try {
             const ticket = new Ticket(request.body)
             ticket.save()
@@ -60,7 +65,7 @@ export class TicketsController {
 
     // update a ticket
     @Patch("/:id")
-    async updateEmployee(@Response() res: RESTResponse, @Params("id") id: string, @Request() request: any) {
+    async updateTicket(@Response() res: RESTResponse, @Params("id") id: string, @Request() request: any) {
         try {
             const ticket = await Ticket.findByIdAndUpdate(id, request.body, { new: true })
             res.status(200).json({
@@ -75,7 +80,7 @@ export class TicketsController {
 
     // delete a ticket
     @Delete("/:id")
-    async deleteEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
+    async deleteTicket(@Response() res: RESTResponse, @Params("id") id: string) {
         try {
             await Ticket.findByIdAndDelete(id)
             res.status(200).json({

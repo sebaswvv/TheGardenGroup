@@ -48,6 +48,7 @@ namespace GardenGroupLogic
 
             // check if the hash from algoritme above is the samen as the storedhash
             return Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256)) == password.Hash;
-        }        
+        }
+        
     }
 }

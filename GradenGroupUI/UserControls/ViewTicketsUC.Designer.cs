@@ -66,7 +66,7 @@
             this.status});
             this.allTicketsListView.Location = new System.Drawing.Point(26, 39);
             this.allTicketsListView.Name = "allTicketsListView";
-            this.allTicketsListView.Size = new System.Drawing.Size(1213, 571);
+            this.allTicketsListView.Size = new System.Drawing.Size(1220, 571);
             this.allTicketsListView.TabIndex = 0;
             this.allTicketsListView.UseCompatibleStateImageBehavior = false;
             this.allTicketsListView.View = System.Windows.Forms.View.Details;

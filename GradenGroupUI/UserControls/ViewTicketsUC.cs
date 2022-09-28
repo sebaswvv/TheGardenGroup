@@ -47,7 +47,9 @@ namespace GradenGroupUI.UserControls
             chart.Series.Add("Tickets");
             chart.Series["Tickets"].ChartType = SeriesChartType.Pie;            
             chart.BackColor = Color.FromArgb(211, 223, 240);            
-            chart.Location = new Point(1300, 150);
+            chart.Location = new Point(1280, 150);
+            chart.Size = new Size(380, 380);
+
 
             // load some sample data
             chart.Series["Tickets"].Points.AddXY($"Open {percentageTicketStatus[0]}%", percentageTicketStatus[0]);
@@ -56,32 +58,7 @@ namespace GradenGroupUI.UserControls
 
             // add the chart to the form
             this.dockPanel.Controls.Add(chart);
-        }
-
-        private double[] GetPercentageTicketStatus()
-        {
-            int[] ticketSatus = new int[3];
-            // View a dashboard with current status of tickets (% open, % resolved, % closed without resolve)
-            foreach (Ticket ticket in this.ticketsOfUser)
-            {
-                switch (ticket.Status)
-                {
-                    case GardenGroupModel.Enums.Status.Open:
-                        ticketSatus[0]++;
-                        break;
-                    case GardenGroupModel.Enums.Status.Resolved:
-                        ticketSatus[1]++;
-                        break;
-                    case GardenGroupModel.Enums.Status.Closed:
-                        ticketSatus[2]++;
-                        break;
-                }
-            }
-            double[] percentageTicketStatus = new double[3];
-            for (int i = 0; i < ticketSatus.Length; i++)
-                percentageTicketStatus[i] = (double)ticketSatus[i] / ticketsOfUser.Count * 100;
-            return percentageTicketStatus;
-        }
+        }        
 
         private void DisplayTicketsOfUser(List<Ticket> tickets)
         {            
@@ -116,6 +93,31 @@ namespace GradenGroupUI.UserControls
             }
         }
 
+        private double[] GetPercentageTicketStatus()
+        {
+            int[] ticketSatus = new int[3];
+            // View a dashboard with current status of tickets (% open, % resolved, % closed without resolve)
+            foreach (Ticket ticket in this.ticketsOfUser)
+            {
+                switch (ticket.Status)
+                {
+                    case GardenGroupModel.Enums.Status.Open:
+                        ticketSatus[0]++;
+                        break;
+                    case GardenGroupModel.Enums.Status.Resolved:
+                        ticketSatus[1]++;
+                        break;
+                    case GardenGroupModel.Enums.Status.Closed:
+                        ticketSatus[2]++;
+                        break;
+                }
+            }
+            double[] percentageTicketStatus = new double[3];
+            for (int i = 0; i < ticketSatus.Length; i++)
+                percentageTicketStatus[i] = (double)ticketSatus[i] / ticketsOfUser.Count * 100;
+            return percentageTicketStatus;
+        }
+
         private List<Ticket> GetAllTicketsOfUser(Employee employee)
         {
             return this.ticketService.GetTicketsOfUser(employee.Id);            
@@ -123,7 +125,7 @@ namespace GradenGroupUI.UserControls
 
         private void createNewTicketButton_Click(object sender, EventArgs e)
         {
-            this.regularEmployeeForm.DockAddTicketsUC();
+            this.regularEmployeeForm.DockAddTicketsUC();            
         }
     }
 }

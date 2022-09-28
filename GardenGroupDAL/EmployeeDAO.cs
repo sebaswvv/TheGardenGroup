@@ -26,10 +26,10 @@ namespace GardenGroupDAL
         {
             return this.collection.Find(u => u.Email == Email).FirstOrDefault();
         }
-
-        public List<Employee> GetAllEmployees()
+        public void UpdateUser(Employee employee)
         {
-            return this.collection.Find(u => true).ToList();
+
+            this.collection.ReplaceOne(u => u.Email == employee.Email, employee);
         }
     }
 }
