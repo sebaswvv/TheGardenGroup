@@ -1,12 +1,12 @@
 import { Controller, Get, Params, Patch, Post, Request, Response, Delete } from "@decorators/express"
 import type { Response as RESTResponse } from "express"
-import { Ticket } from "src/models/Ticket"
+import { Status, Ticket } from "src/models/Ticket"
 
 @Controller("/tickets")
-export class TicketsController {  
+export class TicketsController {    
     // get ticket by ticket id
     @Get("/:id")
-    async getEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
+    async getTicket(@Response() res: RESTResponse, @Params("id") id: string) {
         try {
             const ticket = await Ticket.findById(id)
             res.status(200).json({
@@ -21,8 +21,9 @@ export class TicketsController {
 
     // get all tickets
     @Get("/")
-    async getEmployees(@Response() res: RESTResponse) {
+    async getTickets(@Response() res: RESTResponse, @Request() req: any) {
         try {
+            console.log(req.query)
             const tickets = await Ticket.find()
             res.status(200).json({
                 message: "success",
@@ -37,7 +38,7 @@ export class TicketsController {
 
     // create a new ticket
     @Post("/")
-    async addEmployee(@Response() res: RESTResponse, @Request() request: any) {
+    async createTicket(@Response() res: RESTResponse, @Request() request: any) {
         try {
             const ticket = new Ticket(request.body)
             ticket.save()
@@ -53,7 +54,7 @@ export class TicketsController {
 
     // update a ticket
     @Patch("/:id")
-    async updateEmployee(@Response() res: RESTResponse, @Params("id") id: string, @Request() request: any) {
+    async updateTicket(@Response() res: RESTResponse, @Params("id") id: string, @Request() request: any) {
         try {
             const ticket = await Ticket.findByIdAndUpdate(id, request.body, { new: true })
             res.status(200).json({
@@ -68,7 +69,7 @@ export class TicketsController {
 
     // delete a ticket
     @Delete("/:id")
-    async deleteEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
+    async deleteTicket(@Response() res: RESTResponse, @Params("id") id: string) {
         try {
             await Ticket.findByIdAndDelete(id)
             res.status(200).json({
