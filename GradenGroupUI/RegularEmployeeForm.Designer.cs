@@ -46,6 +46,7 @@
             this.Controls.Add(this.viewTicketsPanel);
             this.Name = "RegularEmployeeForm";
             this.Text = "RegularEmployeeForm";
+            this.Load += new System.EventHandler(this.RegularEmployeeForm_Load);
             this.ResumeLayout(false);
 
         }

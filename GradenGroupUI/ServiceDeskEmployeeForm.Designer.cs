@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+
+            this.SuspendLayout();
+            // 
+
             this.userControlPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -38,12 +42,17 @@
             this.userControlPanel.Size = new System.Drawing.Size(1070, 625);
             this.userControlPanel.TabIndex = 0;
             // 
+
             // ServiceDeskEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
+            this.ClientSize = new System.Drawing.Size(800, 450);
+
             this.ClientSize = new System.Drawing.Size(1069, 625);
             this.Controls.Add(this.userControlPanel);
+
             this.Name = "ServiceDeskEmployeeForm";
             this.Text = "ServiceDeskEmployeeForm";
             this.ResumeLayout(false);

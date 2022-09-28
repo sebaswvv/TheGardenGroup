@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel;
 
 namespace GradenGroupUI
 {
     public partial class ServiceDeskEmployeeForm : Form
     {
         // hallo wereld
-        public ServiceDeskEmployeeForm()
+        public ServiceDeskEmployeeForm(Employee employee)
         {
             InitializeComponent();
             UserControls.TicketsOverviewUC userControl = new UserControls.TicketsOverviewUC();
@@ -22,5 +23,7 @@ namespace GradenGroupUI
             this.userControlPanel.Controls.Clear();
             this.userControlPanel.Controls.Add(userControl);
         }
+
+        
     }
 }

@@ -14,7 +14,7 @@ namespace GradenGroupUI
 {
     public partial class RegularEmployeeForm : Form
     {
-        public RegularEmployeeForm()
+        public RegularEmployeeForm(Employee employee)
         {
             InitializeComponent();
             DockViewTicketsUC();
@@ -35,6 +35,11 @@ namespace GradenGroupUI
         public void DockAddTicketsUC()
         {
             // create UC and dock the UC
+        }
+
+        private void RegularEmployeeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
