@@ -19,7 +19,7 @@ namespace GradenGroupUI
             InitializeComponent();
 
             // add view tickets to panel
-            // Hard coding an employee for now
+            // Hard coding an employee for now           
             Employee employee = new Employee("Sebastiaan", "van Vliet", "6905921@student.inholland.nl", "0612345678", new Password(), GardenGroupModel.Enums.Location.HaarlemHQ);
             employee.Id = "6329c701ac31b8d8e3984b66";
             UserControls.ViewTicketsUC viewTicketsUC = new UserControls.ViewTicketsUC(employee);
