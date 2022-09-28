@@ -47,7 +47,9 @@ namespace GradenGroupUI.UserControls
             chart.Series.Add("Tickets");
             chart.Series["Tickets"].ChartType = SeriesChartType.Pie;            
             chart.BackColor = Color.FromArgb(211, 223, 240);            
-            chart.Location = new Point(1300, 150);
+            chart.Location = new Point(1280, 150);
+            chart.Size = new Size(380, 380);
+
 
             // load some sample data
             chart.Series["Tickets"].Points.AddXY($"Open {percentageTicketStatus[0]}%", percentageTicketStatus[0]);
