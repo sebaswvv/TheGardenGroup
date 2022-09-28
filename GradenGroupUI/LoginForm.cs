@@ -23,7 +23,6 @@ namespace GradenGroupUI
         public LoginForm()
         {            
             InitializeComponent();
-
         }
 
 
@@ -42,8 +41,8 @@ namespace GradenGroupUI
             }
             
            
-            RegularEmployeeForm regularEmployeeForm = new RegularEmployeeForm();
-            ServiceDeskEmployeeForm serviceDeskEmployeeForm = new ServiceDeskEmployeeForm();
+            RegularEmployeeForm regularEmployeeForm = new RegularEmployeeForm(employee);
+            ServiceDeskEmployeeForm serviceDeskEmployeeForm = new ServiceDeskEmployeeForm(employee);
             if (!passwordService.VerifyPassword(password, employee.Password))
             {
                 labelErrorText.Text = "Password Incorrect";

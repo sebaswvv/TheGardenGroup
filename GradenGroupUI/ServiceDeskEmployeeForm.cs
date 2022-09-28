@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel;
 
 namespace GradenGroupUI
 {
     public partial class ServiceDeskEmployeeForm : Form
     {
         // hallo wereld
-        public ServiceDeskEmployeeForm()
+        public ServiceDeskEmployeeForm(Employee employee)
         {
             InitializeComponent();
         }
+
+        
     }
 }
