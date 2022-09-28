@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GardenGroupModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,10 @@ namespace GradenGroupUI
         public ServiceDeskEmployeeForm()
         {
             InitializeComponent();
+            UserControls.TicketsOverviewUC userControl = new UserControls.TicketsOverviewUC();
+            userControl.Dock = DockStyle.Fill;
+            this.userControlPanel.Controls.Clear();
+            this.userControlPanel.Controls.Add(userControl);
         }
     }
 }
