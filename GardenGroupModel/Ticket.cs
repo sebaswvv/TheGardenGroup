@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GardenGroupModel.Enums;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 
 namespace GardenGroupModel
 {
@@ -15,6 +16,8 @@ namespace GardenGroupModel
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string EmployeeID { get; set; }
+        [BsonIgnoreIfNull]
+        public Employee Employee { get; set; }
         public DateTime DateReported { get; set; }
         public string Subject { get; set; }
         public IncidentType IncidentType { get; set; }

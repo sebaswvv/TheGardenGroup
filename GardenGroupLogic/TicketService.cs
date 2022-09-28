@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GardenGroupModel;
 using GardenGroupDAL;
+using MongoDB.Bson;
 
 namespace GardenGroupLogic
 {
@@ -25,6 +26,11 @@ namespace GardenGroupLogic
         public List<Ticket> GetTicketsOfUser(string employeeID)
         {
             return this.ticketDAO.GetTicketsOfUser(employeeID);
+        }
+
+        public List<Ticket> GetAllTickets()
+        {
+            return this.ticketDAO.GetAllTickets();
         }
     }
 }

@@ -24,7 +24,6 @@ namespace GradenGroupUI.UserControls
             FillComboBox();
             // TODO hide option to select an employee
         }
-              
 
         // Submits a ticket
         private void submitTicketButton_Click(object sender, EventArgs e)
