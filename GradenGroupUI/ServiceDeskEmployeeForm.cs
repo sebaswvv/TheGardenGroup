@@ -18,7 +18,8 @@ namespace GradenGroupUI
         public ServiceDeskEmployeeForm(Employee employee)
         {
             InitializeComponent();
-            UserControls.TicketsOverviewUC userControl = new UserControls.TicketsOverviewUC();
+            //UserControls.TicketsOverviewUC userControl = new UserControls.TicketsOverviewUC();
+            UserControls.CreateTicketUC userControl = new UserControls.CreateTicketUC(employee);
             userControl.Dock = DockStyle.Fill;
             this.userControlPanel.Controls.Clear();
             this.userControlPanel.Controls.Add(userControl);

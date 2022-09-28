@@ -141,7 +141,6 @@
             this.ticketTypeIncidentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketTypeIncidentComboBox.FormattingEnabled = true;
             this.ticketTypeIncidentComboBox.Items.AddRange(new object[] {
-            "Select type",
             "Software",
             "Hardware",
             "Service"});
@@ -164,6 +163,10 @@
             // 
             this.ticketPriorityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketPriorityComboBox.FormattingEnabled = true;
+            this.ticketPriorityComboBox.Items.AddRange(new object[] {
+            "Low",
+            "Normal",
+            "High"});
             this.ticketPriorityComboBox.Location = new System.Drawing.Point(306, 425);
             this.ticketPriorityComboBox.Name = "ticketPriorityComboBox";
             this.ticketPriorityComboBox.Size = new System.Drawing.Size(286, 33);
@@ -174,7 +177,10 @@
             this.ticketDeadlineFollowUpComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketDeadlineFollowUpComboBox.FormattingEnabled = true;
             this.ticketDeadlineFollowUpComboBox.Items.AddRange(new object[] {
-            "7 days"});
+            "7 days",
+            "14 days",
+            "20 days",
+            "6 months"});
             this.ticketDeadlineFollowUpComboBox.Location = new System.Drawing.Point(306, 464);
             this.ticketDeadlineFollowUpComboBox.Name = "ticketDeadlineFollowUpComboBox";
             this.ticketDeadlineFollowUpComboBox.Size = new System.Drawing.Size(286, 33);
