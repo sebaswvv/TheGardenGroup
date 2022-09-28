@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GardenGroupModel.Enums;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 
 namespace GardenGroupModel
 {
@@ -15,18 +16,22 @@ namespace GardenGroupModel
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string EmployeeID { get; set; }
+        [BsonIgnoreIfNull]
+        public Employee Employee { get; set; }
         public DateTime DateReported { get; set; }
         public string Subject { get; set; }
+        public IncidentType IncidentType { get; set; }
         public Priority Priority { get; set; }
         public Deadline Deadline { get; set; }
         public string Description { get; set; }
         public Status Status { get; set; }
-
-        public Ticket(string employeeID, DateTime dateReported, string subject, Priority priority, Deadline deadline, string description, Status status)
+        
+        public Ticket(string employeeID, DateTime dateReported, string subject, IncidentType incidentType, Priority priority, Deadline deadline, string description, Status status)
         {
             EmployeeID = employeeID;
             DateReported = dateReported;
             Subject = subject;
+            IncidentType = incidentType;
             Priority = priority;
             Deadline = deadline;
             Description = description;

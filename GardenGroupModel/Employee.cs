@@ -28,5 +28,10 @@ namespace GardenGroupModel
             Password = password;
             IsServiceDeskEmployee = isServiceDeskEmployee;
         }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }

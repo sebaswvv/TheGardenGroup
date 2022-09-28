@@ -14,19 +14,17 @@ namespace GradenGroupUI
 {
     public partial class RegularEmployeeForm : Form
     {
+        private Employee employee;
         public RegularEmployeeForm(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
             DockViewTicketsUC();
         }
 
         private void DockViewTicketsUC()
-        {
-            // add view tickets to panel
-            // Hard coding an employee for now           
-            Employee employee = new Employee("Sebastiaan", "van Vliet", "6905921@student.inholland.nl", "0612345678", new Password(), GardenGroupModel.Enums.Location.HaarlemHQ, true);
-            employee.Id = "6329c701ac31b8d8e3984b66";
-            UserControls.ViewTicketsUC viewTicketsUC = new UserControls.ViewTicketsUC(employee, this);
+        {            
+            UserControls.ViewTicketsUC viewTicketsUC = new UserControls.ViewTicketsUC(this.employee, this);
             viewTicketsUC.Dock = DockStyle.Fill;
             this.viewTicketsPanel.Controls.Clear();
             this.viewTicketsPanel.Controls.Add(viewTicketsUC);
@@ -34,7 +32,12 @@ namespace GradenGroupUI
         
         public void DockAddTicketsUC()
         {
-            // create UC and dock the UC
+            this.viewTicketsPanel.Controls.Clear();        
+       
+            // make and dock
+            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(this.employee);
+            createTicketUC.Dock = DockStyle.Fill;
+            this.viewTicketsPanel.Controls.Add(createTicketUC);
         }
 
         private void RegularEmployeeForm_Load(object sender, EventArgs e)

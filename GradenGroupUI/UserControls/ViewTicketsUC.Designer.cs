@@ -41,6 +41,7 @@
             this.status = new System.Windows.Forms.ColumnHeader();
             this.welcomeText = new System.Windows.Forms.Label();
             this.createNewTicketButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.dockPanel.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +67,7 @@
             this.status});
             this.allTicketsListView.Location = new System.Drawing.Point(26, 39);
             this.allTicketsListView.Name = "allTicketsListView";
-            this.allTicketsListView.Size = new System.Drawing.Size(1213, 571);
+            this.allTicketsListView.Size = new System.Drawing.Size(1220, 571);
             this.allTicketsListView.TabIndex = 0;
             this.allTicketsListView.UseCompatibleStateImageBehavior = false;
             this.allTicketsListView.View = System.Windows.Forms.View.Details;
@@ -126,10 +127,20 @@
             this.createNewTicketButton.UseVisualStyleBackColor = true;
             this.createNewTicketButton.Click += new System.EventHandler(this.createNewTicketButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
+            // 
             // ViewTicketsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.createNewTicketButton);
             this.Controls.Add(this.welcomeText);
             this.Controls.Add(this.dockPanel);
@@ -156,5 +167,6 @@
         private System.Windows.Forms.ColumnHeader status;
         private System.Windows.Forms.Label welcomeText;
         private System.Windows.Forms.Button createNewTicketButton;
+        private System.Windows.Forms.Label label1;
     }
 }

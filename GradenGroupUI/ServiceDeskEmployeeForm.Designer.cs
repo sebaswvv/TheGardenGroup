@@ -31,13 +31,14 @@ namespace GradenGroupUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.userControlPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
 
             this.userControlPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // userControlPanel
-            // 
+
             this.userControlPanel.Location = new System.Drawing.Point(0, 0);
             this.userControlPanel.Name = "userControlPanel";
             this.userControlPanel.Size = new System.Drawing.Size(1070, 625);
@@ -47,6 +48,16 @@ namespace GradenGroupUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ClientSize = new System.Drawing.Size(1069, 625);
+            this.userControlPanel.Location = new System.Drawing.Point(0, -1);
+            this.userControlPanel.Name = "userControlPanel";
+            this.userControlPanel.Size = new System.Drawing.Size(2050, 1254);
+            this.userControlPanel.TabIndex = 0;
+            // 
+            // ServiceDeskEmployeeForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(2051, 1253);
             this.Controls.Add(this.userControlPanel);
             this.Name = "ServiceDeskEmployeeForm";
             this.Text = "ServiceDeskEmployeeForm";
@@ -55,5 +66,7 @@ namespace GradenGroupUI
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel userControlPanel;
     }
 }
