@@ -30,18 +30,23 @@ namespace GardenGroupDAL
             return this.collection.Find(filter).ToList();
         }
 
-        public List<Ticket> GetAllTickets()
-        {
-            var test = this.collection.Aggregate()
-                .Lookup("employees", new BsonDocument {
-                    { "employeeObjID", new BsonDocument {
-                        { "$toObjectId", "$EmployeeID" }
-                    }}
-                }, new EmptyPipelineDefinition().AppendStage($"{{$match: {{\r\n    $expr: {{\r\n      $eq: [\r\n        \"$_id\", \"$$employeeObjId\"\r\n      ]\r\n    }}}"),
-                "EmployeeID", "Employee")
-                .As<BsonDocument>()
-                .ToList();
-            return;
-        }
+        //public List<Ticket> GetAllTickets()
+        //{
+        //    var test = this.collection.Aggregate()
+        //        .Lookup(
+        //            "employees",
+        //            new BsonDocument {
+        //                { "employeeObjID", new BsonDocument {
+        //                    { "$toObjectId", "$EmployeeID" }
+        //                }}
+        //            },
+        //            new EmptyPipelineDefinition<Ticket>()
+        //                .AppendStage<Ticket, Ticket, Ticket>("{{$match: {{ $expr: {{ $eq: [ '$_id', '$$employeeObjId' ] }}}"),
+        //            "employees"
+        //        )
+        //        .As<BsonDocument>()
+        //        .ToList();
+        //    return;
+        //}
     }
 }
