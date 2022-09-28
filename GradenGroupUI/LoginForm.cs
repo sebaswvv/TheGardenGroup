@@ -46,8 +46,9 @@ namespace GradenGroupUI
             if (!passwordService.VerifyPassword(password, employee.Password))
             {
                 labelErrorText.Text = "Password Incorrect";
-                return;            }
-            if (employee.IsServiceDeskEmployee)
+                return;            
+            }
+            else if (employee.IsServiceDeskEmployee)
             {
                 serviceDeskEmployeeForm.Show();
             }

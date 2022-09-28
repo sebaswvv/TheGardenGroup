@@ -1,4 +1,4 @@
-﻿using GardenGroupLogic;
+using GardenGroupLogic;
 using GardenGroupModel;
 using System;
 using System.Collections.Generic;

@@ -18,6 +18,7 @@ namespace GardenGroupLogic
         {
             return this.userDAO.GetUser(Email);
         }
+        
 
         public void AddEmployee(Employee user)
         {
