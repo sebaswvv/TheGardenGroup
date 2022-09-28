@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GardenGroupDAL;
 using GardenGroupModel;
 
@@ -17,6 +18,7 @@ namespace GardenGroupLogic
         {
             return this.userDAO.GetUser(Email);
         }
+        
 
         public void AddEmployee(Employee user)
         {

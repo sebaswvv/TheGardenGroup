@@ -21,6 +21,7 @@ namespace GardenGroupDAL
         {
             this.collection.InsertOne(newUser);
         }
+        
 
         public Employee GetUser(string Email)
         {
