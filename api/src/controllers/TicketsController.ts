@@ -1,5 +1,5 @@
-import { Controller, Get, Params, Patch, Post, Request, Response, Delete } from "@decorators/express"
-import type { Response as RESTResponse } from "express"
+import { Controller, Get, Params, Patch, Post, Response, Delete, Request, Query } from "@decorators/express"
+import type { query, Request as RESTRequest, Response as RESTResponse } from "express"
 import { Status, Ticket } from "src/models/Ticket"
 
 @Controller("/tickets")
@@ -13,23 +13,34 @@ export class TicketsController {
                 message: "success",
                 ticket,
             })
-        } catch (err) {
-            console.error(err)
-            res.status(500).send("error")
+        } catch (err) {            
+            res.status(500).send({
+                message: "error",
+                description: "Sorry, we couldn't find a ticket with that ID",
+            })
         }
     }
 
     // get all tickets
     @Get("/")
-    async getTickets(@Response() res: RESTResponse, @Request() req: any) {
-        try {
-            console.log(req.query)
-            const tickets = await Ticket.find()
+    async getTickets(@Response() res: RESTResponse, @Query() query) {
+        try {     
+            // build a new query for security purposes
+            const newQuery = {}
+            if (query.Status) newQuery["Status"] = query.Status
+            if (query.Priority) newQuery["Priority"] = query.Priority
+            if (query.EmployeeID) newQuery["EmployeeID"] = query.EmployeeID 
+            if (query.Deadline) newQuery["Deadline"] = query.Deadline                                
+
+            let tickets
+            query ? tickets = await Ticket.find(newQuery) : tickets = await Ticket.find()            
             res.status(200).json({
                 message: "success",
-                amout: tickets.length,
+                amount: tickets.length,
                 tickets,
             })
+            res.send("hello")
+                                         
         } catch (err) {
             console.error(err)
             res.status(500).send("error")

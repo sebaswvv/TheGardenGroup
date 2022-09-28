@@ -25,6 +25,6 @@ namespace GardenGroupDAL
         public Employee GetUser(string username)
         {
             return this.collection.Find(u => u.FirstName == username).FirstOrDefault();
-        }
+        }        
     }
 }
