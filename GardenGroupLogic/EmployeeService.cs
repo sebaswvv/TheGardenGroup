@@ -13,14 +13,18 @@ namespace GardenGroupLogic
             this.userDAO = new EmployeeDAO();
         }
         
-        public Employee GetEmployee(string username)
+        public Employee GetEmployee(string Email)
         {
-            return this.userDAO.GetUser(username);
+            return this.userDAO.GetUser(Email);
         }
 
         public void AddEmployee(Employee user)
         {
             this.userDAO.AddUser(user);
+        }
+        public void UpdateEmployee(Employee user)
+        {
+            this.userDAO.UpdateUser(user);
         }
     }
 }

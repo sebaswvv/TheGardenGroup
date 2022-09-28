@@ -22,9 +22,14 @@ namespace GardenGroupDAL
             this.collection.InsertOne(newUser);
         }
 
-        public Employee GetUser(string username)
+        public Employee GetUser(string Email)
         {
-            return this.collection.Find(u => u.FirstName == username).FirstOrDefault();
-        }        
+            return this.collection.Find(u => u.Email == Email).FirstOrDefault();
+        }
+        public void UpdateUser(Employee employee)
+        {
+
+            this.collection.ReplaceOne(u => u.Email == employee.Email, employee);
+        }
     }
 }

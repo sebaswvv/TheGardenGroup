@@ -16,7 +16,12 @@ namespace GradenGroupUI.UserControls
     {
         public CreateTicketUC(Employee employee)
         {
+            InitializeComponent();
+            // TODO hide option to select an employee
+        }
 
+        public CreateTicketUC(ServiceDeskEmployee serviceDeskEmployee)
+        {
             InitializeComponent();
         }
 
@@ -25,12 +30,13 @@ namespace GradenGroupUI.UserControls
         {
             //Ticket ticket = new Ticket()
             //{
-            //    EmployeeID = "", // Employee Id from the current user if it is a regular employee
-
-            //    // TODO make an method that recieves the employee ID from the current user and 
+            //    EmployeeID = , // Employee Id from the current user if it is a regular employee otherwise the ServiceDeskEmployee can select an employee
+            //    DateReported = TicketReportedDateTimePicker.Value,
             //    Subject = ticketSubjectIncidentTextBox.Text,
             //    Priority = (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectionStart,
-
+            //    Deadline = (GardenGroupModel.Enums.Deadline)ticketDeadlineFollowUpComboBox.SelectionStart,
+            //    Description = ticketDescriptionTextBox.Text,
+            //    Status = GardenGroupModel.Enums.Status.Open
 
             //};
 
@@ -42,5 +48,17 @@ namespace GradenGroupUI.UserControls
         {
             //TODO reset all boxes to default
         }
+
+        // 
+        //private void CheckEmployee(Employee employee)
+        //{
+
+        //}
+
+        //private string GetEmployeeId()
+        //{
+        //    string 
+        //    if (cur)
+        //}
     }
 }

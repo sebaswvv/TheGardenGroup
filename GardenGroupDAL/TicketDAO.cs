@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GardenGroupModel;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace GardenGroupDAL
@@ -23,10 +24,29 @@ namespace GardenGroupDAL
         }
 
         // get all tickets of a user
-        public List<Ticket> GetTicketsOfUser(string employeeID)            
+        public List<Ticket> GetTicketsOfUser(string employeeID)
         {
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq("EmployeeID", employeeID);
             return this.collection.Find(filter).ToList();
         }
+
+        //public List<Ticket> GetAllTickets()
+        //{
+        //    var test = this.collection.Aggregate()
+        //        .Lookup(
+        //            "employees",
+        //            new BsonDocument {
+        //                { "employeeObjID", new BsonDocument {
+        //                    { "$toObjectId", "$EmployeeID" }
+        //                }}
+        //            },
+        //            new EmptyPipelineDefinition<Ticket>()
+        //                .AppendStage<Ticket, Ticket, Ticket>("{{$match: {{ $expr: {{ $eq: [ '$_id', '$$employeeObjId' ] }}}"),
+        //            "employees"
+        //        )
+        //        .As<BsonDocument>()
+        //        .ToList();
+        //    return;
+        //}
     }
 }

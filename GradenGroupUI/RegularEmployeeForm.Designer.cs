@@ -48,6 +48,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "RegularEmployeeForm";
             this.Text = "RegularEmployeeForm";
+            this.Load += new System.EventHandler(this.RegularEmployeeForm_Load);
             this.ResumeLayout(false);
 
         }
