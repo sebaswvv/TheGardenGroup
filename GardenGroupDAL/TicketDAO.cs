@@ -30,23 +30,34 @@ namespace GardenGroupDAL
             return this.collection.Find(filter).ToList();
         }
 
-        //public List<Ticket> GetAllTickets()
-        //{
-        //    var test = this.collection.Aggregate()
-        //        .Lookup(
-        //            "employees",
-        //            new BsonDocument {
-        //                { "employeeObjID", new BsonDocument {
-        //                    { "$toObjectId", "$EmployeeID" }
-        //                }}
-        //            },
-        //            new EmptyPipelineDefinition<Ticket>()
-        //                .AppendStage<Ticket, Ticket, Ticket>("{{$match: {{ $expr: {{ $eq: [ '$_id', '$$employeeObjId' ] }}}"),
-        //            "employees"
-        //        )
-        //        .As<BsonDocument>()
-        //        .ToList();
-        //    return;
-        //}
+        public List<Ticket> GetAllTickets()
+        {
+            BsonArray match = new BsonArray();
+            match.Add(
+                new BsonDocument("$match",
+                    new BsonDocument("$expr", new BsonDocument(
+                        "$eq", new BsonArray {"$_id", "$$employeeObjId" }
+                    )
+                ))
+            );
+            BsonDocument lookup = new BsonDocument("$lookup",
+                new BsonDocument()
+                    .Add("let", new BsonDocument("employeeObjId", new BsonDocument("$toObjectId", "$EmployeeID")))
+                    .Add("from", "employees")
+                    .Add("pipeline", match)
+                    .Add("as", "Employee")
+            );
+            BsonDocument unwind = new BsonDocument("$unwind",
+                new BsonDocument()
+                    .Add("path", "$Employee")
+                    .Add("preserveNullAndEmptyArrays", true)
+            );
+
+            return this.collection.Aggregate()
+                .AppendStage<BsonDocument>(lookup)
+                .AppendStage<BsonDocument>(unwind)
+                .As<Ticket>()
+                .ToList();
+        }
     }
 }

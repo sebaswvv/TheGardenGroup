@@ -38,15 +38,17 @@
             this.priority = new System.Windows.Forms.ColumnHeader();
             this.reportedAt = new System.Windows.Forms.ColumnHeader();
             this.status = new System.Windows.Forms.ColumnHeader();
+            this.createIncidentButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // overviewTicketsLabel
             // 
             this.overviewTicketsLabel.AutoSize = true;
             this.overviewTicketsLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.overviewTicketsLabel.Location = new System.Drawing.Point(16, 13);
+            this.overviewTicketsLabel.Location = new System.Drawing.Point(23, 22);
+            this.overviewTicketsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.overviewTicketsLabel.Name = "overviewTicketsLabel";
-            this.overviewTicketsLabel.Size = new System.Drawing.Size(236, 37);
+            this.overviewTicketsLabel.Size = new System.Drawing.Size(343, 54);
             this.overviewTicketsLabel.TabIndex = 0;
             this.overviewTicketsLabel.Text = "Overview Tickets";
             // 
@@ -63,10 +65,11 @@
             this.status});
             this.ticketsList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.ticketsList.Location = new System.Drawing.Point(25, 62);
+            this.ticketsList.Location = new System.Drawing.Point(32, 103);
+            this.ticketsList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ticketsList.MultiSelect = false;
             this.ticketsList.Name = "ticketsList";
-            this.ticketsList.Size = new System.Drawing.Size(860, 361);
+            this.ticketsList.Size = new System.Drawing.Size(1355, 602);
             this.ticketsList.TabIndex = 1;
             this.ticketsList.UseCompatibleStateImageBehavior = false;
             this.ticketsList.View = System.Windows.Forms.View.Details;
@@ -75,44 +78,57 @@
             // id
             // 
             this.id.Text = "ID";
+            this.id.Width = 100;
             // 
             // subject
             // 
             this.subject.Text = "Subject";
-            this.subject.Width = 300;
+            this.subject.Width = 500;
             // 
             // user
             // 
-            this.user.Text = "User";
-            this.user.Width = 120;
+            this.user.Text = "Created By";
+            this.user.Width = 200;
             // 
             // incidentType
             // 
             this.incidentType.Text = "Type of incident";
-            this.incidentType.Width = 100;
+            this.incidentType.Width = 150;
             // 
             // priority
             // 
             this.priority.Text = "Priority";
+            this.priority.Width = 100;
             // 
             // reportedAt
             // 
-            this.reportedAt.Text = "Reported at";
-            this.reportedAt.Width = 120;
+            this.reportedAt.Text = "Reported At";
+            this.reportedAt.Width = 200;
             // 
             // status
             // 
             this.status.Text = "Status";
             this.status.Width = 100;
             // 
+            // createIncidentButton
+            // 
+            this.createIncidentButton.Location = new System.Drawing.Point(1103, 30);
+            this.createIncidentButton.Name = "createIncidentButton";
+            this.createIncidentButton.Size = new System.Drawing.Size(159, 55);
+            this.createIncidentButton.TabIndex = 2;
+            this.createIncidentButton.Text = "Create Incident";
+            this.createIncidentButton.UseVisualStyleBackColor = true;
+            // 
             // TicketsOverviewUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.createIncidentButton);
             this.Controls.Add(this.ticketsList);
             this.Controls.Add(this.overviewTicketsLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TicketsOverviewUC";
-            this.Size = new System.Drawing.Size(931, 442);
+            this.Size = new System.Drawing.Size(1689, 940);
             this.Load += new System.EventHandler(this.TicketsOverviewUC_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,5 +146,6 @@
         private System.Windows.Forms.ColumnHeader priority;
         private System.Windows.Forms.ColumnHeader reportedAt;
         private System.Windows.Forms.ColumnHeader status;
+        private System.Windows.Forms.Button createIncidentButton;
     }
 }
