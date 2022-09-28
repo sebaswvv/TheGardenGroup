@@ -56,32 +56,7 @@ namespace GradenGroupUI.UserControls
 
             // add the chart to the form
             this.dockPanel.Controls.Add(chart);
-        }
-
-        private double[] GetPercentageTicketStatus()
-        {
-            int[] ticketSatus = new int[3];
-            // View a dashboard with current status of tickets (% open, % resolved, % closed without resolve)
-            foreach (Ticket ticket in this.ticketsOfUser)
-            {
-                switch (ticket.Status)
-                {
-                    case GardenGroupModel.Enums.Status.Open:
-                        ticketSatus[0]++;
-                        break;
-                    case GardenGroupModel.Enums.Status.Resolved:
-                        ticketSatus[1]++;
-                        break;
-                    case GardenGroupModel.Enums.Status.Closed:
-                        ticketSatus[2]++;
-                        break;
-                }
-            }
-            double[] percentageTicketStatus = new double[3];
-            for (int i = 0; i < ticketSatus.Length; i++)
-                percentageTicketStatus[i] = (double)ticketSatus[i] / ticketsOfUser.Count * 100;
-            return percentageTicketStatus;
-        }
+        }        
 
         private void DisplayTicketsOfUser(List<Ticket> tickets)
         {            
@@ -114,6 +89,31 @@ namespace GradenGroupUI.UserControls
                     ticket.Status.ToString() });
                 this.allTicketsListView.Items.Add(item);
             }
+        }
+
+        private double[] GetPercentageTicketStatus()
+        {
+            int[] ticketSatus = new int[3];
+            // View a dashboard with current status of tickets (% open, % resolved, % closed without resolve)
+            foreach (Ticket ticket in this.ticketsOfUser)
+            {
+                switch (ticket.Status)
+                {
+                    case GardenGroupModel.Enums.Status.Open:
+                        ticketSatus[0]++;
+                        break;
+                    case GardenGroupModel.Enums.Status.Resolved:
+                        ticketSatus[1]++;
+                        break;
+                    case GardenGroupModel.Enums.Status.Closed:
+                        ticketSatus[2]++;
+                        break;
+                }
+            }
+            double[] percentageTicketStatus = new double[3];
+            for (int i = 0; i < ticketSatus.Length; i++)
+                percentageTicketStatus[i] = (double)ticketSatus[i] / ticketsOfUser.Count * 100;
+            return percentageTicketStatus;
         }
 
         private List<Ticket> GetAllTicketsOfUser(Employee employee)
