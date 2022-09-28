@@ -22,5 +22,9 @@ namespace GardenGroupLogic
         {
             this.userDAO.AddUser(user);
         }
+        public void UpdateEmployee(Employee user)
+        {
+            this.userDAO.UpdateUser(user);
+        }
     }
 }
