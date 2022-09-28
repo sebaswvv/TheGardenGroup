@@ -4,17 +4,27 @@ import { Ticket } from "src/models/Ticket"
 
 @Controller("/tickets")
 export class TicketsController {
+    // get all tickets for a specific employee
+    @Get("/:id")
+    async getTicketsForEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
+        const tickets = await Ticket.find({ employee: id })
+        res.json(tickets)
+    }  
+
     // get ticket by ticket id
     @Get("/:id")
     async getEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
         try {
-            const ticket = await Ticket.findById(id)            
-            res.status(200).json(ticket)
+            const ticket = await Ticket.findById(id)
+            res.status(200).json({
+                message: "success",
+                ticket,
+            })
         } catch (err) {
             console.error(err)
             res.status(500).send("error")
         }
-    }   
+    }
 
     // get all tickets
     @Get("/")
@@ -35,24 +45,24 @@ export class TicketsController {
     // create a new ticket
     @Post("/")
     async addEmployee(@Response() res: RESTResponse, @Request() request: any) {
-        try {        
-            const ticket = new Ticket(request.body)         
-            ticket.save()     
+        try {
+            const ticket = new Ticket(request.body)
+            ticket.save()
             res.status(200).json({
                 message: "success",
-                ticket,               
+                ticket,
             })
         } catch (err) {
             console.error(err)
             res.status(500).send("error")
         }
-    } 
+    }
 
     // update a ticket
     @Patch("/:id")
     async updateEmployee(@Response() res: RESTResponse, @Params("id") id: string, @Request() request: any) {
         try {
-            const ticket = await Ticket.findByIdAndUpdate(id, request.body, { new: true })                
+            const ticket = await Ticket.findByIdAndUpdate(id, request.body, { new: true })
             res.status(200).json({
                 message: "success",
                 ticket,
@@ -69,7 +79,7 @@ export class TicketsController {
         try {
             await Ticket.findByIdAndDelete(id)
             res.status(200).json({
-                message: "success",
+                message: "successfully deleted ticket",
             })
         } catch (err) {
             console.error(err)
