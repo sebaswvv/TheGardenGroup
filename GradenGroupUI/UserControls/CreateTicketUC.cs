@@ -18,12 +18,7 @@ namespace GradenGroupUI.UserControls
         {
             InitializeComponent();
             // TODO hide option to select an employee
-        }
-
-        public CreateTicketUC(ServiceDeskEmployee serviceDeskEmployee)
-        {
-            InitializeComponent();
-        }
+        }      
 
         // Submits a ticket
         private void submitTicketButton_Click(object sender, EventArgs e)
