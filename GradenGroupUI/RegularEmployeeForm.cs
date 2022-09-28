@@ -34,7 +34,16 @@ namespace GradenGroupUI
         
         public void DockAddTicketsUC()
         {
+            this.viewTicketsPanel.Controls.Clear();
+            
             // create UC and dock the UC
+            Employee employee = new Employee("Sebastiaan", "van Vliet", "6905921@student.inholland.nl", "0612345678", new Password(), GardenGroupModel.Enums.Location.HaarlemHQ);
+            employee.Id = "6329c701ac31b8d8e3984b66";
+            
+            // make and dock
+            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(employee);
+            createTicketUC.Dock = DockStyle.Fill;
+            this.viewTicketsPanel.Controls.Add(createTicketUC);
         }
 
         private void RegularEmployeeForm_Load(object sender, EventArgs e)
