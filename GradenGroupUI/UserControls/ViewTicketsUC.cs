@@ -17,26 +17,24 @@ namespace GradenGroupUI.UserControls
     {        
         private TicketService ticketService;
         private List<Ticket> ticketsOfUser;
+        private RegularEmployeeForm regularEmployeeForm;
 
-        public ViewTicketsUC(Employee employee)
+        public ViewTicketsUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {
             InitializeComponent();            
             this.ticketService = new TicketService();
             this.ticketsOfUser = GetAllTicketsOfUser(employee);
-            this.allTicketsListView.Visible = false;
-            this.pieChartPanel.Visible = false;
-        }
+            this.regularEmployeeForm = regularEmployeeForm;
 
-        private void showTicketsButton_Click(object sender, EventArgs e)
-        {            
+            this.welcomeText.Text = $"Welcome {employee.FirstName} {employee.LastName}";
+
             DisplayTicketsOfUser(this.ticketsOfUser);
+            ShowDashBoardTickets();
         }
+        
 
-        private void showDashboardTicketsButton_Click(object sender, EventArgs e)
-        {
-            this.allTicketsListView.Visible = false;
-            this.pieChartPanel.Visible = true;
-            
+        private void ShowDashBoardTickets()
+        {                                
             double[] percentageTicketStatus = GetPercentageTicketStatus();
 
             // Create a new chart.
@@ -48,15 +46,16 @@ namespace GradenGroupUI.UserControls
             // make the chart
             chart.Series.Add("Tickets");
             chart.Series["Tickets"].ChartType = SeriesChartType.Pie;            
-            chart.BackColor = Color.FromArgb(211, 223, 240);
+            chart.BackColor = Color.FromArgb(211, 223, 240);            
+            chart.Location = new Point(1300, 150);
 
             // load some sample data
-            chart.Series["Tickets"].Points.AddXY("Open", percentageTicketStatus[0]);
-            chart.Series["Tickets"].Points.AddXY("Closed", percentageTicketStatus[1]);
-            chart.Series["Tickets"].Points.AddXY("Resolved", percentageTicketStatus[2]);   
+            chart.Series["Tickets"].Points.AddXY($"Open {percentageTicketStatus[0]}%", percentageTicketStatus[0]);
+            chart.Series["Tickets"].Points.AddXY($"Closed {percentageTicketStatus[1]}%", percentageTicketStatus[1]);
+            chart.Series["Tickets"].Points.AddXY($"Resolved {percentageTicketStatus[2]}%", percentageTicketStatus[2]);   
 
             // add the chart to the form
-            this.pieChartPanel.Controls.Add(chart);
+            this.dockPanel.Controls.Add(chart);
         }
 
         private double[] GetPercentageTicketStatus()
@@ -85,9 +84,7 @@ namespace GradenGroupUI.UserControls
         }
 
         private void DisplayTicketsOfUser(List<Ticket> tickets)
-        {
-            this.allTicketsListView.Visible = true;
-            this.pieChartPanel.Visible = false;
+        {            
             this.allTicketsListView.Items.Clear();            
             
             foreach (Ticket ticket in tickets)
@@ -121,7 +118,12 @@ namespace GradenGroupUI.UserControls
 
         private List<Ticket> GetAllTicketsOfUser(Employee employee)
         {
-            return this.ticketService.GetTicketsOfUser(employee.Id);
-        }        
+            return this.ticketService.GetTicketsOfUser(employee.Id);            
+        }
+
+        private void createNewTicketButton_Click(object sender, EventArgs e)
+        {
+            this.regularEmployeeForm.DockAddTicketsUC();
+        }
     }
 }
