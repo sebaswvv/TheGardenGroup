@@ -28,8 +28,15 @@ namespace GradenGroupUI.UserControls
 
             this.welcomeText.Text = $"Welcome {employee.FirstName} {employee.LastName}";
 
+            StyleUI();
+
             DisplayTicketsOfUser(this.ticketsOfUser);
             ShowDashBoardTickets();
+        }
+
+        private void StyleUI()
+        {
+            this.createNewTicketButton.BackColor = Color.FromArgb(156, 179, 128);
         }
         
 
@@ -46,15 +53,15 @@ namespace GradenGroupUI.UserControls
             // make the chart
             chart.Series.Add("Tickets");
             chart.Series["Tickets"].ChartType = SeriesChartType.Pie;            
-            chart.BackColor = Color.FromArgb(211, 223, 240);            
-            chart.Location = new Point(1300, 130);
+            chart.BackColor = Color.FromArgb(156, 179, 128);            
+            chart.Location = new Point(1250, 110);
             chart.Size = new Size(380, 380);
 
 
-            // load some sample data
-            chart.Series["Tickets"].Points.AddXY($"Open {percentageTicketStatus[0]}%", percentageTicketStatus[0]);
-            chart.Series["Tickets"].Points.AddXY($"Closed {percentageTicketStatus[1]}%", percentageTicketStatus[1]);
-            chart.Series["Tickets"].Points.AddXY($"Resolved {percentageTicketStatus[2]}%", percentageTicketStatus[2]);   
+            // load data with 2 digits after the comma            
+            chart.Series["Tickets"].Points.AddXY($"Open {Math.Round(percentageTicketStatus[0])}%", percentageTicketStatus[0]);
+            chart.Series["Tickets"].Points.AddXY($"Closed {Math.Round(percentageTicketStatus[1])}%", percentageTicketStatus[1]);
+            chart.Series["Tickets"].Points.AddXY($"Resolved {Math.Round(percentageTicketStatus[2])}%", percentageTicketStatus[2]);
 
             // add the chart to the form
             this.dockPanel.Controls.Add(chart);
@@ -85,12 +92,26 @@ namespace GradenGroupUI.UserControls
                         break;
                 }
                 
-                ListViewItem item = new ListViewItem(new string[] { ticket.Id,
-                    ticket.DateReported.ToString(), ticket.Subject, ticket.Description,
+                ListViewItem item = new ListViewItem(new string[] {ticket.Subject, 
+                    ticket.Description, 
+                    ticket.DateReported.ToString(),                                       
                     ticket.Priority.ToString(), deadline,
                     ticket.Status.ToString() });
+
                 this.allTicketsListView.Items.Add(item);
+
+                this.allTicketsListView.FullRowSelect = true;
+                ListViewExtender extender = new ListViewExtender(this.allTicketsListView);
+                ListViewButtonColumn buttonAction = new ListViewButtonColumn(1);
+                buttonAction.Click += OnButtonActionClick;
+                buttonAction.FixedWidth = true;
+                extender.AddColumn(buttonAction);               
             }
+        }
+
+        private void OnButtonActionClick(object sender, ListViewColumnMouseEventArgs e)
+        {
+            MessageBox.Show(this, @"you clicked " + e.SubItem.Text);
         }
 
         private double[] GetPercentageTicketStatus()
