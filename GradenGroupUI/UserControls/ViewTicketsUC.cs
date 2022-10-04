@@ -18,11 +18,13 @@ namespace GradenGroupUI.UserControls
         private TicketService ticketService;
         private List<Ticket> ticketsOfUser;
         private RegularEmployeeForm regularEmployeeForm;
+        private Employee employee;
 
         public ViewTicketsUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {
             InitializeComponent();            
             this.ticketService = new TicketService();
+            this.employee = employee;
             this.ticketsOfUser = GetAllTicketsOfUser(employee);
             this.regularEmployeeForm = regularEmployeeForm;
 
@@ -37,6 +39,11 @@ namespace GradenGroupUI.UserControls
         private void StyleUI()
         {
             this.createNewTicketButton.BackColor = Color.FromArgb(156, 179, 128);
+            this.buttonOpen.BackColor = Color.FromArgb(156, 179, 128);
+            this.buttonClose.BackColor = Color.FromArgb(156, 179, 128);
+            this.buttonResolved.BackColor = Color.FromArgb(156, 179, 128);
+            
+            this.allTicketsListView.FullRowSelect = true;
         }
         
 
@@ -68,12 +75,12 @@ namespace GradenGroupUI.UserControls
         }        
 
         private void DisplayTicketsOfUser(List<Ticket> tickets)
-        {            
-            this.allTicketsListView.Items.Clear();            
-            
+        {
+            this.allTicketsListView.Items.Clear();
+
             foreach (Ticket ticket in tickets)
             {
-                string deadline = "";                
+                string deadline = "";
 
                 // make deadline a string
                 switch (ticket.Deadline)
@@ -91,33 +98,18 @@ namespace GradenGroupUI.UserControls
                         deadline = "6 months";
                         break;
                 }
-                
-                ListViewItem item = new ListViewItem(new string[] {ticket.Subject, 
-                    ticket.Description, 
-                    ticket.DateReported.ToString(),                                       
+
+                ListViewItem item = new ListViewItem(new string[] {ticket.Subject,
+                    ticket.Description,
+                    ticket.DateReported.ToString(),
                     ticket.Priority.ToString(), deadline,
                     ticket.Status.ToString(), "Resolve" });
 
                 this.allTicketsListView.Items.Add(item);
-                
+
                 item.Tag = ticket;
-            }
-
-            // add button to listview
-            this.allTicketsListView.FullRowSelect = true;
-            ListViewExtender extender = new ListViewExtender(this.allTicketsListView);
-            ListViewButtonColumn buttonAction = new ListViewButtonColumn(6);
-            buttonAction.Click += ButtonAction_Click;
-            buttonAction.FixedWidth = true;
-            extender.AddColumn(buttonAction);
-        }
-
-        private void ButtonAction_Click(object? sender, ListViewColumnMouseEventArgs e)
-        {
-            Ticket ticket = (Ticket)e.Item.Tag;
-
-            // resolve the ticket
-        }        
+            }            
+        }                             
 
         private double[] GetPercentageTicketStatus()
         {
@@ -152,6 +144,66 @@ namespace GradenGroupUI.UserControls
         private void createNewTicketButton_Click(object sender, EventArgs e)
         {
             this.regularEmployeeForm.DockAddTicketsUC();            
+        }
+
+        private void allTicketsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (allTicketsListView.SelectedItems.Count == 0)
+                return;
+            // get the selected ticket
+            Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
+            this.itemSubjectTextBox.Text = ticket.Subject;
+
+            switch (ticket.Status)
+            {
+                case GardenGroupModel.Enums.Status.Open:
+                    this.buttonResolved.Enabled = true;
+                    this.buttonClose.Enabled = true;
+                    this.buttonOpen.Enabled = false;
+                    break;
+                case GardenGroupModel.Enums.Status.Resolved:
+                    this.buttonResolved.Enabled = false;
+                    this.buttonClose.Enabled = true;
+                    this.buttonOpen.Enabled = true;
+                    break;
+                case GardenGroupModel.Enums.Status.Closed:
+                    this.buttonResolved.Enabled = true;
+                    this.buttonClose.Enabled = false;
+                    this.buttonOpen.Enabled = true;
+                    break;
+            }
+        }
+
+        private void buttonResolved_Click(object sender, EventArgs e)
+        {
+            Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
+            ticket.Status = GardenGroupModel.Enums.Status.Resolved;
+            this.ticketService.ChangeTicketStatus(ticket);
+            UpdateUI();
         }        
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
+            ticket.Status = GardenGroupModel.Enums.Status.Closed;
+            this.ticketService.ChangeTicketStatus(ticket);
+            UpdateUI();
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
+            ticket.Status = GardenGroupModel.Enums.Status.Open;
+            this.ticketService.ChangeTicketStatus(ticket);
+            UpdateUI();
+        }
+
+        private void UpdateUI()
+        {
+            // update the listview
+            this.ticketsOfUser = GetAllTicketsOfUser(this.employee);
+            DisplayTicketsOfUser(this.ticketsOfUser);
+            ShowDashBoardTickets();
+        }
     }
 }

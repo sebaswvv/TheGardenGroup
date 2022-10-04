@@ -18,6 +18,11 @@ namespace GardenGroupLogic
             this.ticketDAO = new TicketDAO();
         }
 
+        public void ChangeTicketStatus(Ticket ticket)
+        {
+            this.ticketDAO.ChangeTicketStatus(ticket);
+        }
+
         public void AddTicket(Ticket ticket)
         {
             this.ticketDAO.AddTicket(ticket);
