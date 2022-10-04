@@ -31,55 +31,58 @@
             this.components = new System.ComponentModel.Container();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dockPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.allTicketsListView = new System.Windows.Forms.ListView();
-            this.id = new System.Windows.Forms.ColumnHeader();
-            this.reportedAt = new System.Windows.Forms.ColumnHeader();
             this.subject = new System.Windows.Forms.ColumnHeader();
             this.description = new System.Windows.Forms.ColumnHeader();
+            this.reportedAt = new System.Windows.Forms.ColumnHeader();
             this.priority = new System.Windows.Forms.ColumnHeader();
             this.deadline = new System.Windows.Forms.ColumnHeader();
             this.status = new System.Windows.Forms.ColumnHeader();
             this.welcomeText = new System.Windows.Forms.Label();
             this.createNewTicketButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.resolved = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.dockPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockPanel
             // 
+            this.dockPanel.Controls.Add(this.label2);
             this.dockPanel.Controls.Add(this.allTicketsListView);
             this.dockPanel.Location = new System.Drawing.Point(3, 75);
             this.dockPanel.Name = "dockPanel";
-            this.dockPanel.Size = new System.Drawing.Size(1649, 500);
+            this.dockPanel.Size = new System.Drawing.Size(1649, 550);
             this.dockPanel.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(1206, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(220, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Status of your tickets:";
             // 
             // allTicketsListView
             // 
             this.allTicketsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.id,
-            this.reportedAt,
             this.subject,
             this.description,
+            this.reportedAt,
             this.priority,
             this.deadline,
-            this.status});
+            this.status,
+            this.resolved});
             this.allTicketsListView.Location = new System.Drawing.Point(23, 29);
             this.allTicketsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.allTicketsListView.Name = "allTicketsListView";
-            this.allTicketsListView.Size = new System.Drawing.Size(1225, 429);
+            this.allTicketsListView.Size = new System.Drawing.Size(1157, 429);
             this.allTicketsListView.TabIndex = 0;
             this.allTicketsListView.UseCompatibleStateImageBehavior = false;
             this.allTicketsListView.View = System.Windows.Forms.View.Details;
-            // 
-            // id
-            // 
-            this.id.Text = "id:";
-            // 
-            // reportedAt
-            // 
-            this.reportedAt.Text = "Date reported:";
-            this.reportedAt.Width = 150;
             // 
             // subject
             // 
@@ -89,7 +92,12 @@
             // description
             // 
             this.description.Text = "Description:";
-            this.description.Width = 500;
+            this.description.Width = 400;
+            // 
+            // reportedAt
+            // 
+            this.reportedAt.Text = "Date reported:";
+            this.reportedAt.Width = 150;
             // 
             // priority
             // 
@@ -119,23 +127,30 @@
             // 
             // createNewTicketButton
             // 
+            this.createNewTicketButton.BackColor = System.Drawing.Color.White;
             this.createNewTicketButton.Location = new System.Drawing.Point(1256, 19);
             this.createNewTicketButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createNewTicketButton.Name = "createNewTicketButton";
             this.createNewTicketButton.Size = new System.Drawing.Size(173, 42);
             this.createNewTicketButton.TabIndex = 5;
             this.createNewTicketButton.Text = "Create new Ticket";
-            this.createNewTicketButton.UseVisualStyleBackColor = true;
+            this.createNewTicketButton.UseVisualStyleBackColor = false;
             this.createNewTicketButton.Click += new System.EventHandler(this.createNewTicketButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 49);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(35, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(322, 25);
             this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
+            this.label1.Text = "Here you can view and create tickets.";
+            // 
+            // resolved
+            // 
+            this.resolved.Text = "Resolved";
+            this.resolved.Width = 80;
             // 
             // ViewTicketsUC
             // 
@@ -146,9 +161,10 @@
             this.Controls.Add(this.welcomeText);
             this.Controls.Add(this.dockPanel);
             this.Name = "ViewTicketsUC";
-            this.Size = new System.Drawing.Size(1672, 592);
+            this.Size = new System.Drawing.Size(1672, 628);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.dockPanel.ResumeLayout(false);
+            this.dockPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,7 +174,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Panel dockPanel;
         private System.Windows.Forms.ListView allTicketsListView;
-        private System.Windows.Forms.ColumnHeader id;
         private System.Windows.Forms.ColumnHeader reportedAt;
         private System.Windows.Forms.ColumnHeader subject;
         private System.Windows.Forms.ColumnHeader description;
@@ -168,5 +183,7 @@
         private System.Windows.Forms.Label welcomeText;
         private System.Windows.Forms.Button createNewTicketButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader resolved;
     }
 }

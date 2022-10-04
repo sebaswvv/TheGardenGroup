@@ -35,14 +35,14 @@
             // 
             this.viewTicketsPanel.Location = new System.Drawing.Point(12, 12);
             this.viewTicketsPanel.Name = "viewTicketsPanel";
-            this.viewTicketsPanel.Size = new System.Drawing.Size(1804, 728);
+            this.viewTicketsPanel.Size = new System.Drawing.Size(1804, 757);
             this.viewTicketsPanel.TabIndex = 0;
             // 
             // RegularEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1841, 752);
+            this.ClientSize = new System.Drawing.Size(1841, 781);
             this.Controls.Add(this.viewTicketsPanel);
             this.Name = "RegularEmployeeForm";
             this.Text = "RegularEmployeeForm";
