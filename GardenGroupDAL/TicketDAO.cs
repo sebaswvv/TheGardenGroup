@@ -30,6 +30,13 @@ namespace GardenGroupDAL
             return this.collection.Find(filter).ToList();
         }
 
+        public void ChangeTicketStatus(Ticket ticket)
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Status", ticket.Status);
+            UpdateResult result = this.collection.UpdateOne(filter, update);
+        }
+
         public List<Ticket> GetAllTickets()
         {
             BsonArray match = new BsonArray();
