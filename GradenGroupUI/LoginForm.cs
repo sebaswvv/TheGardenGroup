@@ -51,10 +51,12 @@ namespace GradenGroupUI
             else if (employee.IsServiceDeskEmployee)
             {
                 serviceDeskEmployeeForm.Show();
+                this.Hide();
             }
             else
             {
                 regularEmployeeForm.Show();
+                this.Hide();
             }
 
         }
