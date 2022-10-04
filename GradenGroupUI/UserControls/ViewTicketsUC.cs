@@ -47,7 +47,7 @@ namespace GradenGroupUI.UserControls
             chart.Series.Add("Tickets");
             chart.Series["Tickets"].ChartType = SeriesChartType.Pie;            
             chart.BackColor = Color.FromArgb(211, 223, 240);            
-            chart.Location = new Point(1280, 150);
+            chart.Location = new Point(1300, 130);
             chart.Size = new Size(380, 380);
 
 
