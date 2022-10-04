@@ -126,6 +126,6 @@ namespace GradenGroupUI.UserControls
         private void createNewTicketButton_Click(object sender, EventArgs e)
         {
             this.regularEmployeeForm.DockAddTicketsUC();            
-        }
+        }        
     }
 }

@@ -49,10 +49,9 @@
             // dockPanel
             // 
             this.dockPanel.Controls.Add(this.allTicketsListView);
-            this.dockPanel.Location = new System.Drawing.Point(3, 100);
-            this.dockPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dockPanel.Location = new System.Drawing.Point(3, 75);
             this.dockPanel.Name = "dockPanel";
-            this.dockPanel.Size = new System.Drawing.Size(1665, 666);
+            this.dockPanel.Size = new System.Drawing.Size(1649, 500);
             this.dockPanel.TabIndex = 2;
             // 
             // allTicketsListView
@@ -65,9 +64,10 @@
             this.priority,
             this.deadline,
             this.status});
-            this.allTicketsListView.Location = new System.Drawing.Point(26, 39);
+            this.allTicketsListView.Location = new System.Drawing.Point(23, 29);
+            this.allTicketsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.allTicketsListView.Name = "allTicketsListView";
-            this.allTicketsListView.Size = new System.Drawing.Size(1220, 571);
+            this.allTicketsListView.Size = new System.Drawing.Size(1225, 429);
             this.allTicketsListView.TabIndex = 0;
             this.allTicketsListView.UseCompatibleStateImageBehavior = false;
             this.allTicketsListView.View = System.Windows.Forms.View.Details;
@@ -110,18 +110,19 @@
             // 
             this.welcomeText.AutoSize = true;
             this.welcomeText.Font = new System.Drawing.Font("Sitka Display", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.welcomeText.Location = new System.Drawing.Point(29, 25);
+            this.welcomeText.Location = new System.Drawing.Point(25, 19);
             this.welcomeText.Name = "welcomeText";
-            this.welcomeText.Size = new System.Drawing.Size(198, 40);
+            this.welcomeText.Size = new System.Drawing.Size(153, 32);
             this.welcomeText.TabIndex = 4;
             this.welcomeText.Text = "Welcome {User}";
             this.welcomeText.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // createNewTicketButton
             // 
-            this.createNewTicketButton.Location = new System.Drawing.Point(1436, 25);
+            this.createNewTicketButton.Location = new System.Drawing.Point(1256, 19);
+            this.createNewTicketButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createNewTicketButton.Name = "createNewTicketButton";
-            this.createNewTicketButton.Size = new System.Drawing.Size(198, 56);
+            this.createNewTicketButton.Size = new System.Drawing.Size(173, 42);
             this.createNewTicketButton.TabIndex = 5;
             this.createNewTicketButton.Text = "Create new Ticket";
             this.createNewTicketButton.UseVisualStyleBackColor = true;
@@ -130,23 +131,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 65);
+            this.label1.Location = new System.Drawing.Point(33, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
             // 
             // ViewTicketsUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.createNewTicketButton);
             this.Controls.Add(this.welcomeText);
             this.Controls.Add(this.dockPanel);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ViewTicketsUC";
-            this.Size = new System.Drawing.Size(1684, 790);
+            this.Size = new System.Drawing.Size(1672, 592);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.dockPanel.ResumeLayout(false);
             this.ResumeLayout(false);
