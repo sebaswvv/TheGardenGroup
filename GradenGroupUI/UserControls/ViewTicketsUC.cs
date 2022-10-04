@@ -96,23 +96,28 @@ namespace GradenGroupUI.UserControls
                     ticket.Description, 
                     ticket.DateReported.ToString(),                                       
                     ticket.Priority.ToString(), deadline,
-                    ticket.Status.ToString() });
+                    ticket.Status.ToString(), "Resolve" });
 
                 this.allTicketsListView.Items.Add(item);
-
-                this.allTicketsListView.FullRowSelect = true;
-                ListViewExtender extender = new ListViewExtender(this.allTicketsListView);
-                ListViewButtonColumn buttonAction = new ListViewButtonColumn(1);
-                buttonAction.Click += OnButtonActionClick;
-                buttonAction.FixedWidth = true;
-                extender.AddColumn(buttonAction);               
+                
+                item.Tag = ticket;
             }
+
+            // add button to listview
+            this.allTicketsListView.FullRowSelect = true;
+            ListViewExtender extender = new ListViewExtender(this.allTicketsListView);
+            ListViewButtonColumn buttonAction = new ListViewButtonColumn(6);
+            buttonAction.Click += ButtonAction_Click;
+            buttonAction.FixedWidth = true;
+            extender.AddColumn(buttonAction);
         }
 
-        private void OnButtonActionClick(object sender, ListViewColumnMouseEventArgs e)
+        private void ButtonAction_Click(object? sender, ListViewColumnMouseEventArgs e)
         {
-            MessageBox.Show(this, @"you clicked " + e.SubItem.Text);
-        }
+            Ticket ticket = (Ticket)e.Item.Tag;
+
+            // resolve the ticket
+        }        
 
         private double[] GetPercentageTicketStatus()
         {

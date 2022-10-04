@@ -42,6 +42,7 @@
             this.welcomeText = new System.Windows.Forms.Label();
             this.createNewTicketButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.resolved = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.dockPanel.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +74,8 @@
             this.reportedAt,
             this.priority,
             this.deadline,
-            this.status});
+            this.status,
+            this.resolved});
             this.allTicketsListView.Location = new System.Drawing.Point(23, 29);
             this.allTicketsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.allTicketsListView.Name = "allTicketsListView";
@@ -90,7 +92,7 @@
             // description
             // 
             this.description.Text = "Description:";
-            this.description.Width = 500;
+            this.description.Width = 400;
             // 
             // reportedAt
             // 
@@ -145,6 +147,11 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Here you can view and create tickets.";
             // 
+            // resolved
+            // 
+            this.resolved.Text = "Resolved";
+            this.resolved.Width = 80;
+            // 
             // ViewTicketsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -177,5 +184,6 @@
         private System.Windows.Forms.Button createNewTicketButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader resolved;
     }
 }
