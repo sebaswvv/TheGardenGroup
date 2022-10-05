@@ -22,7 +22,7 @@ namespace GradenGroupUI
             DockViewTicketsUC();
         }
 
-        private void DockViewTicketsUC()
+        public void DockViewTicketsUC()
         {            
             UserControls.ViewTicketsUC viewTicketsUC = new UserControls.ViewTicketsUC(this.employee, this);
             viewTicketsUC.Dock = DockStyle.Fill;
@@ -35,7 +35,7 @@ namespace GradenGroupUI
             this.viewTicketsPanel.Controls.Clear();        
        
             // make and dock
-            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(this.employee);
+            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(this.employee, this);
             createTicketUC.Dock = DockStyle.Fill;
             this.viewTicketsPanel.Controls.Add(createTicketUC);
         }

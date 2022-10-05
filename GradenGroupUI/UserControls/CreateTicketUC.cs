@@ -16,14 +16,18 @@ namespace GradenGroupUI.UserControls
     {
         private List<Employee> employees;
         private Employee employee;
+        private RegularEmployeeForm regularEmployeeForm;
 
-        public CreateTicketUC(Employee employee)
+        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {            
             InitializeComponent();
             EmployeeService employeeService = new EmployeeService();
             this.employees = employeeService.GetAllEmployees();
             this.employee = employee;
+            this.regularEmployeeForm = regularEmployeeForm;
+
             CheckEmployee(employee);
+            
             FillComboBox();
             // TODO hide option to select an employee
         }
@@ -51,11 +55,18 @@ namespace GradenGroupUI.UserControls
                 ticketDescriptionTextBox.Text, GardenGroupModel.Enums.Status.Open);           
 
             ticketService.AddTicket(ticket);
+
+            //Could add some feedback to the user to let them know that the ticket is made
+
+            //Returns to the DeskViewTicket user control
+            this.regularEmployeeForm.DockViewTicketsUC();
+
         }
 
         private void cancelTicketButton_Click(object sender, EventArgs e)
         {
-            //TODO reset all boxes to default and empty
+            //Returns to the DeskViewTicket user control
+            this.regularEmployeeForm.DockViewTicketsUC();
         }
 
         private void CheckEmployee(Employee employee)

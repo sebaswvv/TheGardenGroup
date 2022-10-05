@@ -138,7 +138,6 @@
             // 
             // ticketTypeIncidentComboBox
             // 
-            this.ticketTypeIncidentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketTypeIncidentComboBox.FormattingEnabled = true;
             this.ticketTypeIncidentComboBox.Items.AddRange(new object[] {
             "Software",
@@ -148,20 +147,20 @@
             this.ticketTypeIncidentComboBox.Name = "ticketTypeIncidentComboBox";
             this.ticketTypeIncidentComboBox.Size = new System.Drawing.Size(286, 33);
             this.ticketTypeIncidentComboBox.TabIndex = 12;
+            this.ticketTypeIncidentComboBox.Text = "Select type";
             // 
             // ticketReportedUserComboBox
             // 
-            this.ticketReportedUserComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketReportedUserComboBox.FormattingEnabled = true;
             this.ticketReportedUserComboBox.Location = new System.Drawing.Point(306, 270);
             this.ticketReportedUserComboBox.Name = "ticketReportedUserComboBox";
             this.ticketReportedUserComboBox.Size = new System.Drawing.Size(286, 33);
             this.ticketReportedUserComboBox.TabIndex = 13;
+            this.ticketReportedUserComboBox.Text = "Select user";
             this.ticketReportedUserComboBox.Visible = false;
             // 
             // ticketPriorityComboBox
             // 
-            this.ticketPriorityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketPriorityComboBox.FormattingEnabled = true;
             this.ticketPriorityComboBox.Items.AddRange(new object[] {
             "Low",
@@ -171,10 +170,10 @@
             this.ticketPriorityComboBox.Name = "ticketPriorityComboBox";
             this.ticketPriorityComboBox.Size = new System.Drawing.Size(286, 33);
             this.ticketPriorityComboBox.TabIndex = 14;
+            this.ticketPriorityComboBox.Text = "Select priority";
             // 
             // ticketDeadlineFollowUpComboBox
             // 
-            this.ticketDeadlineFollowUpComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ticketDeadlineFollowUpComboBox.FormattingEnabled = true;
             this.ticketDeadlineFollowUpComboBox.Items.AddRange(new object[] {
             "7 days",
@@ -185,6 +184,7 @@
             this.ticketDeadlineFollowUpComboBox.Name = "ticketDeadlineFollowUpComboBox";
             this.ticketDeadlineFollowUpComboBox.Size = new System.Drawing.Size(286, 33);
             this.ticketDeadlineFollowUpComboBox.TabIndex = 15;
+            this.ticketDeadlineFollowUpComboBox.Text = "Select deadline";
             // 
             // TicketReportedDateTimePicker
             // 
