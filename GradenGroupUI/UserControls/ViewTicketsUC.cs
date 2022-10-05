@@ -19,6 +19,7 @@ namespace GradenGroupUI.UserControls
         private List<Ticket> ticketsOfUser;
         private RegularEmployeeForm regularEmployeeForm;
         private Employee employee;
+        private ChartArea chartArea;
 
         public ViewTicketsUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {
@@ -48,12 +49,16 @@ namespace GradenGroupUI.UserControls
         
 
         private void ShowDashBoardTickets()
-        {                                
+        {
+            // remove the existing pie chart
+            this.dockPanel.Controls.Clear();
+
+
             double[] percentageTicketStatus = GetPercentageTicketStatus();
 
             // Create a new chart.
             Chart chart = new Chart();               
-            ChartArea chartArea = new ChartArea();
+            this.chartArea = new ChartArea();
             chartArea.Name = "Default";
             chart.ChartAreas.Add(chartArea);           
             
@@ -107,7 +112,7 @@ namespace GradenGroupUI.UserControls
 
                 this.allTicketsListView.Items.Add(item);
 
-                item.Tag = ticket;
+                item.Tag = ticket;                
             }            
         }                             
 
@@ -202,8 +207,8 @@ namespace GradenGroupUI.UserControls
         {
             // update the listview
             this.ticketsOfUser = GetAllTicketsOfUser(this.employee);
+            ShowDashBoardTickets();            
             DisplayTicketsOfUser(this.ticketsOfUser);
-            ShowDashBoardTickets();
         }
     }
 }
