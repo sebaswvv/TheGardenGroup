@@ -41,7 +41,8 @@ namespace GradenGroupUI.UserControls
             this.buttonOpen.BackColor = Color.FromArgb(156, 179, 128);
             this.buttonClose.BackColor = Color.FromArgb(156, 179, 128);
             this.buttonResolved.BackColor = Color.FromArgb(156, 179, 128);
-            
+            this.updateButton.BackColor = Color.FromArgb(156, 179, 128);
+
             this.allTicketsListView.FullRowSelect = true;
         }
         
@@ -201,6 +202,11 @@ namespace GradenGroupUI.UserControls
             this.ticketsOfUser = GetAllTicketsOfUser(this.employee);
             ShowDashBoardTickets();            
             DisplayTicketsOfUser(this.ticketsOfUser);
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            this.regularEmployeeForm.DockEditTicket((Ticket)allTicketsListView.SelectedItems[0].Tag);
         }
     }
 }

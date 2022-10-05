@@ -45,6 +45,7 @@
             this.status = new System.Windows.Forms.ColumnHeader();
             this.welcomeText = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +68,7 @@
             // 
             // buttonOpen
             // 
-            this.buttonOpen.Location = new System.Drawing.Point(186, 588);
+            this.buttonOpen.Location = new System.Drawing.Point(283, 579);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(75, 23);
             this.buttonOpen.TabIndex = 5;
@@ -77,7 +78,7 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(105, 588);
+            this.buttonClose.Location = new System.Drawing.Point(202, 579);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
             this.buttonClose.TabIndex = 4;
@@ -87,7 +88,7 @@
             // 
             // buttonResolved
             // 
-            this.buttonResolved.Location = new System.Drawing.Point(24, 588);
+            this.buttonResolved.Location = new System.Drawing.Point(121, 579);
             this.buttonResolved.Name = "buttonResolved";
             this.buttonResolved.Size = new System.Drawing.Size(75, 23);
             this.buttonResolved.TabIndex = 3;
@@ -97,7 +98,7 @@
             // 
             // itemSubjectTextBox
             // 
-            this.itemSubjectTextBox.Location = new System.Drawing.Point(25, 552);
+            this.itemSubjectTextBox.Location = new System.Drawing.Point(122, 543);
             this.itemSubjectTextBox.Name = "itemSubjectTextBox";
             this.itemSubjectTextBox.PlaceholderText = "Item subject.....";
             this.itemSubjectTextBox.ReadOnly = true;
@@ -173,10 +174,21 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Here you can view and create tickets.";
             // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(27, 558);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(89, 27);
+            this.updateButton.TabIndex = 7;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
             // ViewTicketsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.allTicketsListView);
@@ -211,5 +223,6 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonResolved;
         private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.Button updateButton;
     }
 }

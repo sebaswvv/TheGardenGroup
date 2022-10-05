@@ -54,6 +54,16 @@ namespace GradenGroupUI
             this.viewTicketsPanel.Controls.Add(createTicketUC);
         }
 
+        public void DockEditTicket(Ticket ticket)
+        {
+            this.viewTicketsPanel.Controls.Clear();
+
+            // make and dock
+            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(this.employee, this);
+            createTicketUC.Dock = DockStyle.Fill;
+            this.viewTicketsPanel.Controls.Add(createTicketUC);
+        }
+
         private void RegularEmployeeForm_Load(object sender, EventArgs e)
         {
 
