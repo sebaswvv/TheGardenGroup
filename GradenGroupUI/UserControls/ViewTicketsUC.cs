@@ -18,8 +18,7 @@ namespace GradenGroupUI.UserControls
         private TicketService ticketService;
         private List<Ticket> ticketsOfUser;
         private RegularEmployeeForm regularEmployeeForm;
-        private Employee employee;
-        private ChartArea chartArea;
+        private Employee employee;        
 
         public ViewTicketsUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {
@@ -38,12 +37,12 @@ namespace GradenGroupUI.UserControls
         }
 
         private void StyleUI()
-        {
-            this.createNewTicketButton.BackColor = Color.FromArgb(156, 179, 128);
+        {            
             this.buttonOpen.BackColor = Color.FromArgb(156, 179, 128);
             this.buttonClose.BackColor = Color.FromArgb(156, 179, 128);
             this.buttonResolved.BackColor = Color.FromArgb(156, 179, 128);
-            
+            this.updateButton.BackColor = Color.FromArgb(156, 179, 128);
+
             this.allTicketsListView.FullRowSelect = true;
         }
         
@@ -58,15 +57,14 @@ namespace GradenGroupUI.UserControls
 
             // Create a new chart.
             Chart chart = new Chart();               
-            this.chartArea = new ChartArea();
+            ChartArea chartArea = new ChartArea();
             chartArea.Name = "Default";
             chart.ChartAreas.Add(chartArea);           
             
             // make the chart
             chart.Series.Add("Tickets");
             chart.Series["Tickets"].ChartType = SeriesChartType.Pie;            
-            chart.BackColor = Color.FromArgb(156, 179, 128);            
-            chart.Location = new Point(1250, 110);
+            chart.BackColor = Color.FromArgb(156, 179, 128);                    
             chart.Size = new Size(380, 380);
 
 
@@ -144,12 +142,7 @@ namespace GradenGroupUI.UserControls
         private List<Ticket> GetAllTicketsOfUser(Employee employee)
         {
             return this.ticketService.GetTicketsOfUser(employee.Id);            
-        }
-
-        private void createNewTicketButton_Click(object sender, EventArgs e)
-        {
-            this.regularEmployeeForm.DockAddTicketsUC();            
-        }
+        }        
 
         private void allTicketsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -205,10 +198,15 @@ namespace GradenGroupUI.UserControls
 
         private void UpdateUI()
         {
-            // update the listview
+            // update the dashboard
             this.ticketsOfUser = GetAllTicketsOfUser(this.employee);
             ShowDashBoardTickets();            
             DisplayTicketsOfUser(this.ticketsOfUser);
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            this.regularEmployeeForm.DockEditTicket((Ticket)allTicketsListView.SelectedItems[0].Tag);
         }
     }
 }
