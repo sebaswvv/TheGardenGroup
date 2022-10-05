@@ -17,6 +17,12 @@ namespace GradenGroupUI
         public ServiceDeskEmployeeForm(Employee employee)
         {
             InitializeComponent();
+            StyleUI();
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            
             //UserControls.TicketsOverviewUC userControl = new UserControls.TicketsOverviewUC();
 
             UserControls.CreateNewEmployeeUC userControl = new UserControls.CreateNewEmployeeUC();
@@ -26,6 +32,15 @@ namespace GradenGroupUI
             this.userControlPanel.Controls.Add(userControl);
         }
 
-        
+        private void StyleUI()
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
+            this.menuPanel.BackColor = Color.FromArgb(156, 179, 128);
+            this.buttonCreateTicket.BackColor = Color.FromArgb(27, 81, 43);
+            this.showDashboardButton.BackColor = Color.FromArgb(27, 81, 43);
+        }
     }
 }

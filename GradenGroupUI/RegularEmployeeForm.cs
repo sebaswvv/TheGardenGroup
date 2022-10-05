@@ -18,8 +18,22 @@ namespace GradenGroupUI
         public RegularEmployeeForm(Employee employee)
         {
             InitializeComponent();
+
+            StyleUI();
+
             this.employee = employee;
             DockViewTicketsUC();
+        }
+
+        private void StyleUI()
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
+            this.menuPanel.BackColor = Color.FromArgb(156, 179, 128);
+            this.buttonCreateTicket.BackColor = Color.FromArgb(27, 81, 43);
+            this.showDashboardButton.BackColor = Color.FromArgb(27, 81, 43);
         }
 
         public void DockViewTicketsUC()
@@ -43,6 +57,16 @@ namespace GradenGroupUI
         private void RegularEmployeeForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void showDashboardButton_Click(object sender, EventArgs e)
+        {
+            DockViewTicketsUC();
+        }
+
+        private void buttonCreateTicket_Click(object sender, EventArgs e)
+        {
+            DockAddTicketsUC();
         }
     }
 }
