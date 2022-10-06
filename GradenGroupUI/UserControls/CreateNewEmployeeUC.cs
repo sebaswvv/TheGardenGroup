@@ -121,5 +121,12 @@ namespace GradenGroupUI.UserControls
             }
 
         }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }
