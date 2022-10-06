@@ -12,6 +12,7 @@ using GardenGroupModel;
 using GardenGroupLogic;
 using System.Net.Mail;
 using System.Net;
+using System.Diagnostics;
 
 namespace GradenGroupUI
 {
@@ -50,13 +51,16 @@ namespace GradenGroupUI
             }
             else if (employee.IsServiceDeskEmployee)
             {
-                serviceDeskEmployeeForm.Show();
                 this.Hide();
+                serviceDeskEmployeeForm.Show();
+                serviceDeskEmployeeForm.Closed += (s, args) => this.Close();
+                
             }
             else
             {
-                regularEmployeeForm.Show();
                 this.Hide();
+                regularEmployeeForm.Show();
+                regularEmployeeForm.Closed += (s, args) => this.Close();
             }
 
         }
@@ -67,9 +71,10 @@ namespace GradenGroupUI
             {
                 buttonLogin_Click(sender, e);
             }
+            return;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonRequestPassword_Click(object sender, EventArgs e)
         {
             employee = employeeService.GetEmployee(textBoxEmailPassword.Text);
             if (employee == null)
@@ -124,15 +129,16 @@ namespace GradenGroupUI
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonConfirmCode_Click(object sender, EventArgs e)
         {
             if (textBoxConfirmCode.Text == code)
             {
                 panelNewPassword.Visible = true;
+                panelForgotPassword.Visible = false;
             }
             else
             {
-                labelErrorCode.Text = "Inncorrect code entered";
+                labelErrorCode.Text = "Incorrect code entered";
             }
         }
 
@@ -154,6 +160,36 @@ namespace GradenGroupUI
         private void buttonForgot_Click(object sender, EventArgs e)
         {
             panelForgotPassword.Visible=true;
+            panelLogin.Visible=false;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            List<Panel> panels = new List<Panel>();
+            panels.Add(panelForgotPassword);
+            panels.Add(panelLogin);
+            panels.Add(panelNewPassword);
+            foreach (Panel panel in panels)
+            {
+                panel.Location = new Point(
+                this.ClientSize.Width / 2 - panel.Size.Width / 2,
+                this.ClientSize.Height / 2 - panel.Size.Height / 2);
+                panel.Anchor = AnchorStyles.None;
+                panel.BackColor = Color.FromArgb(156, 179, 128);
+            }
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.menuPanel.BackColor = Color.FromArgb(156, 179, 128);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
+        }
+
+        private void buttonCancelNewPassword_Click(object sender, EventArgs e)
+        {
+            panelNewPassword.Visible=false;
+            panelLogin.Visible = true;
         }
     }
 }

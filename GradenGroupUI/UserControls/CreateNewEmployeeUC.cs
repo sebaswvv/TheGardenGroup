@@ -19,12 +19,13 @@ namespace GradenGroupUI.UserControls
     {
         PasswordService passwordService;
         EmployeeService employeeService;
+        LoginForm loginForm;
         public CreateNewEmployeeUC()
         {
             InitializeComponent();
             passwordService = new PasswordService();
             employeeService = new EmployeeService();
-            
+            loginForm = new LoginForm();
         }
 
 
@@ -119,6 +120,14 @@ namespace GradenGroupUI.UserControls
             {
                 throw;
             }
+
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginForm.Show();
+            //loginForm.Closed += (s, args) => this.Close();
 
         }
     }
