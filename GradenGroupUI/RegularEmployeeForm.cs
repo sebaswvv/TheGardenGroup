@@ -49,7 +49,7 @@ namespace GradenGroupUI
             this.viewTicketsPanel.Controls.Clear();        
        
             // make and dock
-            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(this.employee, this);
+            UserControls.S createTicketUC = new UserControls.S(this.employee, this);
             createTicketUC.Dock = DockStyle.Fill;
             this.viewTicketsPanel.Controls.Add(createTicketUC);
         }
@@ -59,7 +59,7 @@ namespace GradenGroupUI
             this.viewTicketsPanel.Controls.Clear();
 
             // make and dock
-            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(this.employee, this);
+            UserControls.S createTicketUC = new UserControls.S(this.employee, this, ticket);
             createTicketUC.Dock = DockStyle.Fill;
             this.viewTicketsPanel.Controls.Add(createTicketUC);
         }

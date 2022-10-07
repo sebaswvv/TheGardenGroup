@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace GradenGroupUI.UserControls
 {
-    public partial class CreateTicketUC : UserControl
+    public partial class S : UserControl
     {
         private List<Employee> employees;
         private Employee employee;
         private RegularEmployeeForm regularEmployeeForm;
 
         // Constructor for creating a ticket
-        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
+        public S(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {            
             InitializeComponent();
             EmployeeService employeeService = new EmployeeService();
@@ -33,7 +33,7 @@ namespace GradenGroupUI.UserControls
         }
 
         // Constructor for updating a ticket
-        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm, Ticket ticket)
+        public S(Employee employee, RegularEmployeeForm regularEmployeeForm, Ticket ticket)
         {
             InitializeComponent();
             EmployeeService employeeService = new EmployeeService();
@@ -63,7 +63,7 @@ namespace GradenGroupUI.UserControls
             }
 
             //Creates the ticket obeject with the data from the form
-            Ticket ticket = new Ticket(employeeID, TicketReportedDateTimePicker.Value,
+            Ticket ticket = new Ticket(employeeID, ticketReportedDateTimePicker.Value,
                 ticketSubjectIncidentTextBox.Text,
                 (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectionStart,
                 (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectionStart,
@@ -104,13 +104,17 @@ namespace GradenGroupUI.UserControls
         private void ChangeToUpdate(Ticket ticket)
         {
             createTicketHeaderLabel.Hide();
+            updateTicketLabel.Show();
+            submitTicketButton.Hide();
+            updateTicketButton.Show();
+            
             FillBoxesWithSelectedTicket(ticket);
         }
 
         // FIlls all the boxes with the data from the current ticket
         private void FillBoxesWithSelectedTicket(Ticket ticket)
         {
-            TicketReportedDateTimePicker.Value = ticket.DateReported;
+            ticketReportedDateTimePicker.Value = ticket.DateReported;
             ticketSubjectIncidentTextBox.Text = ticket.Subject;
             ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();
             ticketPriorityComboBox.Text = ticket.Priority.ToString();
@@ -118,6 +122,7 @@ namespace GradenGroupUI.UserControls
             ticketDescriptionTextBox.Text = ticket.Description.ToString();
         }
 
+        // TODO add the updated values to the ticket
         private void updateTicketButton_Click(object sender, EventArgs e)
         {
             
