@@ -28,108 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.overviewTicketsLabel = new System.Windows.Forms.Label();
-            this.ticketsList = new System.Windows.Forms.ListView();
-            this.id = new System.Windows.Forms.ColumnHeader();
-            this.subject = new System.Windows.Forms.ColumnHeader();
-            this.user = new System.Windows.Forms.ColumnHeader();
-            this.incidentType = new System.Windows.Forms.ColumnHeader();
-            this.priority = new System.Windows.Forms.ColumnHeader();
-            this.reportedAt = new System.Windows.Forms.ColumnHeader();
-            this.status = new System.Windows.Forms.ColumnHeader();
             this.createIncidentButton = new System.Windows.Forms.Button();
+            this.ticketsList = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeOfIncident = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viewButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsList)).BeginInit();
             this.SuspendLayout();
             // 
             // overviewTicketsLabel
             // 
             this.overviewTicketsLabel.AutoSize = true;
             this.overviewTicketsLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.overviewTicketsLabel.Location = new System.Drawing.Point(23, 22);
-            this.overviewTicketsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.overviewTicketsLabel.Location = new System.Drawing.Point(16, 13);
             this.overviewTicketsLabel.Name = "overviewTicketsLabel";
-            this.overviewTicketsLabel.Size = new System.Drawing.Size(343, 54);
+            this.overviewTicketsLabel.Size = new System.Drawing.Size(236, 37);
             this.overviewTicketsLabel.TabIndex = 0;
             this.overviewTicketsLabel.Text = "Overview Tickets";
             // 
-            // ticketsList
-            // 
-            this.ticketsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ticketsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.id,
-            this.subject,
-            this.user,
-            this.incidentType,
-            this.priority,
-            this.reportedAt,
-            this.status});
-            this.ticketsList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.ticketsList.Location = new System.Drawing.Point(32, 103);
-            this.ticketsList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ticketsList.MultiSelect = false;
-            this.ticketsList.Name = "ticketsList";
-            this.ticketsList.Size = new System.Drawing.Size(1355, 602);
-            this.ticketsList.TabIndex = 1;
-            this.ticketsList.UseCompatibleStateImageBehavior = false;
-            this.ticketsList.View = System.Windows.Forms.View.Details;
-            this.ticketsList.SelectedIndexChanged += new System.EventHandler(this.ticketsList_SelectedIndexChanged);
-            // 
-            // id
-            // 
-            this.id.Text = "ID";
-            this.id.Width = 100;
-            // 
-            // subject
-            // 
-            this.subject.Text = "Subject";
-            this.subject.Width = 500;
-            // 
-            // user
-            // 
-            this.user.Text = "Created By";
-            this.user.Width = 200;
-            // 
-            // incidentType
-            // 
-            this.incidentType.Text = "Type of incident";
-            this.incidentType.Width = 150;
-            // 
-            // priority
-            // 
-            this.priority.Text = "Priority";
-            this.priority.Width = 100;
-            // 
-            // reportedAt
-            // 
-            this.reportedAt.Text = "Reported At";
-            this.reportedAt.Width = 200;
-            // 
-            // status
-            // 
-            this.status.Text = "Status";
-            this.status.Width = 100;
-            // 
             // createIncidentButton
             // 
-            this.createIncidentButton.Location = new System.Drawing.Point(1103, 30);
+            this.createIncidentButton.FlatAppearance.BorderSize = 0;
+            this.createIncidentButton.Location = new System.Drawing.Point(1314, 17);
+            this.createIncidentButton.Margin = new System.Windows.Forms.Padding(2);
             this.createIncidentButton.Name = "createIncidentButton";
-            this.createIncidentButton.Size = new System.Drawing.Size(159, 55);
+            this.createIncidentButton.Size = new System.Drawing.Size(111, 33);
             this.createIncidentButton.TabIndex = 2;
             this.createIncidentButton.Text = "Create Incident";
             this.createIncidentButton.UseVisualStyleBackColor = true;
             // 
+            // ticketsList
+            // 
+            this.ticketsList.AllowUserToAddRows = false;
+            this.ticketsList.AllowUserToDeleteRows = false;
+            this.ticketsList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.ticketsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ticketsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.ticketsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ticketsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.createdBy,
+            this.typeOfIncident,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.viewButtonColumn});
+            this.ticketsList.Location = new System.Drawing.Point(16, 64);
+            this.ticketsList.MultiSelect = false;
+            this.ticketsList.Name = "ticketsList";
+            this.ticketsList.ReadOnly = true;
+            this.ticketsList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.ticketsList.RowHeadersVisible = false;
+            this.ticketsList.RowTemplate.Height = 25;
+            this.ticketsList.ShowEditingIcon = false;
+            this.ticketsList.Size = new System.Drawing.Size(1409, 481);
+            this.ticketsList.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Subject";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Subject";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // createdBy
+            // 
+            this.createdBy.DataPropertyName = "Employee";
+            this.createdBy.HeaderText = "Reported by";
+            this.createdBy.Name = "createdBy";
+            this.createdBy.ReadOnly = true;
+            this.createdBy.Width = 150;
+            // 
+            // typeOfIncident
+            // 
+            this.typeOfIncident.DataPropertyName = "IncidentType";
+            this.typeOfIncident.HeaderText = "Type of incident";
+            this.typeOfIncident.Name = "typeOfIncident";
+            this.typeOfIncident.ReadOnly = true;
+            this.typeOfIncident.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Priority";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Priority";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "DateReported";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Reported at";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // viewButtonColumn
+            // 
+            this.viewButtonColumn.HeaderText = "";
+            this.viewButtonColumn.Name = "viewButtonColumn";
+            this.viewButtonColumn.ReadOnly = true;
+            this.viewButtonColumn.Text = "View";
+            this.viewButtonColumn.UseColumnTextForButtonValue = true;
+            this.viewButtonColumn.Width = 50;
+            // 
             // TicketsOverviewUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.createIncidentButton);
             this.Controls.Add(this.ticketsList);
+            this.Controls.Add(this.createIncidentButton);
             this.Controls.Add(this.overviewTicketsLabel);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TicketsOverviewUC";
-            this.Size = new System.Drawing.Size(1689, 940);
+            this.Size = new System.Drawing.Size(1445, 564);
             this.Load += new System.EventHandler(this.TicketsOverviewUC_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,14 +163,14 @@
         #endregion
 
         private System.Windows.Forms.Label overviewTicketsLabel;
-        private System.Windows.Forms.ListView ticketsList;
-        private System.Windows.Forms.ColumnHeader id;
-        private System.Windows.Forms.ColumnHeader subject;
-        private System.Windows.Forms.ColumnHeader user;
-        private System.Windows.Forms.ColumnHeader incidentType;
-        private System.Windows.Forms.ColumnHeader priority;
-        private System.Windows.Forms.ColumnHeader reportedAt;
-        private System.Windows.Forms.ColumnHeader status;
         private System.Windows.Forms.Button createIncidentButton;
+        private System.Windows.Forms.DataGridView ticketsList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeOfIncident;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewButtonColumn viewButtonColumn;
     }
 }

@@ -33,21 +33,22 @@ namespace GradenGroupUI.UserControls
         private void LoadTicketsList()
         {
             // TODO: switch to datagridview for sort and buttons
-            ticketsList.Items.Clear();
             List<Ticket> tickets = ticketService.GetAllTickets();
-            foreach (var ticket in tickets)
-            {
-                ListViewItem value = new ListViewItem(new string[]{
-                    ticket.Id,
-                    ticket.Subject,
-                    ticket.Employee.ToString(),
-                    ticket.IncidentType.ToString(),
-                    ticket.Priority.ToString(),
-                    ticket.DateReported.ToString(),
-                    ticket.Status.ToString(),
-                });
-                ticketsList.Items.Add(value);
-            }
+            ticketsList.AutoGenerateColumns = false;
+            ticketsList.DataSource = tickets;
+            //foreach (var ticket in tickets)
+            //{
+            //    ListViewItem value = new ListViewItem(new string[]{
+            //        ticket.Id,
+            //        ticket.Subject,
+            //        ticket.Employee.ToString(),
+            //        ticket.IncidentType.ToString(),
+            //        ticket.Priority.ToString(),
+            //        ticket.DateReported.ToString(),
+            //        ticket.Status.ToString(),
+            //    });
+            //    ticketsList.Items.Add(value);
+            //}
         }
 
         private void ticketsList_SelectedIndexChanged(object sender, EventArgs e)
