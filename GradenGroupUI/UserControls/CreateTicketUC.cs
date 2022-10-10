@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace GradenGroupUI.UserControls
 {
-    public partial class CreateTicketUC : UserControl
+    public partial class S : UserControl
     {
         private List<Employee> employees;
         private Employee employee;
@@ -62,7 +62,7 @@ namespace GradenGroupUI.UserControls
                 employeeID = selectedEmployee.Id;
             }
            
-            Ticket ticket = new Ticket(employeeID, TicketReportedDateTimePicker.Value, 
+            Ticket ticket = new Ticket(employeeID, ticketReportedDateTimePicker.Value, 
                 ticketSubjectIncidentTextBox.Text, 
                 (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectedIndex, 
                 (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectedIndex, 
