@@ -146,7 +146,7 @@ namespace GradenGroupUI
         {
             if (textBoxNewPassword.Text == textBoxNewPasswordReentered.Text)
             {
-                employee.Password = passwordService.GenerateSaltedHash(64, textBoxNewPassword.Text);
+                employee.Password = passwordService.GenerateSaltedHash(textBoxNewPassword.Text);
                 employeeService.UpdateEmployee(employee);
                 panelForgotPassword.Visible = false;
                 panelNewPassword.Visible = false;

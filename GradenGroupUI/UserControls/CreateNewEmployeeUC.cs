@@ -35,8 +35,14 @@ namespace GradenGroupUI.UserControls
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             Employee employee;
-            password = GeneratePassword();
-            Password Encryptedpassword = passwordService.GenerateSaltedHash(64, password);
+            //password = GeneratePassword();
+            password = "admin";
+            string Encryptedpassword = passwordService.GenerateSaltedHash(password);
+            if (!checkBoxPassword.Checked)
+            {
+                Encryptedpassword = "";
+            }             
+            
             if (Regex.IsMatch(textBoxFirstName.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(textBoxLastName.Text, @"^[a-zA-Z]+$"))
             {
                 if (Regex.IsMatch(textBoxPhoneNumber.Text, @"^[0-9]+$") || textBoxPhoneNumber.MaxLength == 10)
@@ -47,11 +53,11 @@ namespace GradenGroupUI.UserControls
                     }
                     else
                     {
-                        employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, passwordService.GenerateSaltedHash(64, ""), (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, true);
+                        employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, true);
                     }
-                    SendEmail(GetUserName(), GetPassword());
                     employeeService.AddEmployee(employee);
-
+                    SendEmail(GetUserName(), GetPassword());
+                    
                 }
                 else
                 {
@@ -74,7 +80,6 @@ namespace GradenGroupUI.UserControls
         public string ToAddress()
         {
             return textBoxEmail.Text;
-
         }
         public string GeneratePassword()
         {
@@ -99,7 +104,6 @@ namespace GradenGroupUI.UserControls
                 Host = "smtp.office365.com",
                 Port = 587,
                 Credentials = new NetworkCredential(fromAddress, mailpassword)
-
             };
             
             string subject = "Welcome to Garden Group Corp.";
@@ -120,7 +124,6 @@ namespace GradenGroupUI.UserControls
             {
                 throw;
             }
-
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
