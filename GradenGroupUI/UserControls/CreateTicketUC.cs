@@ -12,13 +12,14 @@ using System.Windows.Forms;
 
 namespace GradenGroupUI.UserControls
 {
-    public partial class CreateTicketUC : UserControl
+    public partial class S : UserControl
     {
         private List<Employee> employees;
         private Employee employee;
         private RegularEmployeeForm regularEmployeeForm;
 
-        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
+        // Constructor for creating a ticket
+        public S(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {            
             InitializeComponent();
             EmployeeService employeeService = new EmployeeService();
@@ -29,7 +30,21 @@ namespace GradenGroupUI.UserControls
             CheckEmployee(employee);
             
             FillComboBox();
-            // TODO hide option to select an employee
+        }
+
+        // Constructor for updating a ticket
+        public S(Employee employee, RegularEmployeeForm regularEmployeeForm, Ticket ticket)
+        {
+            InitializeComponent();
+            EmployeeService employeeService = new EmployeeService();
+            this.employees = employeeService.GetAllEmployees();
+            this.employee = employee;
+            this.regularEmployeeForm = regularEmployeeForm;
+
+            CheckEmployee(employee);
+
+            FillComboBox();
+            ChangeToUpdate(ticket);
         }
 
         // Submits a ticket
@@ -46,13 +61,14 @@ namespace GradenGroupUI.UserControls
                 Employee selectedEmployee = employees[index];
                 employeeID = selectedEmployee.Id;
             }
-           
-            Ticket ticket = new Ticket(employeeID, TicketReportedDateTimePicker.Value, 
-                ticketSubjectIncidentTextBox.Text, 
-                (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectionStart, 
-                (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectionStart, 
-                (GardenGroupModel.Enums.Deadline)ticketDeadlineFollowUpComboBox.SelectionStart, 
-                ticketDescriptionTextBox.Text, GardenGroupModel.Enums.Status.Open);           
+
+            //Creates the ticket obeject with the data from the form
+            Ticket ticket = new Ticket(employeeID, ticketReportedDateTimePicker.Value,
+                ticketSubjectIncidentTextBox.Text,
+                (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectionStart,
+                (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectionStart,
+                (GardenGroupModel.Enums.Deadline)ticketDeadlineFollowUpComboBox.SelectionStart,
+                ticketDescriptionTextBox.Text, GardenGroupModel.Enums.Status.Open);
 
             ticketService.AddTicket(ticket);
 
@@ -69,6 +85,7 @@ namespace GradenGroupUI.UserControls
             this.regularEmployeeForm.DockViewTicketsUC();
         }
 
+        // Hides the option to select an employee
         private void CheckEmployee(Employee employee)
         {
             if (employee.IsServiceDeskEmployee)
@@ -82,6 +99,33 @@ namespace GradenGroupUI.UserControls
         {            
             ticketReportedUserComboBox.DisplayMember = "FirstName";
             ticketReportedUserComboBox.DataSource = employees;
+        }
+
+        private void ChangeToUpdate(Ticket ticket)
+        {
+            createTicketHeaderLabel.Hide();
+            updateTicketLabel.Show();
+            submitTicketButton.Hide();
+            updateTicketButton.Show();
+            
+            FillBoxesWithSelectedTicket(ticket);
+        }
+
+        // FIlls all the boxes with the data from the current ticket
+        private void FillBoxesWithSelectedTicket(Ticket ticket)
+        {
+            ticketReportedDateTimePicker.Value = ticket.DateReported;
+            ticketSubjectIncidentTextBox.Text = ticket.Subject;
+            ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();
+            ticketPriorityComboBox.Text = ticket.Priority.ToString();
+            ticketDeadlineFollowUpComboBox.Text = ticket.Deadline.ToString();
+            ticketDescriptionTextBox.Text = ticket.Description.ToString();
+        }
+
+        // TODO add the updated values to the ticket
+        private void updateTicketButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

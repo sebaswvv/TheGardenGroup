@@ -36,7 +36,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
@@ -46,6 +45,7 @@
             this.comboBoxLocation = new System.Windows.Forms.ComboBox();
             this.checkBoxPassword = new System.Windows.Forms.CheckBox();
             this.labelErrorMessage = new System.Windows.Forms.Label();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -121,20 +121,11 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Send password?";
             // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(245, 394);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 8;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
             // buttonRegister
             // 
-            this.buttonRegister.Location = new System.Drawing.Point(434, 394);
+            this.buttonRegister.Location = new System.Drawing.Point(318, 392);
             this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(75, 23);
+            this.buttonRegister.Size = new System.Drawing.Size(96, 29);
             this.buttonRegister.TabIndex = 9;
             this.buttonRegister.Text = "Register";
             this.buttonRegister.UseVisualStyleBackColor = true;
@@ -183,6 +174,11 @@
             // comboBoxLocation
             // 
             this.comboBoxLocation.FormattingEnabled = true;
+            this.comboBoxLocation.Items.AddRange(new object[] {
+            "Haarlem",
+            "Amsterdam",
+            "Knuppeldam",
+            "HaarlemHQ"});
             this.comboBoxLocation.Location = new System.Drawing.Point(216, 322);
             this.comboBoxLocation.Name = "comboBoxLocation";
             this.comboBoxLocation.Size = new System.Drawing.Size(306, 23);
@@ -205,14 +201,26 @@
             this.labelErrorMessage.ForeColor = System.Drawing.Color.Red;
             this.labelErrorMessage.Location = new System.Drawing.Point(268, 140);
             this.labelErrorMessage.Name = "labelErrorMessage";
-            this.labelErrorMessage.Size = new System.Drawing.Size(10, 15);
+            this.labelErrorMessage.Size = new System.Drawing.Size(0, 15);
             this.labelErrorMessage.TabIndex = 20;
-            this.labelErrorMessage.Text = ".";
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLogout.Location = new System.Drawing.Point(574, 47);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(102, 28);
+            this.buttonLogout.TabIndex = 21;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
             // CreateNewEmployeeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.labelErrorMessage);
             this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.comboBoxLocation);
@@ -222,7 +230,6 @@
             this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.buttonRegister);
-            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -232,7 +239,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CreateNewEmployeeUC";
-            this.Size = new System.Drawing.Size(692, 620);
+            this.Size = new System.Drawing.Size(692, 603);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +255,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.TextBox textBoxFirstName;
         private System.Windows.Forms.TextBox textBoxLastName;
@@ -258,5 +264,6 @@
         private System.Windows.Forms.ComboBox comboBoxLocation;
         private System.Windows.Forms.CheckBox checkBoxPassword;
         private System.Windows.Forms.Label labelErrorMessage;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }

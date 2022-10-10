@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupModel;
 using GardenGroupLogic;
@@ -18,7 +13,7 @@ namespace GradenGroupUI.UserControls
         private TicketService ticketService;
         private List<Ticket> ticketsOfUser;
         private RegularEmployeeForm regularEmployeeForm;
-        private Employee employee;
+        private Employee employee;        
 
         public ViewTicketsUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {
@@ -37,18 +32,21 @@ namespace GradenGroupUI.UserControls
         }
 
         private void StyleUI()
-        {
-            this.createNewTicketButton.BackColor = Color.FromArgb(156, 179, 128);
+        {            
             this.buttonOpen.BackColor = Color.FromArgb(156, 179, 128);
             this.buttonClose.BackColor = Color.FromArgb(156, 179, 128);
             this.buttonResolved.BackColor = Color.FromArgb(156, 179, 128);
-            
+            this.updateButton.BackColor = Color.FromArgb(156, 179, 128);
+
             this.allTicketsListView.FullRowSelect = true;
         }
         
 
         private void ShowDashBoardTickets()
-        {                                
+        {
+            // remove the existing pie chart
+            this.dockPanel.Controls.Clear();
+           
             double[] percentageTicketStatus = GetPercentageTicketStatus();
 
             // Create a new chart.
@@ -60,10 +58,8 @@ namespace GradenGroupUI.UserControls
             // make the chart
             chart.Series.Add("Tickets");
             chart.Series["Tickets"].ChartType = SeriesChartType.Pie;            
-            chart.BackColor = Color.FromArgb(156, 179, 128);            
-            chart.Location = new Point(1250, 110);
+            chart.BackColor = Color.FromArgb(156, 179, 128);                    
             chart.Size = new Size(380, 380);
-
 
             // load data with 2 digits after the comma            
             chart.Series["Tickets"].Points.AddXY($"Open {Math.Round(percentageTicketStatus[0])}%", percentageTicketStatus[0]);
@@ -107,7 +103,7 @@ namespace GradenGroupUI.UserControls
 
                 this.allTicketsListView.Items.Add(item);
 
-                item.Tag = ticket;
+                item.Tag = ticket;                
             }            
         }                             
 
@@ -132,19 +128,14 @@ namespace GradenGroupUI.UserControls
             }
             double[] percentageTicketStatus = new double[3];
             for (int i = 0; i < ticketSatus.Length; i++)
-                percentageTicketStatus[i] = (double)ticketSatus[i] / ticketsOfUser.Count * 100;
+                percentageTicketStatus[i] = (double)ticketSatus[i] / this.ticketsOfUser.Count * 100;
             return percentageTicketStatus;
         }
 
         private List<Ticket> GetAllTicketsOfUser(Employee employee)
         {
             return this.ticketService.GetTicketsOfUser(employee.Id);            
-        }
-
-        private void createNewTicketButton_Click(object sender, EventArgs e)
-        {
-            this.regularEmployeeForm.DockAddTicketsUC();            
-        }
+        }        
 
         private void allTicketsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -200,10 +191,15 @@ namespace GradenGroupUI.UserControls
 
         private void UpdateUI()
         {
-            // update the listview
+            // update the dashboard
             this.ticketsOfUser = GetAllTicketsOfUser(this.employee);
+            ShowDashBoardTickets();            
             DisplayTicketsOfUser(this.ticketsOfUser);
-            ShowDashBoardTickets();
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            this.regularEmployeeForm.DockEditTicket((Ticket)allTicketsListView.SelectedItems[0].Tag);
         }
     }
 }

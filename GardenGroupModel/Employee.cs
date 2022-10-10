@@ -13,12 +13,12 @@ namespace GardenGroupModel
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public Password Password { get; set; }
+        public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public Location Location { get; set; }
         public bool IsServiceDeskEmployee{ get; set; }
 
-        public Employee(string firstName, string lastName, string email, string phoneNumber, Password password, Location location, bool isServiceDeskEmployee)
+        public Employee(string firstName, string lastName, string email, string phoneNumber, string password, Location location, bool isServiceDeskEmployee)
         {
             FirstName = firstName;
             LastName = lastName;
