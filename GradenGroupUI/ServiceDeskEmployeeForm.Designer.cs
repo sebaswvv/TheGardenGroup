@@ -62,9 +62,9 @@ namespace GradenGroupUI
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(26, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(436, 46);
+            this.label1.Size = new System.Drawing.Size(201, 46);
             this.label1.TabIndex = 2;
-            this.label1.Text = "The Garden Group Service";
+            this.label1.Text = "Green Desk";
             // 
             // showDashboardButton
             // 
