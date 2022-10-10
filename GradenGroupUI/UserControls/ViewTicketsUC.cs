@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupModel;
 using GardenGroupLogic;
@@ -51,8 +46,7 @@ namespace GradenGroupUI.UserControls
         {
             // remove the existing pie chart
             this.dockPanel.Controls.Clear();
-
-
+           
             double[] percentageTicketStatus = GetPercentageTicketStatus();
 
             // Create a new chart.
@@ -66,7 +60,6 @@ namespace GradenGroupUI.UserControls
             chart.Series["Tickets"].ChartType = SeriesChartType.Pie;            
             chart.BackColor = Color.FromArgb(156, 179, 128);                    
             chart.Size = new Size(380, 380);
-
 
             // load data with 2 digits after the comma            
             chart.Series["Tickets"].Points.AddXY($"Open {Math.Round(percentageTicketStatus[0])}%", percentageTicketStatus[0]);
@@ -135,7 +128,7 @@ namespace GradenGroupUI.UserControls
             }
             double[] percentageTicketStatus = new double[3];
             for (int i = 0; i < ticketSatus.Length; i++)
-                percentageTicketStatus[i] = (double)ticketSatus[i] / ticketsOfUser.Count * 100;
+                percentageTicketStatus[i] = (double)ticketSatus[i] / this.ticketsOfUser.Count * 100;
             return percentageTicketStatus;
         }
 
