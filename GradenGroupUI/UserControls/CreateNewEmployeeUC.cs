@@ -35,8 +35,7 @@ namespace GradenGroupUI.UserControls
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             Employee employee;
-            //password = GeneratePassword();
-            password = "admin";
+            password = GeneratePassword();
             string Encryptedpassword = passwordService.GenerateSaltedHash(password);
             if (!checkBoxPassword.Checked)
             {

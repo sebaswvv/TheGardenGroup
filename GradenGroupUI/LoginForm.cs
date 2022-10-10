@@ -125,8 +125,7 @@ namespace GradenGroupUI
             catch (Exception)
             {
                 throw;
-            }
-            
+            }            
         }
 
         private void buttonConfirmCode_Click(object sender, EventArgs e)
