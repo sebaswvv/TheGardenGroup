@@ -14,9 +14,9 @@ namespace GardenGroupLogic
             this.userDAO = new EmployeeDAO();
         }
         
-        public Employee GetEmployee(string Email)
+        public Employee GetEmployee(string email)
         {
-            return this.userDAO.GetUser(Email);
+            return this.userDAO.GetUser(email);
         }
         
 
