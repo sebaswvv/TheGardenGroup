@@ -174,7 +174,6 @@ namespace GradenGroupUI
                 this.ClientSize.Width / 2 - panel.Size.Width / 2,
                 this.ClientSize.Height / 2 - panel.Size.Height / 2);
                 panel.Anchor = AnchorStyles.None;
-                panel.BackColor = Color.FromArgb(156, 179, 128);
             }
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;

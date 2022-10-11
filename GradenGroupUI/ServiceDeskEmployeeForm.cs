@@ -25,7 +25,7 @@ namespace GradenGroupUI
             
             //UserControls.TicketsOverviewUC userControl = new UserControls.TicketsOverviewUC();
 
-            UserControls.CreateNewEmployeeUC userControl = new UserControls.CreateNewEmployeeUC();
+            UserControls.CreateNewEmployeeUC userControl = new UserControls.CreateNewEmployeeUC(employee);
             //UserControls.CreateTicketUC userControl = new UserControls.CreateTicketUC(employee);
             userControl.Dock = DockStyle.Fill;
             this.userControlPanel.Controls.Clear();

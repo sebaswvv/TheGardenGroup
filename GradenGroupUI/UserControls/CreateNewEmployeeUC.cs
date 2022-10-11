@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupModel;
 using GardenGroupLogic;
+using System.Configuration;
 
 namespace GradenGroupUI.UserControls
 {
@@ -20,7 +21,9 @@ namespace GradenGroupUI.UserControls
         PasswordService passwordService;
         EmployeeService employeeService;
         LoginForm loginForm;
-        public CreateNewEmployeeUC()
+        ServiceDeskEmployeeForm serviceDeskEmployeeForm;
+
+        public CreateNewEmployeeUC(Employee employee)
         {
             InitializeComponent();
             passwordService = new PasswordService();
@@ -125,11 +128,12 @@ namespace GradenGroupUI.UserControls
             }
         }
 
-        private void buttonLogout_Click(object sender, EventArgs e)
+        private void buttonLogout_Click(object sender, EventArgs e, Employee employee)
         {
             this.Hide();
             loginForm.Show();
-            //loginForm.Closed += (s, args) => this.Close();
+            serviceDeskEmployeeForm = new ServiceDeskEmployeeForm(employee);
+            loginForm.Closed += (s, args) => serviceDeskEmployeeForm.Close();
 
         }
     }
