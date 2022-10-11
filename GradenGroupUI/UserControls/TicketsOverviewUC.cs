@@ -32,28 +32,29 @@ namespace GradenGroupUI.UserControls
 
         private void LoadTicketsList()
         {
-            // TODO: switch to datagridview for sort and buttons
             List<Ticket> tickets = ticketService.GetAllTickets();
+            // sort by status (open tickets first), then by date (newest first)
+            tickets.Sort((a, b) => {
+                int statusComparer = a.Status.CompareTo(b.Status);
+                if (statusComparer != 0) return statusComparer;
+                return b.DateReported.CompareTo(a.DateReported);
+            });
+            
             ticketsList.AutoGenerateColumns = false;
-            ticketsList.DataSource = tickets;
-            //foreach (var ticket in tickets)
-            //{
-            //    ListViewItem value = new ListViewItem(new string[]{
-            //        ticket.Id,
-            //        ticket.Subject,
-            //        ticket.Employee.ToString(),
-            //        ticket.IncidentType.ToString(),
-            //        ticket.Priority.ToString(),
-            //        ticket.DateReported.ToString(),
-            //        ticket.Status.ToString(),
-            //    });
-            //    ticketsList.Items.Add(value);
-            //}
+            // a sortable binding list is needed in order for column headers to be sortable by the user
+            ticketsList.DataSource = new SortableBindingList<Ticket>(tickets);
         }
 
-        private void ticketsList_SelectedIndexChanged(object sender, EventArgs e)
+        private void ticketsList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (ticketsList.Columns[e.ColumnIndex] is not DataGridViewButtonColumn || e.RowIndex == -1)
+                return;
 
+            Ticket ticket = (Ticket) ticketsList.Rows[e.RowIndex].DataBoundItem;
+            MessageBox.Show(ticket.Subject);
+
+            DeskViewTicketUC viewTicketUserControl = new DeskViewTicketUC(ticket);
+            viewTicketUserControl.ShowDialog();
         }
     }
 }
