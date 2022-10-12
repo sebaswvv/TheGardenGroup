@@ -41,9 +41,11 @@ export class TicketsController {
             })
             res.send("hello")
                                          
-        } catch (err) {
-            console.error(err)
-            res.status(500).send("error")
+        } catch (err) {            
+            res.status(500).send({
+                message: "error",
+                description: "We couldn't find any tickets with those parameters, please try again",
+            })            
         }
     }
 
@@ -58,8 +60,10 @@ export class TicketsController {
                 ticket,
             })
         } catch (err) {
-            console.error(err)
-            res.status(500).send("error")
+            res.status(400).send({
+                message: "error",
+                description: "There was an error creating the ticket, please try again",
+            })  
         }
     }
 
@@ -73,8 +77,10 @@ export class TicketsController {
                 ticket,
             })
         } catch (err) {
-            console.error(err)
-            res.status(500).send("error")
+            res.status(400).send({
+                message: "error",
+                description: "There was an error updating the ticket, please try again",
+            })  
         }
     }
 
@@ -87,8 +93,10 @@ export class TicketsController {
                 message: "successfully deleted ticket",
             })
         } catch (err) {
-            console.error(err)
-            res.status(500).send("error")
+            res.status(400).send({
+                message: "error",
+                description: "There was an error deleting the ticket, please try again",
+            })  
         }
     }
 }
