@@ -37,5 +37,10 @@ namespace GardenGroupLogic
         {
             return this.ticketDAO.GetAllTickets();
         }
+
+        public void UpdateTicket(Ticket ticket)
+        {
+            this.ticketDAO.UpdateTicket(ticket);
+        }
     }
 }

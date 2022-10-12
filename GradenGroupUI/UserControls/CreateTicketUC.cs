@@ -51,26 +51,28 @@ namespace GradenGroupUI.UserControls
         private void submitTicketButton_Click(object sender, EventArgs e)
         {
             TicketService ticketService = new TicketService();
-            
-            string employeeID = this.employee.Id;
-            int index = ticketReportedUserComboBox.SelectedIndex;
 
-            if (this.employee.IsServiceDeskEmployee)
-            {
-                List<Employee> employees = (List<Employee>)ticketReportedUserComboBox.DataSource;
-                Employee selectedEmployee = employees[index];
-                employeeID = selectedEmployee.Id;
-            }
+            //string employeeID = this.employee.Id;
+            //int index = ticketReportedUserComboBox.SelectedIndex;
 
-            //Creates the ticket obeject with the data from the form
-            Ticket ticket = new Ticket(employeeID, ticketReportedDateTimePicker.Value,
-                ticketSubjectIncidentTextBox.Text,
-                (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectionStart,
-                (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectionStart,
-                (GardenGroupModel.Enums.Deadline)ticketDeadlineFollowUpComboBox.SelectionStart,
-                ticketDescriptionTextBox.Text, GardenGroupModel.Enums.Status.Open);
+            //if (this.employee.IsServiceDeskEmployee)
+            //{
+            //    List<Employee> employees = (List<Employee>)ticketReportedUserComboBox.DataSource;
+            //    Employee selectedEmployee = employees[index];
+            //    employeeID = selectedEmployee.Id;
+            //}
 
-            ticketService.AddTicket(ticket);
+            ////Creates the ticket obeject with the data from the form
+            //Ticket ticket = new Ticket(employeeID, ticketReportedDateTimePicker.Value,
+            //    ticketSubjectIncidentTextBox.Text,
+            //    (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectionStart,
+            //    (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectionStart,
+            //    (GardenGroupModel.Enums.Deadline)ticketDeadlineFollowUpComboBox.SelectionStart,
+            //    ticketDescriptionTextBox.Text, GardenGroupModel.Enums.Status.Open);
+
+            //ticketService.AddTicket(ticket);
+
+            ticketService.AddTicket(MakeTicketFromValues(RecieveEmployeeID()));
 
             //Could add some feedback to the user to let them know that the ticket is made
 
@@ -125,7 +127,38 @@ namespace GradenGroupUI.UserControls
         // TODO add the updated values to the ticket
         private void updateTicketButton_Click(object sender, EventArgs e)
         {
-            
+            TicketService ticketService = new TicketService();
+            ticketService.UpdateTicket(MakeTicketFromValues(RecieveEmployeeID()));
+        }
+
+        //Makes a ticket from the values that where given by the user
+        private Ticket MakeTicketFromValues(string employeeID)
+        {
+            Ticket ticket = new Ticket(employeeID, ticketReportedDateTimePicker.Value,
+                ticketSubjectIncidentTextBox.Text,
+                (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectedIndex,
+                (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectedIndex,
+                (GardenGroupModel.Enums.Deadline)ticketDeadlineFollowUpComboBox.SelectedIndex,
+                ticketDescriptionTextBox.Text, GardenGroupModel.Enums.Status.Open);
+
+            return ticket;
+        }
+
+
+        // Recieves an employeeID based on the type of user that is logged in and returns it.
+        private string RecieveEmployeeID()
+        {
+            string employeeID = this.employee.Id;
+            int index = ticketReportedUserComboBox.SelectedIndex;
+
+            if (this.employee.IsServiceDeskEmployee)
+            {
+                List<Employee> employees = (List<Employee>)ticketReportedUserComboBox.DataSource;
+                Employee selectedEmployee = employees[index];
+                employeeID = selectedEmployee.Id;
+            }
+
+            return employeeID;
         }
     }
 }
