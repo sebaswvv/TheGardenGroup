@@ -127,7 +127,8 @@ namespace GradenGroupUI.UserControls
         // TODO add the updated values to the ticket
         private void updateTicketButton_Click(object sender, EventArgs e)
         {
-            MakeTicketFromValues(RecieveEmployeeID());
+            TicketService ticketService = new TicketService();
+            ticketService.UpdateTicket(MakeTicketFromValues(RecieveEmployeeID()));
         }
 
         //Makes a ticket from the values that where given by the user
@@ -135,9 +136,9 @@ namespace GradenGroupUI.UserControls
         {
             Ticket ticket = new Ticket(employeeID, ticketReportedDateTimePicker.Value,
                 ticketSubjectIncidentTextBox.Text,
-                (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectionStart,
-                (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectionStart,
-                (GardenGroupModel.Enums.Deadline)ticketDeadlineFollowUpComboBox.SelectionStart,
+                (GardenGroupModel.Enums.IncidentType)ticketTypeIncidentComboBox.SelectedIndex,
+                (GardenGroupModel.Enums.Priority)ticketPriorityComboBox.SelectedIndex,
+                (GardenGroupModel.Enums.Deadline)ticketDeadlineFollowUpComboBox.SelectedIndex,
                 ticketDescriptionTextBox.Text, GardenGroupModel.Enums.Status.Open);
 
             return ticket;
