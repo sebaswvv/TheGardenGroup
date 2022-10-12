@@ -115,14 +115,14 @@ namespace GradenGroupUI.UserControls
                 ticket.Priority.ToString(), deadline,
                 ticket.Status.ToString()});
 
-            if (deadLineDate > DateTime.Now)
-            {
-                item.BackColor = Color.Red;
-            }
-            else if (deadLineDate == DateTime.Now)
-            {
-                item.BackColor = Color.Orange;
-            }
+            //if (deadLineDate > DateTime.Now)
+            //{
+            //    item.BackColor = Color.Red;
+            //}
+            //else if (deadLineDate == DateTime.Now)
+            //{
+            //    item.BackColor = Color.Orange;
+            //}
 
             return item;
         }
