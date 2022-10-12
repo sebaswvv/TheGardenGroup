@@ -1,4 +1,4 @@
-To start the API server. Open root folder in a terminal and type: npm start
+To start the API server. Open root folder .\api in a terminal and type: npm start
 
 ---
 
