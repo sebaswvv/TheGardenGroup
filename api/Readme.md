@@ -1,3 +1,5 @@
+To start the API server. Open root folder in a terminal and type: npm start
+
 Tickets api: /tickets
 
 GET /tickets/ => to get all tickets
@@ -16,6 +18,4 @@ PATCH /tickets/:id => edit a specific ticket on ticketID
 
 POST /tickets => post a new ticket
 
-
-Employees api: 
-
+Employees api:
