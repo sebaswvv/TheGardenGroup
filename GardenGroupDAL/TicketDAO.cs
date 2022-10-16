@@ -37,6 +37,11 @@ namespace GardenGroupDAL
             UpdateResult result = this.collection.UpdateOne(filter, update);
         }
 
+        public void DeleteTicket(Ticket ticket)
+        {
+            this.collection.DeleteOne(x => x.Id == ticket.Id);
+        }
+
         public List<Ticket> GetAllTickets()
         {
             BsonArray match = new BsonArray();

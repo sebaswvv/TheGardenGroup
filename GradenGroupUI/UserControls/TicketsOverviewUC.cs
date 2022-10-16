@@ -1,16 +1,7 @@
 ﻿using GardenGroupLogic;
 using GardenGroupModel;
-using GardenGroupModel.Enums;
-using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GradenGroupUI.UserControls
@@ -29,7 +20,7 @@ namespace GradenGroupUI.UserControls
         {
             LoadTicketsList();
         }
-
+        
         private void LoadTicketsList()
         {
             List<Ticket> tickets = ticketService.GetAllTickets();
@@ -51,10 +42,18 @@ namespace GradenGroupUI.UserControls
                 return;
 
             Ticket ticket = (Ticket) ticketsList.Rows[e.RowIndex].DataBoundItem;
-            MessageBox.Show(ticket.Subject);
 
-            DeskViewTicketUC viewTicketUserControl = new DeskViewTicketUC(ticket);
+            // open view ticket dialog
+            DeskViewTicketUC viewTicketUserControl = new DeskViewTicketUC(ticket, ticketService);
             viewTicketUserControl.ShowDialog();
+            ticketsList.ClearSelection();
+            LoadTicketsList();
+        }
+
+        private void createIncidentButton_Click(object sender, EventArgs e)
+        {
+            // open create ticket dialog
+            //UserControls.S createTicketUserControl = new UserControls.S(employee, form);
         }
     }
 }
