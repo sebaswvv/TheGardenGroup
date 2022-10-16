@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GardenGroupModel.Employee">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <AssociationLine Name="Location" Type="GardenGroupModel.Enums.Location">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.154" Y="0.214" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Location" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GardenGroupModel.Ticket">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Deadline" />
+      <Property Name="Employee" />
+      <Property Name="IncidentType" />
+      <Property Name="Priority" />
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GardenGroupModel.Enums.Deadline">
+    <Position X="6.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupModel.Enums.IncidentType">
+    <Position X="3.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupModel.Enums.Location">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupModel.Enums.Priority">
+    <Position X="3.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupModel.Enums.Status">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupLogic.EmployeeService">
+    <Position X="11.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupLogic.PasswordService">
+    <Position X="13.5" Y="5.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupLogic.TicketService">
+    <Position X="9" Y="5.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupDAL.BaseDAO">
+    <Position X="10.25" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupDAL.EmployeeDAO">
+    <Position X="11.25" Y="3" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GardenGroupDAL.TicketDAO">
+    <Position X="9" Y="3" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GradenGroupUI.Properties.Resources" Collapsed="true">
+    <Position X="12.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GradenGroupUI.UserControls.CreateNewEmployeeUC" Collapsed="true">
+    <Position X="6.25" Y="9.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAIQQAEGQAABiAAQCAAABCAwAAAgBAAAAAggAEAjA=</HashCode>
+      <FileName>UserControls\CreateNewEmployeeUC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GradenGroupUI.UserControls.DeskViewTicketUC" Collapsed="true">
+    <Position X="4.25" Y="9.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserControls\DeskViewTicketUC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GradenGroupUI.UserControls.TicketsOverviewUC" Collapsed="true">
+    <Position X="8.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAACQAAIAAAAKAEACCCAAAgAAAAQAAAAAEAwA=</HashCode>
+      <FileName>UserControls\TicketsOverviewUC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GradenGroupUI.UserControls.ViewTicketsUC" Collapsed="true">
+    <Position X="10.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAACgKwAUpAAIAGYAAiCCAAAwAgACCQAIAQBAEA=</HashCode>
+      <FileName>UserControls\ViewTicketsUC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GradenGroupUI.LoginForm" Collapsed="true">
+    <Position X="8.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgICBIkEaBAABgAARSJAoQSYgEQBAASARIAgAKEADQ=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GradenGroupUI.RegularEmployeeForm" Collapsed="true">
+    <Position X="5.75" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AoACABAAICAAAhAAAACIEAACBBAIAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>RegularEmployeeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GradenGroupUI.ServiceDeskEmployeeForm" Collapsed="true">
+    <Position X="10.25" Y="8.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AIAAABAAACAAAhAAAACAAAACAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServiceDeskEmployeeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

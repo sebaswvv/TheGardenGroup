@@ -20,19 +20,17 @@ namespace GardenGroupDAL
         public void AddUser(Employee newUser) 
         {
             this.collection.InsertOne(newUser);
-        }
-        
+        }        
 
-        public Employee GetUser(string Email)
+        public Employee GetUser(string email)
         {
-            return this.collection.Find(u => u.Email == Email).FirstOrDefault();
+            return this.collection.Find(u => u.Email == email).FirstOrDefault();
         }
 
         public void UpdateUser(Employee employee)
         {
             this.collection.ReplaceOne(u => u.Email == employee.Email, employee);
         }
-
         public List<Employee> GetAllEmployees()
         {
             return this.collection.Find(u => true).ToList();

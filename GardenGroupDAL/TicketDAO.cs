@@ -71,5 +71,11 @@ namespace GardenGroupDAL
                 .As<Ticket>()
                 .ToList();
         }
+
+        // TODO: Update existing ticket in the database where ticket ID is the same as the given ticket
+        public void UpdateTicket(Ticket ticket)
+        {
+            //this.collection.UpdateOne( {  } ),
+        }
     }
 }

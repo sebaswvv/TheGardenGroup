@@ -76,36 +76,56 @@ namespace GradenGroupUI.UserControls
 
             foreach (Ticket ticket in tickets)
             {
-                string deadline = "";
-
-                // make deadline a string
-                switch (ticket.Deadline)
-                {
-                    case GardenGroupModel.Enums.Deadline.SevenDays:
-                        deadline = "7 days";
-                        break;
-                    case GardenGroupModel.Enums.Deadline.FourtheenDays:
-                        deadline = "14 days";
-                        break;
-                    case GardenGroupModel.Enums.Deadline.TwentyEightDays:
-                        deadline = "28 days";
-                        break;
-                    case GardenGroupModel.Enums.Deadline.SixMonths:
-                        deadline = "6 months";
-                        break;
-                }
-
-                ListViewItem item = new ListViewItem(new string[] {ticket.Subject,
-                    ticket.Description,
-                    ticket.DateReported.ToString(),
-                    ticket.Priority.ToString(), deadline,
-                    ticket.Status.ToString(), "Resolve" });
+                ListViewItem item = CreateListViewItem(ticket);
 
                 this.allTicketsListView.Items.Add(item);
 
-                item.Tag = ticket;                
-            }            
-        }                             
+                item.Tag = ticket;
+            }
+        }
+
+        private ListViewItem CreateListViewItem(Ticket ticket)
+        {
+            string deadline = "";
+            DateTime deadLineDate = DateTime.Now;
+            // Get the deadline of the ticket and format it
+            switch (ticket.Deadline)
+            {
+                case GardenGroupModel.Enums.Deadline.SevenDays:
+                    deadline = ticket.DateReported.AddDays(7).ToString("dd/MM/yyyy");
+                    deadLineDate = ticket.DateReported.AddDays(7);
+                    break;
+                case GardenGroupModel.Enums.Deadline.FourtheenDays:
+                    deadline = ticket.DateReported.AddDays(14).ToString("dd/MM/yyyy");
+                    deadLineDate = ticket.DateReported.AddDays(7);
+                    break;
+                case GardenGroupModel.Enums.Deadline.TwentyEightDays:
+                    deadline = ticket.DateReported.AddDays(28).ToString("dd/MM/yyyy");
+                    deadLineDate = ticket.DateReported.AddDays(7);
+                    break;
+                case GardenGroupModel.Enums.Deadline.SixMonths:
+                    deadline = ticket.DateReported.AddMonths(6).ToString("dd/MM/yyyy");
+                    deadLineDate = ticket.DateReported.AddDays(7);
+                    break;
+            }
+
+            ListViewItem item = new ListViewItem(new string[] {ticket.Subject,
+                ticket.Description,
+                ticket.DateReported.ToString("dd/MM/yyyy"),
+                ticket.Priority.ToString(), deadline,
+                ticket.Status.ToString()});
+
+            //if (deadLineDate > DateTime.Now)
+            //{
+            //    item.BackColor = Color.Red;
+            //}
+            //else if (deadLineDate == DateTime.Now)
+            //{
+            //    item.BackColor = Color.Orange;
+            //}
+
+            return item;
+        }
 
         private double[] GetPercentageTicketStatus()
         {
