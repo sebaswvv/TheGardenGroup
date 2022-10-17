@@ -1,16 +1,7 @@
 ﻿using GardenGroupLogic;
 using GardenGroupModel;
-using GardenGroupModel.Enums;
-using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GradenGroupUI.UserControls
@@ -29,30 +20,40 @@ namespace GradenGroupUI.UserControls
         {
             LoadTicketsList();
         }
-
+        
         private void LoadTicketsList()
         {
-            // TODO: switch to datagridview for sort and buttons
-            ticketsList.Items.Clear();
             List<Ticket> tickets = ticketService.GetAllTickets();
-            foreach (var ticket in tickets)
-            {
-                ListViewItem value = new ListViewItem(new string[]{
-                    ticket.Id,
-                    ticket.Subject,
-                    ticket.Employee.ToString(),
-                    ticket.IncidentType.ToString(),
-                    ticket.Priority.ToString(),
-                    ticket.DateReported.ToString(),
-                    ticket.Status.ToString(),
-                });
-                ticketsList.Items.Add(value);
-            }
+            // sort by status (open tickets first), then by date (newest first)
+            tickets.Sort((a, b) => {
+                int statusComparer = a.Status.CompareTo(b.Status);
+                if (statusComparer != 0) return statusComparer;
+                return b.DateReported.CompareTo(a.DateReported);
+            });
+            
+            ticketsList.AutoGenerateColumns = false;
+            // a sortable binding list is needed in order for column headers to be sortable by the user
+            ticketsList.DataSource = new SortableBindingList<Ticket>(tickets);
         }
 
-        private void ticketsList_SelectedIndexChanged(object sender, EventArgs e)
+        private void ticketsList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (ticketsList.Columns[e.ColumnIndex] is not DataGridViewButtonColumn || e.RowIndex == -1)
+                return;
 
+            Ticket ticket = (Ticket) ticketsList.Rows[e.RowIndex].DataBoundItem;
+
+            // open view ticket dialog
+            DeskViewTicketUC viewTicketUserControl = new DeskViewTicketUC(ticket, ticketService);
+            viewTicketUserControl.ShowDialog();
+            ticketsList.ClearSelection();
+            LoadTicketsList();
+        }
+
+        private void createIncidentButton_Click(object sender, EventArgs e)
+        {
+            // open create ticket dialog
+            //UserControls.S createTicketUserControl = new UserControls.S(employee, form);
         }
     }
 }

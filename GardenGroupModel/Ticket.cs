@@ -37,5 +37,17 @@ namespace GardenGroupModel
             Description = description;
             Status = status;
         }
+
+        public string FormattedDeadline
+        {
+            get => this.Deadline switch
+            {
+                Deadline.SevenDays => "7 days",
+                Deadline.FourtheenDays => "14 days",
+                Deadline.TwentyEightDays => "28 days",
+                Deadline.SixMonths => "6 months",
+                _ => this.Deadline.ToString(),
+            };
+        }
     }
 }
