@@ -40,7 +40,13 @@ namespace GardenGroupLogic
 
         public void UpdateTicket(Ticket ticket)
         {
-            this.ticketDAO.UpdateTicket(ticket);
+            this.ticketDAO.UpdateTicketDateReported(ticket);
+            this.ticketDAO.UpdateTicketSubject(ticket);
+            this.ticketDAO.UpdateTicketDeadline(ticket);
+            this.ticketDAO.UpdateTicketDescription(ticket);
+            this.ticketDAO.UpdateTicketEmployee(ticket);
+            this.ticketDAO.UpdateTicketIncidentType(ticket);
+            this.ticketDAO.UpdateTicketPriority(ticket);
         }
 
         public void DeleteTicket(Ticket ticket)

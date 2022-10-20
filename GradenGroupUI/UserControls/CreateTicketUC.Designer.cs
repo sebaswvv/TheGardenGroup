@@ -53,50 +53,50 @@
             // 
             this.createTicketHeaderLabel.AutoSize = true;
             this.createTicketHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.createTicketHeaderLabel.Location = new System.Drawing.Point(89, 166);
-            this.createTicketHeaderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.createTicketHeaderLabel.Location = new System.Drawing.Point(62, 100);
+            this.createTicketHeaderLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.createTicketHeaderLabel.Name = "createTicketHeaderLabel";
-            this.createTicketHeaderLabel.Size = new System.Drawing.Size(432, 48);
+            this.createTicketHeaderLabel.Size = new System.Drawing.Size(292, 32);
             this.createTicketHeaderLabel.TabIndex = 0;
             this.createTicketHeaderLabel.Text = "Create new incident ticket";
             // 
             // dateTimeReportedLabel
             // 
             this.dateTimeReportedLabel.AutoSize = true;
-            this.dateTimeReportedLabel.Location = new System.Drawing.Point(96, 309);
-            this.dateTimeReportedLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.dateTimeReportedLabel.Location = new System.Drawing.Point(67, 185);
+            this.dateTimeReportedLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.dateTimeReportedLabel.Name = "dateTimeReportedLabel";
-            this.dateTimeReportedLabel.Size = new System.Drawing.Size(169, 25);
+            this.dateTimeReportedLabel.Size = new System.Drawing.Size(111, 15);
             this.dateTimeReportedLabel.TabIndex = 1;
             this.dateTimeReportedLabel.Text = "Date/time reported:";
             // 
             // ticketSubjectIncidentLabel
             // 
             this.ticketSubjectIncidentLabel.AutoSize = true;
-            this.ticketSubjectIncidentLabel.Location = new System.Drawing.Point(96, 351);
-            this.ticketSubjectIncidentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ticketSubjectIncidentLabel.Location = new System.Drawing.Point(67, 211);
+            this.ticketSubjectIncidentLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.ticketSubjectIncidentLabel.Name = "ticketSubjectIncidentLabel";
-            this.ticketSubjectIncidentLabel.Size = new System.Drawing.Size(163, 25);
+            this.ticketSubjectIncidentLabel.Size = new System.Drawing.Size(109, 15);
             this.ticketSubjectIncidentLabel.TabIndex = 2;
             this.ticketSubjectIncidentLabel.Text = "Subject of incident:";
             // 
             // ticketTypeIncidentLabel
             // 
             this.ticketTypeIncidentLabel.AutoSize = true;
-            this.ticketTypeIncidentLabel.Location = new System.Drawing.Point(96, 394);
-            this.ticketTypeIncidentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ticketTypeIncidentLabel.Location = new System.Drawing.Point(67, 236);
+            this.ticketTypeIncidentLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.ticketTypeIncidentLabel.Name = "ticketTypeIncidentLabel";
-            this.ticketTypeIncidentLabel.Size = new System.Drawing.Size(142, 25);
+            this.ticketTypeIncidentLabel.Size = new System.Drawing.Size(94, 15);
             this.ticketTypeIncidentLabel.TabIndex = 3;
             this.ticketTypeIncidentLabel.Text = "Type of incident:";
             // 
             // ticketReportedUserLabel
             // 
             this.ticketReportedUserLabel.AutoSize = true;
-            this.ticketReportedUserLabel.Location = new System.Drawing.Point(96, 270);
-            this.ticketReportedUserLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ticketReportedUserLabel.Location = new System.Drawing.Point(67, 162);
+            this.ticketReportedUserLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.ticketReportedUserLabel.Name = "ticketReportedUserLabel";
-            this.ticketReportedUserLabel.Size = new System.Drawing.Size(152, 25);
+            this.ticketReportedUserLabel.Size = new System.Drawing.Size(99, 15);
             this.ticketReportedUserLabel.TabIndex = 4;
             this.ticketReportedUserLabel.Text = "Reported by user:";
             this.ticketReportedUserLabel.Visible = false;
@@ -104,48 +104,48 @@
             // ticketPriorityLabel
             // 
             this.ticketPriorityLabel.AutoSize = true;
-            this.ticketPriorityLabel.Location = new System.Drawing.Point(96, 434);
-            this.ticketPriorityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ticketPriorityLabel.Location = new System.Drawing.Point(67, 260);
+            this.ticketPriorityLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.ticketPriorityLabel.Name = "ticketPriorityLabel";
-            this.ticketPriorityLabel.Size = new System.Drawing.Size(72, 25);
+            this.ticketPriorityLabel.Size = new System.Drawing.Size(48, 15);
             this.ticketPriorityLabel.TabIndex = 5;
             this.ticketPriorityLabel.Text = "Priority:";
             // 
             // ticketDeadlineFollowUpLabel
             // 
             this.ticketDeadlineFollowUpLabel.AutoSize = true;
-            this.ticketDeadlineFollowUpLabel.Location = new System.Drawing.Point(96, 471);
-            this.ticketDeadlineFollowUpLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ticketDeadlineFollowUpLabel.Location = new System.Drawing.Point(67, 283);
+            this.ticketDeadlineFollowUpLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.ticketDeadlineFollowUpLabel.Name = "ticketDeadlineFollowUpLabel";
-            this.ticketDeadlineFollowUpLabel.Size = new System.Drawing.Size(167, 25);
+            this.ticketDeadlineFollowUpLabel.Size = new System.Drawing.Size(111, 15);
             this.ticketDeadlineFollowUpLabel.TabIndex = 6;
             this.ticketDeadlineFollowUpLabel.Text = "Deadline/follow up:";
             // 
             // ticketDescriptionLabel
             // 
             this.ticketDescriptionLabel.AutoSize = true;
-            this.ticketDescriptionLabel.Location = new System.Drawing.Point(96, 516);
-            this.ticketDescriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ticketDescriptionLabel.Location = new System.Drawing.Point(67, 310);
+            this.ticketDescriptionLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.ticketDescriptionLabel.Name = "ticketDescriptionLabel";
-            this.ticketDescriptionLabel.Size = new System.Drawing.Size(106, 25);
+            this.ticketDescriptionLabel.Size = new System.Drawing.Size(70, 15);
             this.ticketDescriptionLabel.TabIndex = 7;
             this.ticketDescriptionLabel.Text = "Description:";
             // 
             // ticketSubjectIncidentTextBox
             // 
-            this.ticketSubjectIncidentTextBox.Location = new System.Drawing.Point(306, 346);
-            this.ticketSubjectIncidentTextBox.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.ticketSubjectIncidentTextBox.Location = new System.Drawing.Point(214, 208);
+            this.ticketSubjectIncidentTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ticketSubjectIncidentTextBox.Name = "ticketSubjectIncidentTextBox";
-            this.ticketSubjectIncidentTextBox.Size = new System.Drawing.Size(285, 31);
+            this.ticketSubjectIncidentTextBox.Size = new System.Drawing.Size(201, 23);
             this.ticketSubjectIncidentTextBox.TabIndex = 8;
             // 
             // ticketDescriptionTextBox
             // 
-            this.ticketDescriptionTextBox.Location = new System.Drawing.Point(306, 516);
-            this.ticketDescriptionTextBox.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.ticketDescriptionTextBox.Location = new System.Drawing.Point(214, 310);
+            this.ticketDescriptionTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ticketDescriptionTextBox.Multiline = true;
             this.ticketDescriptionTextBox.Name = "ticketDescriptionTextBox";
-            this.ticketDescriptionTextBox.Size = new System.Drawing.Size(395, 249);
+            this.ticketDescriptionTextBox.Size = new System.Drawing.Size(278, 151);
             this.ticketDescriptionTextBox.TabIndex = 11;
             // 
             // ticketTypeIncidentComboBox
@@ -155,20 +155,20 @@
             "Software",
             "Hardware",
             "Service"});
-            this.ticketTypeIncidentComboBox.Location = new System.Drawing.Point(306, 386);
-            this.ticketTypeIncidentComboBox.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.ticketTypeIncidentComboBox.Location = new System.Drawing.Point(214, 232);
+            this.ticketTypeIncidentComboBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ticketTypeIncidentComboBox.Name = "ticketTypeIncidentComboBox";
-            this.ticketTypeIncidentComboBox.Size = new System.Drawing.Size(285, 33);
+            this.ticketTypeIncidentComboBox.Size = new System.Drawing.Size(201, 23);
             this.ticketTypeIncidentComboBox.TabIndex = 12;
             this.ticketTypeIncidentComboBox.Text = "Select type";
             // 
             // ticketReportedUserComboBox
             // 
             this.ticketReportedUserComboBox.FormattingEnabled = true;
-            this.ticketReportedUserComboBox.Location = new System.Drawing.Point(306, 270);
-            this.ticketReportedUserComboBox.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.ticketReportedUserComboBox.Location = new System.Drawing.Point(214, 162);
+            this.ticketReportedUserComboBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ticketReportedUserComboBox.Name = "ticketReportedUserComboBox";
-            this.ticketReportedUserComboBox.Size = new System.Drawing.Size(285, 33);
+            this.ticketReportedUserComboBox.Size = new System.Drawing.Size(201, 23);
             this.ticketReportedUserComboBox.TabIndex = 13;
             this.ticketReportedUserComboBox.Text = "Select user";
             this.ticketReportedUserComboBox.Visible = false;
@@ -180,10 +180,10 @@
             "Low",
             "Normal",
             "High"});
-            this.ticketPriorityComboBox.Location = new System.Drawing.Point(306, 425);
-            this.ticketPriorityComboBox.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.ticketPriorityComboBox.Location = new System.Drawing.Point(214, 255);
+            this.ticketPriorityComboBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ticketPriorityComboBox.Name = "ticketPriorityComboBox";
-            this.ticketPriorityComboBox.Size = new System.Drawing.Size(285, 33);
+            this.ticketPriorityComboBox.Size = new System.Drawing.Size(201, 23);
             this.ticketPriorityComboBox.TabIndex = 14;
             this.ticketPriorityComboBox.Text = "Select priority";
             // 
@@ -195,52 +195,58 @@
             "14 days",
             "28 days",
             "6 months"});
-            this.ticketDeadlineFollowUpComboBox.Location = new System.Drawing.Point(306, 464);
-            this.ticketDeadlineFollowUpComboBox.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.ticketDeadlineFollowUpComboBox.Location = new System.Drawing.Point(214, 278);
+            this.ticketDeadlineFollowUpComboBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ticketDeadlineFollowUpComboBox.Name = "ticketDeadlineFollowUpComboBox";
-            this.ticketDeadlineFollowUpComboBox.Size = new System.Drawing.Size(285, 33);
+            this.ticketDeadlineFollowUpComboBox.Size = new System.Drawing.Size(201, 23);
             this.ticketDeadlineFollowUpComboBox.TabIndex = 15;
             this.ticketDeadlineFollowUpComboBox.Text = "Select deadline";
             // 
             // ticketReportedDateTimePicker
             // 
-            this.ticketReportedDateTimePicker.Location = new System.Drawing.Point(306, 309);
-            this.ticketReportedDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.ticketReportedDateTimePicker.Location = new System.Drawing.Point(214, 185);
+            this.ticketReportedDateTimePicker.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ticketReportedDateTimePicker.Name = "ticketReportedDateTimePicker";
-            this.ticketReportedDateTimePicker.Size = new System.Drawing.Size(285, 31);
+            this.ticketReportedDateTimePicker.Size = new System.Drawing.Size(201, 23);
             this.ticketReportedDateTimePicker.TabIndex = 16;
             // 
             // cancelTicketButton
             // 
-            this.cancelTicketButton.Location = new System.Drawing.Point(306, 796);
-            this.cancelTicketButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.cancelTicketButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cancelTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelTicketButton.Location = new System.Drawing.Point(214, 478);
+            this.cancelTicketButton.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.cancelTicketButton.Name = "cancelTicketButton";
-            this.cancelTicketButton.Size = new System.Drawing.Size(159, 54);
+            this.cancelTicketButton.Size = new System.Drawing.Size(111, 32);
             this.cancelTicketButton.TabIndex = 17;
             this.cancelTicketButton.Text = "Cancel";
-            this.cancelTicketButton.UseVisualStyleBackColor = true;
+            this.cancelTicketButton.UseVisualStyleBackColor = false;
             this.cancelTicketButton.Click += new System.EventHandler(this.cancelTicketButton_Click);
             // 
             // submitTicketButton
             // 
-            this.submitTicketButton.Location = new System.Drawing.Point(704, 796);
-            this.submitTicketButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.submitTicketButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.submitTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submitTicketButton.Location = new System.Drawing.Point(493, 478);
+            this.submitTicketButton.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.submitTicketButton.Name = "submitTicketButton";
-            this.submitTicketButton.Size = new System.Drawing.Size(154, 54);
+            this.submitTicketButton.Size = new System.Drawing.Size(108, 32);
             this.submitTicketButton.TabIndex = 18;
             this.submitTicketButton.Text = "Submit ticket";
-            this.submitTicketButton.UseVisualStyleBackColor = true;
+            this.submitTicketButton.UseVisualStyleBackColor = false;
             this.submitTicketButton.Click += new System.EventHandler(this.submitTicketButton_Click);
             // 
             // updateTicketButton
             // 
-            this.updateTicketButton.Location = new System.Drawing.Point(546, 796);
-            this.updateTicketButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.updateTicketButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.updateTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateTicketButton.Location = new System.Drawing.Point(382, 478);
+            this.updateTicketButton.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.updateTicketButton.Name = "updateTicketButton";
-            this.updateTicketButton.Size = new System.Drawing.Size(154, 54);
+            this.updateTicketButton.Size = new System.Drawing.Size(108, 32);
             this.updateTicketButton.TabIndex = 19;
             this.updateTicketButton.Text = "Update ticket";
-            this.updateTicketButton.UseVisualStyleBackColor = true;
+            this.updateTicketButton.UseVisualStyleBackColor = false;
             this.updateTicketButton.Visible = false;
             this.updateTicketButton.Click += new System.EventHandler(this.updateTicketButton_Click);
             // 
@@ -248,16 +254,16 @@
             // 
             this.updateTicketLabel.AutoSize = true;
             this.updateTicketLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.updateTicketLabel.Location = new System.Drawing.Point(96, 166);
-            this.updateTicketLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.updateTicketLabel.Location = new System.Drawing.Point(67, 100);
+            this.updateTicketLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.updateTicketLabel.Name = "updateTicketLabel";
-            this.updateTicketLabel.Size = new System.Drawing.Size(370, 48);
+            this.updateTicketLabel.Size = new System.Drawing.Size(249, 32);
             this.updateTicketLabel.TabIndex = 20;
             this.updateTicketLabel.Text = "Update incident ticket";
             // 
             // S
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.updateTicketLabel);
@@ -279,9 +285,9 @@
             this.Controls.Add(this.ticketSubjectIncidentLabel);
             this.Controls.Add(this.dateTimeReportedLabel);
             this.Controls.Add(this.createTicketHeaderLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.Name = "S";
-            this.Size = new System.Drawing.Size(1640, 886);
+            this.Size = new System.Drawing.Size(1148, 532);
             this.ResumeLayout(false);
             this.PerformLayout();
 
