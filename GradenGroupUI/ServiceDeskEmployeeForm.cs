@@ -31,7 +31,7 @@ namespace GradenGroupUI
 
         public void ShowDashBoard()
         {
-            TicketsOverviewUC userControl = new TicketsOverviewUC();
+            TicketsOverviewUC userControl = new TicketsOverviewUC(employee, this);
             userControl.Dock = DockStyle.Fill;
             this.userControlPanel.Controls.Clear();
             this.userControlPanel.Controls.Add(userControl);
@@ -50,6 +50,12 @@ namespace GradenGroupUI
             this.logoutButton.BackColor = Color.White;
         }
 
+        public void ShowCreateTicket(CreateTicketUC createTicketUserControl)
+        {            
+            this.userControlPanel.Controls.Clear();
+            this.userControlPanel.Controls.Add(createTicketUserControl);
+        }
+
         private void buttonCreateTicket_Click(object sender, EventArgs e)
         {
             this.userControlPanel.Controls.Clear();
@@ -60,7 +66,7 @@ namespace GradenGroupUI
         private void showDashboardButton_Click(object sender, EventArgs e)
         {
             this.userControlPanel.Controls.Clear();
-            TicketsOverviewUC showDashBoarduserControl = new TicketsOverviewUC();
+            TicketsOverviewUC showDashBoarduserControl = new TicketsOverviewUC(this.employee, this);
             this.userControlPanel.Controls.Add(showDashBoarduserControl);
         }
 

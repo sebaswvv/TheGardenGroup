@@ -19,6 +19,8 @@ namespace GradenGroupUI.UserControls
         private Form form;        
         private Ticket ticket;
 
+        // TODO: Create base contructor
+
         // Constructor for creating a ticket
         public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {            
@@ -54,6 +56,21 @@ namespace GradenGroupUI.UserControls
             this.employees = employeeService.GetAllEmployees();
             this.employee = employee;
             this.form = regularEmployeeForm;
+            this.ticket = ticket;
+
+            CheckEmployee(employee);
+
+            FillComboBox();
+            ChangeToUpdate(ticket);
+        }
+
+        public CreateTicketUC(Employee employee, ServiceDeskEmployeeForm serviceDeskForm, Ticket ticket)
+        {
+            InitializeComponent();
+            EmployeeService employeeService = new EmployeeService();
+            this.employees = employeeService.GetAllEmployees();
+            this.employee = employee;
+            this.form = serviceDeskForm;
             this.ticket = ticket;
 
             CheckEmployee(employee);
@@ -98,7 +115,7 @@ namespace GradenGroupUI.UserControls
         private void FillComboBox()
         {            
             ticketReportedUserComboBox.DisplayMember = "FirstName";
-            ticketReportedUserComboBox.DataSource = this.employees;
+            ticketReportedUserComboBox.DataSource = this.employees;            
         }
 
         private void ChangeToUpdate(Ticket ticket)
@@ -114,7 +131,7 @@ namespace GradenGroupUI.UserControls
         // FIlls all the boxes with the data from the current ticket
         private void FillBoxesWithSelectedTicket(Ticket ticket)
         {
-            ticketReportedUserComboBox.Text = RecieveEmployeeID();
+            ticketReportedUserComboBox.Text = ticket.Employee.ToString();
             ticketReportedDateTimePicker.Value = ticket.DateReported;
             ticketSubjectIncidentTextBox.Text = ticket.Subject;
             ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();

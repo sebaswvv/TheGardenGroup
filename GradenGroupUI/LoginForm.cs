@@ -13,6 +13,7 @@ using GardenGroupLogic;
 using System.Net.Mail;
 using System.Net;
 using System.Diagnostics;
+using System.Configuration;
 
 namespace GradenGroupUI
 {
@@ -83,15 +84,16 @@ namespace GradenGroupUI
                 return;
             }
             SendEmail(GetUserName(), GetPassword());
-            
+            labelErrorPasswordForgotten.ForeColor = Color.Black;
+            labelErrorPasswordForgotten.Text = "Email has been sent";
         }
         public static string GetUserName()
         {
-            return "gardengroupict@outlook.com";
+            return ConfigurationManager.AppSettings["email"];
         }
         public static string GetPassword()
         {
-            return "Thijswatzitjetezoeken";
+            return ConfigurationManager.AppSettings["password"];
         }
         public string ToAddress()
         {
@@ -149,6 +151,7 @@ namespace GradenGroupUI
                 employeeService.UpdateEmployee(employee);
                 panelForgotPassword.Visible = false;
                 panelNewPassword.Visible = false;
+                panelLogin.Visible = true;
             }
             else
             {

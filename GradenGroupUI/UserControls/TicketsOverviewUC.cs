@@ -9,11 +9,15 @@ namespace GradenGroupUI.UserControls
     public partial class TicketsOverviewUC : UserControl
     {
         private TicketService ticketService;
+        private Employee employee;
+        private ServiceDeskEmployeeForm serviceDeskEmployeeForm;
 
-        public TicketsOverviewUC()
+        public TicketsOverviewUC(Employee employee, ServiceDeskEmployeeForm serviceDeskEmployeeForm)
         {
             InitializeComponent();
             ticketService = new TicketService();
+            this.employee = employee;
+            this.serviceDeskEmployeeForm = serviceDeskEmployeeForm;
         }
 
         private void TicketsOverviewUC_Load(object sender, EventArgs e)
@@ -44,7 +48,7 @@ namespace GradenGroupUI.UserControls
             Ticket ticket = (Ticket) ticketsList.Rows[e.RowIndex].DataBoundItem;
 
             // open view ticket dialog
-            DeskViewTicketUC viewTicketUserControl = new DeskViewTicketUC(ticket, ticketService);
+            DeskViewTicketUC viewTicketUserControl = new DeskViewTicketUC(ticket, ticketService, employee, serviceDeskEmployeeForm);
             viewTicketUserControl.ShowDialog();
             ticketsList.ClearSelection();
             LoadTicketsList();

@@ -191,10 +191,10 @@
             // 
             this.ticketDeadlineFollowUpComboBox.FormattingEnabled = true;
             this.ticketDeadlineFollowUpComboBox.Items.AddRange(new object[] {
-            "7 days",
-            "14 days",
-            "28 days",
-            "6 months"});
+            "SevenDays",
+            "FourtheenDays",
+            "TwentyEightDays",
+            "SixMonths"});
             this.ticketDeadlineFollowUpComboBox.Location = new System.Drawing.Point(214, 278);
             this.ticketDeadlineFollowUpComboBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ticketDeadlineFollowUpComboBox.Name = "ticketDeadlineFollowUpComboBox";
@@ -261,7 +261,7 @@
             this.updateTicketLabel.TabIndex = 20;
             this.updateTicketLabel.Text = "Update incident ticket";
             // 
-            // S
+            // CreateTicketUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -286,7 +286,7 @@
             this.Controls.Add(this.dateTimeReportedLabel);
             this.Controls.Add(this.createTicketHeaderLabel);
             this.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.Name = "S";
+            this.Name = "CreateTicketUC";
             this.Size = new System.Drawing.Size(1148, 532);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -2,6 +2,7 @@
 using GardenGroupModel;
 using GardenGroupModel.Enums;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace GradenGroupUI.UserControls
@@ -10,12 +11,16 @@ namespace GradenGroupUI.UserControls
     {
         private Ticket ticket;
         private TicketService ticketService;
+        private Employee employee;
+        private ServiceDeskEmployeeForm serviceDeskEmployeeForm;
 
-        public DeskViewTicketUC(Ticket ticket, TicketService ticketService)
+        public DeskViewTicketUC(Ticket ticket, TicketService ticketService, Employee employee, ServiceDeskEmployeeForm serviceDeskEmployeeForm)
         {
             InitializeComponent();
             this.ticket = ticket;
             this.ticketService = ticketService;
+            this.employee = employee;
+            this.serviceDeskEmployeeForm = serviceDeskEmployeeForm;
         }
 
         private void DeskViewTicketUC_Load(object sender, EventArgs e)
@@ -38,13 +43,10 @@ namespace GradenGroupUI.UserControls
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            // open edit ticket dialog
-            //EditTicketUC editTicketUserControl = new EditTicketUC(ticket);
-            //editTicketUserControl.ShowDialog();
-            //FillTable(editTicketUserControl.ticket);
-
-            //RegularEmployeeForm regularEmployeeForm = new RegularEmployeeForm(employee);
-            //regularEmployeeForm.DockEditTicket(ticket);
+            // open edit ticket dialog            
+            CreateTicketUC createTicketUserControl = new CreateTicketUC(employee, serviceDeskEmployeeForm, ticket);
+            serviceDeskEmployeeForm.ShowCreateTicket(createTicketUserControl);
+            this.Close();
         }
         
         private void ChangeStatusButton(Status newStatus)
