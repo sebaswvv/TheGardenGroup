@@ -42,6 +42,9 @@ namespace GradenGroupUI.UserControls
             //EditTicketUC editTicketUserControl = new EditTicketUC(ticket);
             //editTicketUserControl.ShowDialog();
             //FillTable(editTicketUserControl.ticket);
+
+            //RegularEmployeeForm regularEmployeeForm = new RegularEmployeeForm(employee);
+            //regularEmployeeForm.DockEditTicket(ticket);
         }
         
         private void ChangeStatusButton(Status newStatus)
