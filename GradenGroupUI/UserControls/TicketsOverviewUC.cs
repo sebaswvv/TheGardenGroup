@@ -54,6 +54,9 @@ namespace GradenGroupUI.UserControls
         {
             // open create ticket dialog
             //UserControls.S createTicketUserControl = new UserControls.S(employee, form);
+
+            //RegularEmployeeForm regularEmployeeForm = new RegularEmployeeForm(employee);
+            //regularEmployeeForm.DockAddTicketsUC();
         }
     }
 }

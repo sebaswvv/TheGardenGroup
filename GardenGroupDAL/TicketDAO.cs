@@ -72,10 +72,54 @@ namespace GardenGroupDAL
                 .ToList();
         }
 
-        // TODO: Update existing ticket in the database where ticket ID is the same as the given ticket
-        public void UpdateTicket(Ticket ticket)
+        // Updates the existing ticket in the database where ticket ID is the same as the given ticket
+        public void UpdateTicketDateReported(Ticket ticket)
         {
-            //this.collection.UpdateOne( {  } ),
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("DateReported", ticket.DateReported);
+            UpdateResult result = this.collection.UpdateOne(filter, update);
+        }
+
+        public void UpdateTicketSubject(Ticket ticket)
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Subject", ticket.Subject);
+            UpdateResult result = this.collection.UpdateOne(filter, update);
+        }
+
+        public void UpdateTicketIncidentType(Ticket ticket)
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("IncidentType", ticket.IncidentType);
+            UpdateResult result = this.collection.UpdateOne(filter, update);
+        }
+
+        public void UpdateTicketEmployee(Ticket ticket)
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("EmployeeID", ticket.EmployeeID);
+            UpdateResult result = this.collection.UpdateOne(filter, update);
+        }
+
+        public void UpdateTicketPriority(Ticket ticket)
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Priority", ticket.Priority);
+            UpdateResult result = this.collection.UpdateOne(filter, update);
+        }
+
+        public void UpdateTicketDeadline(Ticket ticket)
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Deadline", ticket.Deadline);
+            UpdateResult result = this.collection.UpdateOne(filter, update);
+        }
+
+        public void UpdateTicketDescription(Ticket ticket)
+        {
+            FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("Description", ticket.Description);
+            UpdateResult result = this.collection.UpdateOne(filter, update);
         }
     }
 }
