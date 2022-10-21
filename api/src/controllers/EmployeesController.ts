@@ -1,14 +1,14 @@
 import { Body, Controller, Delete, Get, Params, Patch, Post, Response } from "@decorators/express"
 import type { Response as RESTResponse } from "express"
-import { Employee, IEmployee } from "src/models/Employee"
+import { Error as MongooseError } from "mongoose"
+import { Employee, type IEmployee } from "src/models/Employee"
 
 @Controller("/employees")
 export class EmployeesController {
     @Get("/:id")
     async getEmployee(@Response() res: RESTResponse, @Params("id") id: string) {
         try {
-            const employee = await Employee.findById(id)
-            console.log(employee)
+            const employee = await Employee.findById(id, { Password: false})
 
             if (employee === null) {
                 return res.status(404).json({
@@ -18,6 +18,12 @@ export class EmployeesController {
 
             res.status(200).json(employee)
         } catch (err) {
+            if (err instanceof MongooseError.CastError && err.kind === "ObjectId") {
+                return res.status(404).json({
+                    message: "Employee not found",
+                })
+            }
+
             console.error(err)
             res.status(500).json({
                 message: "An error occured",
@@ -29,7 +35,8 @@ export class EmployeesController {
     @Get("/")
     async getEmployees(@Response() res: RESTResponse) {
         try {
-            const employees = await Employee.find()
+            const employees = await Employee.find(null, { Password: false })
+
             res.status(200).json(employees)
         } catch (err) {
             console.error(err)
@@ -45,6 +52,7 @@ export class EmployeesController {
         try {
             const employee = new Employee(body)
             await employee.save()
+
             res.status(201).json(employee)
         } catch (err) {
             console.error(err)
@@ -58,7 +66,10 @@ export class EmployeesController {
     @Patch("/:id")
     async updateEmployee(@Response() res: RESTResponse, @Params("id") id: string, @Body() body: Partial<IEmployee>) {
         try {
-            const employee = await Employee.findByIdAndUpdate(id, body, { new: true })
+            const employee = await Employee.findByIdAndUpdate(id, body, {
+                new: true,
+                runValidators: true,
+            })
             if (employee === null) {
                 return res.status(404).json({
                     message: "Employee not found",
@@ -67,6 +78,12 @@ export class EmployeesController {
 
             res.status(200).json(employee)
         } catch (err) {
+            if (err instanceof MongooseError.CastError && err.kind === "ObjectId") {
+                return res.status(404).json({
+                    message: "Employee not found",
+                })
+            }
+
             console.error(err)
             res.status(500).json({
                 message: "An error occured",
@@ -81,6 +98,12 @@ export class EmployeesController {
             const employee = await Employee.findByIdAndDelete(id)
             res.status(200).json(employee)
         } catch (err) {
+            if (err instanceof MongooseError.CastError && err.kind === "ObjectId") {
+                return res.status(404).json({
+                    message: "Employee not found",
+                })
+            }
+
             console.error(err)
             res.status(500).json({
                 message: "An error occured",
