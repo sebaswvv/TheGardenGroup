@@ -38,6 +38,7 @@ namespace GardenGroupLogic
             return this.ticketDAO.GetAllTickets();
         }
 
+        // Updates every value off the ticket even if they are not changed (tryng to optimise this by only updating the values that are changed)
         public void UpdateTicket(Ticket ticket)
         {
             this.ticketDAO.UpdateTicketDateReported(ticket);

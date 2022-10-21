@@ -43,7 +43,7 @@ namespace GradenGroupUI.UserControls
             this.regularEmployeeForm = regularEmployeeForm;
             this.ticket = ticket;
 
-            CheckEmployee(employee); // Might not be needed as this is already a ServiceDeskEmployee
+            CheckEmployee(employee);
 
             FillComboBox();
             ChangeToUpdate(ticket);
@@ -81,7 +81,7 @@ namespace GradenGroupUI.UserControls
         private void FillComboBox()
         {            
             ticketReportedUserComboBox.DisplayMember = "FirstName";
-            ticketReportedUserComboBox.DataSource = employees;
+            ticketReportedUserComboBox.DataSource = this.employees;
         }
 
         private void ChangeToUpdate(Ticket ticket)
@@ -90,8 +90,6 @@ namespace GradenGroupUI.UserControls
             updateTicketLabel.Show();
             submitTicketButton.Hide();
             updateTicketButton.Show();
-            //ticketReportedUserLabel.Show();
-            //ticketReportedUserComboBox.Show();
 
             FillBoxesWithSelectedTicket(ticket);
         }
@@ -99,6 +97,7 @@ namespace GradenGroupUI.UserControls
         // FIlls all the boxes with the data from the current ticket
         private void FillBoxesWithSelectedTicket(Ticket ticket)
         {
+            ticketReportedUserComboBox.Text = ticket.EmployeeID.ToString();
             ticketReportedDateTimePicker.Value = ticket.DateReported;
             ticketSubjectIncidentTextBox.Text = ticket.Subject;
             ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();

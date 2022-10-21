@@ -97,7 +97,7 @@ namespace GardenGroupDAL
         public void UpdateTicketEmployee(Ticket ticket)
         {
             FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(x => x.Id, ticket.Id);
-            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("EmployeeID", ticket.Employee);
+            UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set("EmployeeID", ticket.EmployeeID);
             UpdateResult result = this.collection.UpdateOne(filter, update);
         }
 

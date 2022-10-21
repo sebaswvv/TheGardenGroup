@@ -17,7 +17,7 @@ namespace GardenGroupModel
         public string Id { get; set; }
         public string EmployeeID { get; set; }
         [BsonIgnoreIfNull]
-        public Employee Employee { get; set; }
+        public Employee Employee { get; set; } // Not needed?
         public DateTime DateReported { get; set; }
         public string Subject { get; set; }
         public IncidentType IncidentType { get; set; }
