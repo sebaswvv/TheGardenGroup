@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GardenGroupModel;
 using MongoDB.Driver;
 
 namespace GardenGroupDAL
-{    
+{
     public class EmployeeDAO : BaseDAO
     {
         private IMongoCollection<Employee> collection;
