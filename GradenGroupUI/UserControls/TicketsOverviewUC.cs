@@ -48,15 +48,6 @@ namespace GradenGroupUI.UserControls
             viewTicketUserControl.ShowDialog();
             ticketsList.ClearSelection();
             LoadTicketsList();
-        }
-
-        private void createIncidentButton_Click(object sender, EventArgs e)
-        {
-            // open create ticket dialog
-            //UserControls.S createTicketUserControl = new UserControls.S(employee, form);
-
-            //RegularEmployeeForm regularEmployeeForm = new RegularEmployeeForm(employee);
-            //regularEmployeeForm.DockAddTicketsUC();
-        }
+        }        
     }
 }

@@ -30,6 +30,7 @@
         {
             this.viewTicketsPanel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.showDashboardButton = new System.Windows.Forms.Button();
             this.buttonCreateTicket = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             // 
             // menuPanel
             // 
+            this.menuPanel.Controls.Add(this.logoutButton);
             this.menuPanel.Controls.Add(this.label1);
             this.menuPanel.Controls.Add(this.showDashboardButton);
             this.menuPanel.Controls.Add(this.buttonCreateTicket);
@@ -52,6 +54,19 @@
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(1845, 108);
             this.menuPanel.TabIndex = 1;
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.ForeColor = System.Drawing.Color.Black;
+            this.logoutButton.Location = new System.Drawing.Point(1693, 11);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(137, 37);
+            this.logoutButton.TabIndex = 3;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // label1
             // 
@@ -99,7 +114,6 @@
             this.Name = "RegularEmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TGG";
-            this.Load += new System.EventHandler(this.RegularEmployeeForm_Load);
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -113,5 +127,6 @@
         private System.Windows.Forms.Button buttonCreateTicket;
         private System.Windows.Forms.Button showDashboardButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button logoutButton;
     }
 }

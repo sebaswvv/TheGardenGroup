@@ -1,6 +1,6 @@
 ﻿namespace GradenGroupUI.UserControls
 {
-    partial class S
+    partial class CreateTicketUC
     {
         /// <summary> 
         /// Required designer variable.

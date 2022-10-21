@@ -45,7 +45,6 @@
             this.comboBoxLocation = new System.Windows.Forms.ComboBox();
             this.checkBoxPassword = new System.Windows.Forms.CheckBox();
             this.labelErrorMessage = new System.Windows.Forms.Label();
-            this.buttonLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -204,23 +203,10 @@
             this.labelErrorMessage.Size = new System.Drawing.Size(0, 15);
             this.labelErrorMessage.TabIndex = 20;
             // 
-            // buttonLogout
-            // 
-            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLogout.Location = new System.Drawing.Point(574, 47);
-            this.buttonLogout.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(102, 28);
-            this.buttonLogout.TabIndex = 21;
-            this.buttonLogout.Text = "Logout";
-            this.buttonLogout.UseVisualStyleBackColor = true;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
-            // 
             // CreateNewEmployeeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.labelErrorMessage);
             this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.comboBoxLocation);
@@ -264,6 +250,5 @@
         private System.Windows.Forms.ComboBox comboBoxLocation;
         private System.Windows.Forms.CheckBox checkBoxPassword;
         private System.Windows.Forms.Label labelErrorMessage;
-        private System.Windows.Forms.Button buttonLogout;
     }
 }

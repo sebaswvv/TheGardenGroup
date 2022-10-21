@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.overviewTicketsLabel = new System.Windows.Forms.Label();
-            this.createIncidentButton = new System.Windows.Forms.Button();
             this.ticketsList = new System.Windows.Forms.DataGridView();
             this.viewButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,18 +54,6 @@
             this.overviewTicketsLabel.TabIndex = 0;
             this.overviewTicketsLabel.Text = "Overview Tickets";
             // 
-            // createIncidentButton
-            // 
-            this.createIncidentButton.FlatAppearance.BorderSize = 0;
-            this.createIncidentButton.Location = new System.Drawing.Point(1685, 13);
-            this.createIncidentButton.Margin = new System.Windows.Forms.Padding(2);
-            this.createIncidentButton.Name = "createIncidentButton";
-            this.createIncidentButton.Size = new System.Drawing.Size(116, 46);
-            this.createIncidentButton.TabIndex = 2;
-            this.createIncidentButton.Text = "Create Incident";
-            this.createIncidentButton.UseVisualStyleBackColor = true;
-            this.createIncidentButton.Click += new System.EventHandler(this.createIncidentButton_Click);
-            // 
             // ticketsList
             // 
             this.ticketsList.AllowUserToAddRows = false;
@@ -75,14 +62,14 @@
             this.ticketsList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.ticketsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ticketsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ticketsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ticketsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ticketsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ticketsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.viewButtonColumn,
@@ -107,9 +94,9 @@
             // 
             // viewButtonColumn
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.viewButtonColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.viewButtonColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.viewButtonColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.viewButtonColumn.HeaderText = "";
             this.viewButtonColumn.Name = "viewButtonColumn";
@@ -177,7 +164,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ticketsList);
-            this.Controls.Add(this.createIncidentButton);
             this.Controls.Add(this.overviewTicketsLabel);
             this.Name = "TicketsOverviewUC";
             this.Size = new System.Drawing.Size(1804, 746);
@@ -191,7 +177,6 @@
         #endregion
 
         private System.Windows.Forms.Label overviewTicketsLabel;
-        private System.Windows.Forms.Button createIncidentButton;
         private System.Windows.Forms.DataGridView ticketsList;
         private System.Windows.Forms.DataGridViewButtonColumn viewButtonColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

@@ -34,6 +34,7 @@ namespace GradenGroupUI
             this.menuPanel.BackColor = Color.FromArgb(156, 179, 128);
             this.buttonCreateTicket.BackColor = Color.FromArgb(27, 81, 43);
             this.showDashboardButton.BackColor = Color.FromArgb(27, 81, 43);
+            this.logoutButton.BackColor = Color.White;
         }
 
         public void DockViewTicketsUC()
@@ -49,7 +50,7 @@ namespace GradenGroupUI
             this.viewTicketsPanel.Controls.Clear();        
        
             // make and dock
-            UserControls.S createTicketUC = new UserControls.S(this.employee, this);
+            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(this.employee, this);
             createTicketUC.Dock = DockStyle.Fill;
             this.viewTicketsPanel.Controls.Add(createTicketUC);
         }
@@ -59,14 +60,9 @@ namespace GradenGroupUI
             this.viewTicketsPanel.Controls.Clear();
 
             // make and dock
-            UserControls.S createTicketUC = new UserControls.S(this.employee, this, ticket);
+            UserControls.CreateTicketUC createTicketUC = new UserControls.CreateTicketUC(this.employee, this, ticket);
             createTicketUC.Dock = DockStyle.Fill;
             this.viewTicketsPanel.Controls.Add(createTicketUC);
-        }
-
-        private void RegularEmployeeForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void showDashboardButton_Click(object sender, EventArgs e)
@@ -77,6 +73,14 @@ namespace GradenGroupUI
         private void buttonCreateTicket_Click(object sender, EventArgs e)
         {
             DockAddTicketsUC();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            this.Hide();
+            loginForm.Show();
+            loginForm.Closed += (s, args) => this.Close();
         }
     }
 }

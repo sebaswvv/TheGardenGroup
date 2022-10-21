@@ -12,35 +12,48 @@ using System.Windows.Forms;
 
 namespace GradenGroupUI.UserControls
 {
-    public partial class S : UserControl
+    public partial class CreateTicketUC : UserControl
     {
         private List<Employee> employees;
         private Employee employee;
-        private RegularEmployeeForm regularEmployeeForm;
+        private Form form;        
         private Ticket ticket;
 
         // Constructor for creating a ticket
-        public S(Employee employee, RegularEmployeeForm regularEmployeeForm)
+        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm)
         {            
             InitializeComponent();
             EmployeeService employeeService = new EmployeeService();
             this.employees = employeeService.GetAllEmployees();
             this.employee = employee;
-            this.regularEmployeeForm = regularEmployeeForm;
+            this.form = regularEmployeeForm;
 
             CheckEmployee(employee);
             
             FillComboBox();
         }
 
-        // Constructor for updating a ticket
-        public S(Employee employee, RegularEmployeeForm regularEmployeeForm, Ticket ticket)
+        public CreateTicketUC(Employee employee, ServiceDeskEmployeeForm serviceDeskEmployeeForm)
         {
             InitializeComponent();
             EmployeeService employeeService = new EmployeeService();
             this.employees = employeeService.GetAllEmployees();
             this.employee = employee;
-            this.regularEmployeeForm = regularEmployeeForm;
+            this.form = serviceDeskEmployeeForm;
+
+            CheckEmployee(employee);
+
+            FillComboBox();
+        }
+
+        // Constructor for updating a ticket
+        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm, Ticket ticket)
+        {
+            InitializeComponent();
+            EmployeeService employeeService = new EmployeeService();
+            this.employees = employeeService.GetAllEmployees();
+            this.employee = employee;
+            this.form = regularEmployeeForm;
             this.ticket = ticket;
 
             CheckEmployee(employee);
@@ -59,13 +72,17 @@ namespace GradenGroupUI.UserControls
             //Could add some feedback to the user to let them know that the ticket is made
 
             //Returns to the DeskViewTicket user control
-            this.regularEmployeeForm.DockViewTicketsUC();
+            if (this.employee.IsServiceDeskEmployee)            
+                ((ServiceDeskEmployeeForm)this.form).ShowDashBoard();
+            else
+                ((RegularEmployeeForm)this.form).DockViewTicketsUC();               
+
         }
 
         private void cancelTicketButton_Click(object sender, EventArgs e)
         {
             //Returns to the DeskViewTicket user control
-            this.regularEmployeeForm.DockViewTicketsUC();
+            ((RegularEmployeeForm)this.form).DockViewTicketsUC();
         }
 
         // Hides the option to select an employee
@@ -115,7 +132,10 @@ namespace GradenGroupUI.UserControls
             ticketService.UpdateTicket(updatedTicket);
 
             //Returns to the DeskViewTicket user control
-            this.regularEmployeeForm.DockViewTicketsUC();
+            if (this.employee.IsServiceDeskEmployee)
+                ((ServiceDeskEmployeeForm)this.form).ShowDashBoard();
+            else
+                ((RegularEmployeeForm)this.form).DockViewTicketsUC();
         }
 
         // Makes a ticket from the values that where given by the user
