@@ -15,6 +15,7 @@ namespace GardenGroupDAL
             this.collection = this.db.GetCollection<Ticket>("tickets");
         }
 
+        // adds the given ticket to the database
         public void AddTicket(Ticket ticket)
         {
             this.collection.InsertOne(ticket);

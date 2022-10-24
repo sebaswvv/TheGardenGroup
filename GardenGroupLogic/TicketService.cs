@@ -18,6 +18,7 @@ namespace GardenGroupLogic
             this.ticketDAO.ChangeTicketStatus(ticket);
         }
 
+        // sends the given ticket to the DAL layer
         public void AddTicket(Ticket ticket)
         {
             this.ticketDAO.AddTicket(ticket);

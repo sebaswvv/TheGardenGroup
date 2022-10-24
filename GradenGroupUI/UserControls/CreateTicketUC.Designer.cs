@@ -260,6 +260,7 @@
             this.updateTicketLabel.Size = new System.Drawing.Size(249, 32);
             this.updateTicketLabel.TabIndex = 20;
             this.updateTicketLabel.Text = "Update incident ticket";
+            this.updateTicketLabel.Visible = false;
             // 
             // CreateTicketUC
             // 
