@@ -214,6 +214,8 @@ namespace GradenGroupUI.UserControls
 
         private void updateButton_Click(object sender, EventArgs e)
         {
+            if (allTicketsListView.SelectedItems.Count == 0)
+                return;
             this.regularEmployeeForm.DockEditTicket((Ticket)allTicketsListView.SelectedItems[0].Tag);
         }
     }
