@@ -213,7 +213,6 @@
             // 
             // cancelTicketButton
             // 
-            this.cancelTicketButton.BackColor = System.Drawing.SystemColors.ControlDark;
             this.cancelTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelTicketButton.Location = new System.Drawing.Point(214, 478);
             this.cancelTicketButton.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
@@ -226,8 +225,9 @@
             // 
             // submitTicketButton
             // 
-            this.submitTicketButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.submitTicketButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(81)))), ((int)(((byte)(45)))));
             this.submitTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submitTicketButton.ForeColor = System.Drawing.SystemColors.Control;
             this.submitTicketButton.Location = new System.Drawing.Point(493, 478);
             this.submitTicketButton.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.submitTicketButton.Name = "submitTicketButton";
@@ -239,8 +239,9 @@
             // 
             // updateTicketButton
             // 
-            this.updateTicketButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.updateTicketButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(81)))), ((int)(((byte)(45)))));
             this.updateTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateTicketButton.ForeColor = System.Drawing.SystemColors.Control;
             this.updateTicketButton.Location = new System.Drawing.Point(382, 478);
             this.updateTicketButton.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.updateTicketButton.Name = "updateTicketButton";
