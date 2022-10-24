@@ -77,9 +77,7 @@ namespace GradenGroupUI.UserControls
             foreach (Ticket ticket in tickets)
             {
                 ListViewItem item = CreateListViewItem(ticket);
-
                 this.allTicketsListView.Items.Add(item);
-
                 item.Tag = ticket;
             }
         }
@@ -113,16 +111,7 @@ namespace GradenGroupUI.UserControls
                 ticket.Description,
                 ticket.DateReported.ToString("dd/MM/yyyy"),
                 ticket.Priority.ToString(), deadline,
-                ticket.Status.ToString()});
-
-            //if (deadLineDate > DateTime.Now)
-            //{
-            //    item.BackColor = Color.Red;
-            //}
-            //else if (deadLineDate == DateTime.Now)
-            //{
-            //    item.BackColor = Color.Orange;
-            //}
+                ticket.Status.ToString()});            
 
             return item;
         }
@@ -186,7 +175,9 @@ namespace GradenGroupUI.UserControls
         }
 
         private void buttonResolved_Click(object sender, EventArgs e)
-        {
+        {            
+            if (allTicketsListView.SelectedItems.Count == 0)
+                return;
             Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
             ticket.Status = GardenGroupModel.Enums.Status.Resolved;
             this.ticketService.ChangeTicketStatus(ticket);
@@ -195,6 +186,8 @@ namespace GradenGroupUI.UserControls
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            if (allTicketsListView.SelectedItems.Count == 0)
+                return;
             Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
             ticket.Status = GardenGroupModel.Enums.Status.Closed;
             this.ticketService.ChangeTicketStatus(ticket);
@@ -203,6 +196,8 @@ namespace GradenGroupUI.UserControls
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
+            if (allTicketsListView.SelectedItems.Count == 0)
+                return;
             Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
             ticket.Status = GardenGroupModel.Enums.Status.Open;
             this.ticketService.ChangeTicketStatus(ticket);

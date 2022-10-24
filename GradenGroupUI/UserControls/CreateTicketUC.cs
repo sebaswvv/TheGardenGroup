@@ -107,7 +107,8 @@ namespace GradenGroupUI.UserControls
         // FIlls all the boxes with the data from the current ticket
         private void FillBoxesWithSelectedTicket(Ticket ticket)
         {
-            ticketReportedUserLabel.Text = this.employee.FirstName; // first name off the current logged in employee, because that is the person who is updating the ticket
+            if (this.employee.IsServiceDeskEmployee)
+                ticketReportedUserComboBox.Text = ticket.Employee.ToString();          
             ticketReportedDateTimePicker.Value = ticket.DateReported;
             ticketSubjectIncidentTextBox.Text = ticket.Subject;
             ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();
