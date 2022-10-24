@@ -175,7 +175,9 @@ namespace GradenGroupUI.UserControls
         }
 
         private void buttonResolved_Click(object sender, EventArgs e)
-        {
+        {            
+            if (allTicketsListView.SelectedItems.Count == 0)
+                return;
             Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
             ticket.Status = GardenGroupModel.Enums.Status.Resolved;
             this.ticketService.ChangeTicketStatus(ticket);
@@ -184,6 +186,8 @@ namespace GradenGroupUI.UserControls
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            if (allTicketsListView.SelectedItems.Count == 0)
+                return;
             Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
             ticket.Status = GardenGroupModel.Enums.Status.Closed;
             this.ticketService.ChangeTicketStatus(ticket);
@@ -192,6 +196,8 @@ namespace GradenGroupUI.UserControls
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
+            if (allTicketsListView.SelectedItems.Count == 0)
+                return;
             Ticket ticket = (Ticket)allTicketsListView.SelectedItems[0].Tag;
             ticket.Status = GardenGroupModel.Enums.Status.Open;
             this.ticketService.ChangeTicketStatus(ticket);
