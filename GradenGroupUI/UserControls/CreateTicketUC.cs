@@ -13,80 +13,53 @@ namespace GradenGroupUI.UserControls
         private Form form;        
         private Ticket ticket;
 
-        // TODO: Create base contructor
-        //public CreateTicketUC(Employee employee)
-        //{
-        //    InitializeComponent();
-        //    this.employee = employee;
-        //    FillComboBox();
-        //}
+        public CreateTicketUC(Employee employee)
+        {
+            InitializeComponent();
+            EmployeeService employeeService = new EmployeeService();
+            this.employees = employeeService.GetAllEmployees();
+            this.employee = employee;
 
-        // Constructor for creating a ticket
-        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm) //: this (employee)
+            CheckEmployee(employee);
+            FillComboBox();
+        }
+
+        // Constructor for creating a ticket for a regular employee
+        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm) : this(employee)
         {            
-            InitializeComponent();
-            EmployeeService employeeService = new EmployeeService();
-            this.employees = employeeService.GetAllEmployees();
-            this.employee = employee;
             this.form = regularEmployeeForm;
-
-            CheckEmployee(employee);
-            
-            FillComboBox();
         }
 
-        public CreateTicketUC(Employee employee, ServiceDeskEmployeeForm serviceDeskEmployeeForm) //: this(employee)
+        // Constructor for creating a ticket for a servicedesk employee
+        public CreateTicketUC(Employee employee, ServiceDeskEmployeeForm serviceDeskEmployeeForm) : this(employee)
         {
-            InitializeComponent();
-            EmployeeService employeeService = new EmployeeService();
-            this.employees = employeeService.GetAllEmployees();
-            this.employee = employee;
             this.form = serviceDeskEmployeeForm;
-
-            CheckEmployee(employee);
-
-            FillComboBox();
         }
 
-        // Constructor for updating a ticket
-        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm, Ticket ticket) //: this(employee)
+        // Constructor for updating a ticket for a regular employee
+        public CreateTicketUC(Employee employee, RegularEmployeeForm regularEmployeeForm, Ticket ticket) : this(employee)
         {
-            InitializeComponent();
-            EmployeeService employeeService = new EmployeeService();
-            this.employees = employeeService.GetAllEmployees();
-            this.employee = employee;
             this.form = regularEmployeeForm;
             this.ticket = ticket;
 
-            CheckEmployee(employee);
-
-            FillComboBox();
             ChangeToUpdate(ticket);
         }
 
-        public CreateTicketUC(Employee employee, ServiceDeskEmployeeForm serviceDeskForm, Ticket ticket) //: this(employee)
+        // Constructor for updating a ticket for a servicedesk employee
+        public CreateTicketUC(Employee employee, ServiceDeskEmployeeForm serviceDeskForm, Ticket ticket) : this(employee)
         {
-            InitializeComponent();
-            EmployeeService employeeService = new EmployeeService();
-            this.employees = employeeService.GetAllEmployees();
-            this.employee = employee;
             this.form = serviceDeskForm;
             this.ticket = ticket;
 
-            CheckEmployee(employee);
-
-            FillComboBox();
             ChangeToUpdate(ticket);
         }
 
         // Submits a ticket
         private void submitTicketButton_Click(object sender, EventArgs e)
         {
+            // creates the ticket from the given values with the employeeID of the right user and sends it to the logic layer
             TicketService ticketService = new TicketService();
-
             ticketService.AddTicket(MakeTicketFromValues(RecieveEmployeeID()));
-
-            //Could add some feedback to the user to let them know that the ticket is made
 
             //Returns to the DeskViewTicket user control
             if (this.employee.IsServiceDeskEmployee)            
@@ -134,6 +107,7 @@ namespace GradenGroupUI.UserControls
         // FIlls all the boxes with the data from the current ticket
         private void FillBoxesWithSelectedTicket(Ticket ticket)
         {
+            ticketReportedUserLabel.Text = this.employee.FirstName; // first name off the current logged in employee, because that is the person who is updating the ticket
             ticketReportedDateTimePicker.Value = ticket.DateReported;
             ticketSubjectIncidentTextBox.Text = ticket.Subject;
             ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();
