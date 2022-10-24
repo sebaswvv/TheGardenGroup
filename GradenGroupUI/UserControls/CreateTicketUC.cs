@@ -92,7 +92,7 @@ namespace GradenGroupUI.UserControls
         // Fills the reported by user combobox with the employees that are in the database
         private void FillComboBox()
         {            
-            ticketReportedUserComboBox.DisplayMember = "FirstName";
+            ticketReportedUserComboBox.DisplayMember = "FirstName" + "LastName";
             ticketReportedUserComboBox.DataSource = this.employees;            
         }
 
