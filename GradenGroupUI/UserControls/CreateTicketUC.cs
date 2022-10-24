@@ -107,8 +107,7 @@ namespace GradenGroupUI.UserControls
         // FIlls all the boxes with the data from the current ticket
         private void FillBoxesWithSelectedTicket(Ticket ticket)
         {
-            if (this.employee.IsServiceDeskEmployee)
-                ticketReportedUserComboBox.Text = ticket.Employee.ToString();          
+            // The selected employee in the user combobox is by default the first (admin), so there is always an employee connected (an other employee can still be selected)
             ticketReportedDateTimePicker.Value = ticket.DateReported;
             ticketSubjectIncidentTextBox.Text = ticket.Subject;
             ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();
