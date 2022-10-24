@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using GardenGroupModel;
 using GardenGroupLogic;
+using System.Configuration;
 
 namespace GradenGroupUI.UserControls
 {
@@ -35,37 +36,45 @@ namespace GradenGroupUI.UserControls
             
             if (Regex.IsMatch(textBoxFirstName.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(textBoxLastName.Text, @"^[a-zA-Z]+$"))
             {
-                if (Regex.IsMatch(textBoxPhoneNumber.Text, @"^[0-9]+$") || textBoxPhoneNumber.MaxLength == 10)
+                if (Regex.IsMatch(textBoxPhoneNumber.Text, @"^[0-9]+$"))
                 {
-                    if (comboBoxUser.SelectedIndex == 0)
+                    if (comboBoxUser.SelectedIndex != -1)
                     {
-                        employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, false);
+                        if (comboBoxUser.SelectedIndex == 0)
+                        {
+                            employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, false);
+                        }
+                        else
+                        {
+                            employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, true);
+                        }
+                        employeeService.AddEmployee(employee);
+                        SendEmail(GetUserName(), GetPassword());
+                        panelUserAdded.Visible = true;
                     }
                     else
                     {
-                        employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, true);
+                        labelErrorMessage.Text = "Please select a type of user.";
                     }
-                    employeeService.AddEmployee(employee);
-                    SendEmail(GetUserName(), GetPassword());
                     
                 }
                 else
                 {
-                    labelErrorMessage.Text = "Phonenumber can only contain 10 digits and no letters";
+                    labelErrorMessage.Text = "Phonenumber can only contain digits.";
                 }
             }
             else
             {
-                labelErrorMessage.Text = "Names can not include digets";
+                labelErrorMessage.Text = "Names can not include digets.";
             }
         }
         public static string GetUserName()
         {
-            return "gardengroupict@outlook.com";
+            return ConfigurationManager.AppSettings["email"];
         }
         public static string GetPassword()
         {
-            return "Thijswatzitjetezoeken";
+            return ConfigurationManager.AppSettings["password"];
         }
         public string ToAddress()
         {
@@ -115,5 +124,23 @@ namespace GradenGroupUI.UserControls
                 throw;
             }
         }
+
+        private void ButtonOkNewUser_Click(object sender, EventArgs e)
+        {
+            textBoxFirstName.Text = string.Empty;
+            textBoxLastName.Text = string.Empty;
+            textBoxEmail.Text = string.Empty;
+            textBoxPhoneNumber.Text = string.Empty;
+            comboBoxLocation.SelectedIndex = -1;
+            comboBoxLocation.Text = "Select location";
+            checkBoxPassword.Checked = false;
+            comboBoxUser.SelectedIndex = -1;
+            comboBoxUser.Text = "Select type";
+
+
+            panelUserAdded.Visible = false;
+        }
+
+       
     }
 }
