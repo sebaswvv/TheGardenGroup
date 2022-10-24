@@ -125,7 +125,9 @@ namespace GradenGroupUI.UserControls
         // FIlls all the boxes with the data from the current ticket
         private void FillBoxesWithSelectedTicket(Ticket ticket)
         {
-            ticketReportedUserComboBox.Text = ticket.Employee.ToString();
+            if (this.employee.IsServiceDeskEmployee)
+                ticketReportedUserComboBox.Text = ticket.Employee.ToString();          
+            
             ticketReportedDateTimePicker.Value = ticket.DateReported;
             ticketSubjectIncidentTextBox.Text = ticket.Subject;
             ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();
