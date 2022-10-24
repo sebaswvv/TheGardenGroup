@@ -47,6 +47,7 @@
             this.submitTicketButton = new System.Windows.Forms.Button();
             this.updateTicketButton = new System.Windows.Forms.Button();
             this.updateTicketLabel = new System.Windows.Forms.Label();
+            this.createTicketWarningLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // createTicketHeaderLabel
@@ -262,11 +263,24 @@
             this.updateTicketLabel.Text = "Update incident ticket";
             this.updateTicketLabel.Visible = false;
             // 
+            // createTicketWarningLabel
+            // 
+            this.createTicketWarningLabel.AutoSize = true;
+            this.createTicketWarningLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.createTicketWarningLabel.ForeColor = System.Drawing.Color.Firebrick;
+            this.createTicketWarningLabel.Location = new System.Drawing.Point(620, 487);
+            this.createTicketWarningLabel.Name = "createTicketWarningLabel";
+            this.createTicketWarningLabel.Size = new System.Drawing.Size(324, 15);
+            this.createTicketWarningLabel.TabIndex = 21;
+            this.createTicketWarningLabel.Text = "One or more boxes are left empty, please fill in all the boxes.";
+            this.createTicketWarningLabel.Visible = false;
+            // 
             // CreateTicketUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.createTicketWarningLabel);
             this.Controls.Add(this.updateTicketLabel);
             this.Controls.Add(this.updateTicketButton);
             this.Controls.Add(this.submitTicketButton);
@@ -315,5 +329,6 @@
         private System.Windows.Forms.Button submitTicketButton;
         private System.Windows.Forms.Button updateTicketButton;
         private System.Windows.Forms.Label updateTicketLabel;
+        private System.Windows.Forms.Label createTicketWarningLabel;
     }
 }

@@ -54,28 +54,29 @@ namespace GradenGroupUI.UserControls
             ChangeToUpdate(ticket);
         }
 
-        // Submits a ticket
+        // Submits a ticket if all boxes are filled or selected
         private void submitTicketButton_Click(object sender, EventArgs e)
         {
-            // creates the ticket from the given values with the employeeID of the right user and sends it to the logic layer
-            TicketService ticketService = new TicketService();
-            ticketService.AddTicket(MakeTicketFromValues(RecieveEmployeeID()));
-
-            //Returns to the DeskViewTicket user control
-            if (this.employee.IsServiceDeskEmployee)            
-                ((ServiceDeskEmployeeForm)this.form).ShowDashBoard();
+            if (!BoxesAreFilled())
+            {
+                createTicketWarningLabel.Show();
+            }
             else
-                ((RegularEmployeeForm)this.form).DockViewTicketsUC();               
+            {
+                createTicketWarningLabel.Hide();
 
+                // creates the ticket from the given values with the employeeID of the right user and sends it to the logic layer
+                TicketService ticketService = new TicketService();
+                ticketService.AddTicket(MakeTicketFromValues(RecieveEmployeeID()));
+
+                ReturnToAllTicketsOverview();
+            }
         }
 
         private void cancelTicketButton_Click(object sender, EventArgs e)
         {
-            //Returns to the DeskViewTicket user control
-            if (this.employee.IsServiceDeskEmployee)
-                ((ServiceDeskEmployeeForm)this.form).ShowDashBoard();
-            else
-                ((RegularEmployeeForm)this.form).DockViewTicketsUC();
+            //Returns to the DeskViewTicket user control or DockViewticketsUC depending on the kind of employee
+            ReturnToAllTicketsOverview();
         }
 
         // Hides the option to select an employee
@@ -88,12 +89,14 @@ namespace GradenGroupUI.UserControls
             }
         }
 
+        // Fills the reported by user combobox with the employees that are in the database
         private void FillComboBox()
         {            
             ticketReportedUserComboBox.DisplayMember = "FirstName";
             ticketReportedUserComboBox.DataSource = this.employees;            
         }
 
+        // changes the UI elements that are used for creating a ticket to UI elements that are used for updating a ticket
         private void ChangeToUpdate(Ticket ticket)
         {
             createTicketHeaderLabel.Hide();
@@ -119,16 +122,21 @@ namespace GradenGroupUI.UserControls
         // Sends the updated values to the ticketservice
         private void updateTicketButton_Click(object sender, EventArgs e)
         {
-            TicketService ticketService = new TicketService();
-            Ticket updatedTicket = MakeTicketFromValues(RecieveEmployeeID());
-            updatedTicket.Id = this.ticket.Id;
-            ticketService.UpdateTicket(updatedTicket);
-
-            //Returns to the DeskViewTicket user control
-            if (this.employee.IsServiceDeskEmployee)
-                ((ServiceDeskEmployeeForm)this.form).ShowDashBoard();
+            if (!BoxesAreFilled())
+            {
+                createTicketWarningLabel.Show();
+            }
             else
-                ((RegularEmployeeForm)this.form).DockViewTicketsUC();
+            {
+                createTicketWarningLabel.Hide();
+
+                TicketService ticketService = new TicketService();
+                Ticket updatedTicket = MakeTicketFromValues(RecieveEmployeeID());
+                updatedTicket.Id = this.ticket.Id;
+                ticketService.UpdateTicket(updatedTicket);
+
+                ReturnToAllTicketsOverview();
+            }
         }
 
         // Makes a ticket from the values that where given by the user
@@ -159,6 +167,26 @@ namespace GradenGroupUI.UserControls
             }
 
             return employeeID;
+        }
+
+        //Returns to the DeskViewTicket user control or DockViewticketsUC depending on the kind of employee.
+        private void ReturnToAllTicketsOverview()
+        {
+            if (this.employee.IsServiceDeskEmployee)
+                ((ServiceDeskEmployeeForm)this.form).ShowDashBoard();
+            else
+                ((RegularEmployeeForm)this.form).DockViewTicketsUC();
+        }
+
+        // Checks if any boxes are left empty or unselected and returns false if they are.
+        private bool BoxesAreFilled()
+        {
+            if (ticketSubjectIncidentTextBox.Text == "" || ticketTypeIncidentComboBox.SelectedIndex == -1 || ticketPriorityComboBox.SelectedIndex == -1 || ticketDeadlineFollowUpComboBox.SelectedIndex == -1 || ticketDescriptionTextBox.Text == "")
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
