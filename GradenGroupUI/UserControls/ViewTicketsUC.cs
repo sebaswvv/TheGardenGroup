@@ -62,14 +62,16 @@ namespace GradenGroupUI.UserControls
             chart.Size = new Size(380, 380);
 
             // load data with 2 digits after the comma
-            if (percentageTicketStatus[0] != 0)            
-                chart.Series["Tickets"].Points.AddXY("Open", Math.Round(percentageTicketStatus[0], 2));
-            if (percentageTicketStatus[1] != 0)
-                chart.Series["Tickets"].Points.AddXY("Closed", Math.Round(percentageTicketStatus[1], 2));           
-            if (percentageTicketStatus[2] != 0)            
-                chart.Series["Tickets"].Points.AddXY("Resolved", Math.Round(percentageTicketStatus[2], 2));
-                      
+            //if (percentageTicketStatus[0] != 0)            
+            //    chart.Series["Tickets"].Points.AddXY("Open", Math.Round(percentageTicketStatus[0], 2));
+            //if (percentageTicketStatus[1] != 0)
+            //    chart.Series["Tickets"].Points.AddXY("Closed", Math.Round(percentageTicketStatus[1], 2));           
+            //if (percentageTicketStatus[2] != 0)            
+            //    chart.Series["Tickets"].Points.AddXY("Resolved", Math.Round(percentageTicketStatus[2], 2));
 
+            chart.Series["Tickets"].Points.AddXY($"Open {Math.Round(percentageTicketStatus[0])}%", percentageTicketStatus[0]);
+            chart.Series["Tickets"].Points.AddXY($"Closed {Math.Round(percentageTicketStatus[1])}%", percentageTicketStatus[1]);
+            chart.Series["Tickets"].Points.AddXY($"Resolved {Math.Round(percentageTicketStatus[2])}%", percentageTicketStatus[2]);
             // add the chart to the form
             this.dockPanel.Controls.Add(chart);
         }        
@@ -131,10 +133,10 @@ namespace GradenGroupUI.UserControls
                     case GardenGroupModel.Enums.Status.Open:
                         ticketSatus[0]++;
                         break;
-                    case GardenGroupModel.Enums.Status.Resolved:
+                    case GardenGroupModel.Enums.Status.Closed:
                         ticketSatus[1]++;
                         break;
-                    case GardenGroupModel.Enums.Status.Closed:
+                    case GardenGroupModel.Enums.Status.Resolved:
                         ticketSatus[2]++;
                         break;
                 }
