@@ -40,17 +40,24 @@ namespace GradenGroupUI.UserControls
                 {
                     if (comboBoxUser.SelectedIndex != -1)
                     {
-                        if (comboBoxUser.SelectedIndex == 0)
+                        if (comboBoxLocation.SelectedIndex != -1)
                         {
-                            employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, false);
+                            if (comboBoxUser.SelectedIndex == 0)
+                            {
+                                employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, false);
+                            }
+                            else
+                            {
+                                employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, true);
+                            }
+                            employeeService.AddEmployee(employee);
+                            SendEmail(GetUserName(), GetPassword());
+                            panelUserAdded.Visible = true;
                         }
                         else
                         {
-                            employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, true);
+                            labelErrorMessage.Text = "Please select a location."
                         }
-                        employeeService.AddEmployee(employee);
-                        SendEmail(GetUserName(), GetPassword());
-                        panelUserAdded.Visible = true;
                     }
                     else
                     {
