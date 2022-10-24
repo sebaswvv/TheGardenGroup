@@ -61,10 +61,14 @@ namespace GradenGroupUI.UserControls
             chart.BackColor = Color.FromArgb(156, 179, 128);                    
             chart.Size = new Size(380, 380);
 
-            // load data with 2 digits after the comma            
-            chart.Series["Tickets"].Points.AddXY($"Open {Math.Round(percentageTicketStatus[0])}%", percentageTicketStatus[0]);
-            chart.Series["Tickets"].Points.AddXY($"Closed {Math.Round(percentageTicketStatus[1])}%", percentageTicketStatus[1]);
-            chart.Series["Tickets"].Points.AddXY($"Resolved {Math.Round(percentageTicketStatus[2])}%", percentageTicketStatus[2]);
+            // load data with 2 digits after the comma
+            if (percentageTicketStatus[0] != 0)            
+                chart.Series["Tickets"].Points.AddXY("Open", Math.Round(percentageTicketStatus[0], 2));
+            if (percentageTicketStatus[1] != 0)
+                chart.Series["Tickets"].Points.AddXY("Closed", Math.Round(percentageTicketStatus[1], 2));           
+            if (percentageTicketStatus[2] != 0)            
+                chart.Series["Tickets"].Points.AddXY("Resolved", Math.Round(percentageTicketStatus[2], 2));
+                      
 
             // add the chart to the form
             this.dockPanel.Controls.Add(chart);
