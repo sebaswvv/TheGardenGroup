@@ -56,7 +56,7 @@ namespace GradenGroupUI.UserControls
                         }
                         else
                         {
-                            labelErrorMessage.Text = "Please select a location."
+                            labelErrorMessage.Text = "Please select a location.";
                         }
                     }
                     else
