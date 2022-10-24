@@ -63,7 +63,7 @@ namespace GradenGroupUI.UserControls
 
             int amountOfPies = 0;
 
-            //load data with 2 digits after the comma
+            // load data with 2 digits after the comma
             // change pies colour
             if (percentageTicketStatus[0] != 0)
             {
