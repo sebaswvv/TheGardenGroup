@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GardenGroupDAL;
 using GardenGroupModel;
 
@@ -13,14 +14,25 @@ namespace GardenGroupLogic
             this.userDAO = new EmployeeDAO();
         }
         
-        public Employee GetUser(string username)
+        public Employee GetEmployee(string email)
         {
-            return this.userDAO.GetUser(username);
+            return this.userDAO.GetUser(email);
         }
+        
 
-        public void AddUser(Employee user)
+        public void AddEmployee(Employee user)
         {
             this.userDAO.AddUser(user);
+        }
+
+        public List<Employee> GetAllEmployees()
+        {
+            return this.userDAO.GetAllEmployees();
+        }
+        
+        public void UpdateEmployee(Employee user)
+        {
+            this.userDAO.UpdateUser(user);
         }
     }
 }

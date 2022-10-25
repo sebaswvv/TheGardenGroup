@@ -9,6 +9,7 @@ config()
 
 const PORT = 2002
 const app = express()
+app.use(express.json())
 
 run().catch(err => console.error("Error while trying to connect to database:", err))
 

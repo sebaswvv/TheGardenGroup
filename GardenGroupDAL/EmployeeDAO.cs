@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GardenGroupModel;
 using MongoDB.Driver;
 
 namespace GardenGroupDAL
-{    
+{
     public class EmployeeDAO : BaseDAO
     {
         private IMongoCollection<Employee> collection;
@@ -20,11 +17,20 @@ namespace GardenGroupDAL
         public void AddUser(Employee newUser) 
         {
             this.collection.InsertOne(newUser);
+        }        
+
+        public Employee GetUser(string email)
+        {
+            return this.collection.Find(u => u.Email == email).FirstOrDefault();
         }
 
-        public Employee GetUser(string username)
+        public void UpdateUser(Employee employee)
         {
-            return this.collection.Find(u => u.FirstName == username).FirstOrDefault();
+            this.collection.ReplaceOne(u => u.Email == employee.Email, employee);
+        }
+        public List<Employee> GetAllEmployees()
+        {
+            return this.collection.Find(u => true).ToList();
         }
     }
 }
