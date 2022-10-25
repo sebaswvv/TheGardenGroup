@@ -26,7 +26,7 @@ namespace GradenGroupUI
         PasswordService passwordService = new PasswordService();
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string username = textBoxUsername.Text;
+            string username = textBoxUsername.Text.ToLower();
             string password = textBoxPassword.Text;
             employee = employeeService.GetEmployee(username);
             if (employee == null)
@@ -185,6 +185,12 @@ namespace GradenGroupUI
         {
             panelNewPassword.Visible=false;
             panelLogin.Visible = true;
+        }
+
+        private void buttonCancelForgotPassword_Click(object sender, EventArgs e)
+        {
+            panelForgotPassword.Visible=false;
+            panelLogin.Visible=true;
         }
     }
 }

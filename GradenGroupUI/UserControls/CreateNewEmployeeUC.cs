@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using GardenGroupModel;
 using GardenGroupLogic;
 using System.Configuration;
+using System.Collections.Generic;
 
 namespace GradenGroupUI.UserControls
 {
@@ -13,6 +14,7 @@ namespace GradenGroupUI.UserControls
     {
         PasswordService passwordService;
         EmployeeService employeeService;
+
         public CreateNewEmployeeUC()
         {
             InitializeComponent();
@@ -28,52 +30,47 @@ namespace GradenGroupUI.UserControls
         {
             Employee employee;
             password = GeneratePassword();
+            bool emailExists = false;
             string Encryptedpassword = passwordService.GenerateSaltedHash(password);
             if (!checkBoxPassword.Checked)
             {
                 Encryptedpassword = "";
-            }             
-            
-            if (Regex.IsMatch(textBoxFirstName.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(textBoxLastName.Text, @"^[a-zA-Z]+$"))
+            }
+            List<Employee> employees = employeeService.GetAllEmployees();
+            foreach (Employee employee1 in employees)
             {
-                if (Regex.IsMatch(textBoxPhoneNumber.Text, @"^[0-9]+$"))
+                if (employee1.Email == textBoxEmail.Text)
                 {
-                    if (comboBoxUser.SelectedIndex != -1)
+                    emailExists = true;
+                }
+            }
+            if (!emailExists)
+            {
+                if (Regex.IsMatch(textBoxFirstName.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(textBoxLastName.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(textBoxPhoneNumber.Text, @"^[0-9]+$") || comboBoxUser.SelectedIndex != -1 || comboBoxLocation.SelectedIndex != -1)
+                {
+
+                    if (comboBoxUser.SelectedIndex == 0)
                     {
-                        if (comboBoxLocation.SelectedIndex != -1)
-                        {
-                            if (comboBoxUser.SelectedIndex == 0)
-                            {
-                                employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, false);
-                            }
-                            else
-                            {
-                                employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, true);
-                            }
-                            employeeService.AddEmployee(employee);
-                            SendEmail(GetUserName(), GetPassword());
-                            panelUserAdded.Visible = true;
-                        }
-                        else
-                        {
-                            labelErrorMessage.Text = "Please select a location.";
-                        }
+                        employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text.ToLower(), textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, false);
                     }
                     else
                     {
-                        labelErrorMessage.Text = "Please select a type of user.";
+                        employee = new Employee(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text.ToLower(), textBoxPhoneNumber.Text, Encryptedpassword, (GardenGroupModel.Enums.Location)comboBoxLocation.SelectedIndex, true);
                     }
-                    
+                    employeeService.AddEmployee(employee);
+                    SendEmail(GetUserName(), GetPassword());
+                   panelUserAdded.Visible = true;
                 }
                 else
                 {
-                    labelErrorMessage.Text = "Phonenumber can only contain digits.";
+                    labelErrorMessage.Text = "Field filled in incorrectly.";
                 }
             }
             else
             {
-                labelErrorMessage.Text = "Names can not include digets.";
+                labelErrorMessage.Text = "Email already exists in our system.";
             }
+            
         }
         public static string GetUserName()
         {
@@ -143,7 +140,7 @@ namespace GradenGroupUI.UserControls
             checkBoxPassword.Checked = false;
             comboBoxUser.SelectedIndex = -1;
             comboBoxUser.Text = "Select type";
-
+            labelErrorMessage.Text = String.Empty;
 
             panelUserAdded.Visible = false;
         }
