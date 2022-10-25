@@ -16,3 +16,5 @@ Gebruikersnaam: mmadajev@gmail.com
 Wachtwoord: admin
 Gebruikersnaam: tiemen2@live.nl
 Wachtwoord: admin
+
+alle wachtwoorden van overige gebruikers zijn allemaal: admin
