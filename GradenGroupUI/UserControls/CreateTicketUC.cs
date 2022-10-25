@@ -10,7 +10,7 @@ namespace GradenGroupUI.UserControls
     {
         private List<Employee> employees;
         private Employee employee;
-        private Form form;        
+        private Form form;
         private Ticket ticket;
 
         public CreateTicketUC(Employee employee)
@@ -93,7 +93,8 @@ namespace GradenGroupUI.UserControls
         private void FillComboBox()
         {            
             ticketReportedUserComboBox.DisplayMember = "FirstName" + "LastName";
-            ticketReportedUserComboBox.DataSource = this.employees;            
+            ticketReportedUserComboBox.ValueMember = "Id";
+            ticketReportedUserComboBox.DataSource = this.employees;
         }
 
         // changes the UI elements that are used for creating a ticket to UI elements that are used for updating a ticket
@@ -110,7 +111,7 @@ namespace GradenGroupUI.UserControls
         // FIlls all the boxes with the data from the current ticket
         private void FillBoxesWithSelectedTicket(Ticket ticket)
         {
-            // The selected employee in the user combobox is by default the first (admin), so there is always an employee connected (an other employee can still be selected)
+            ticketReportedUserComboBox.SelectedValue = ticket.EmployeeID;
             ticketReportedDateTimePicker.Value = ticket.DateReported;
             ticketSubjectIncidentTextBox.Text = ticket.Subject;
             ticketTypeIncidentComboBox.Text = ticket.IncidentType.ToString();
