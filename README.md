@@ -1,5 +1,18 @@
-To login to TGG application:
+Wachtwoorden en accounts:
 
-Servicedesk employee's:
+Service desk employee accounts:
+Gebruikersnaam: admin@admin.com
+Wachtwoord: admin
+Naam: Global Admin
+Gebruikersnaam: 690592@student.inholland.nl
+Wachtwoord: admin
 
-Regular employee's:
+Regular employee account:
+Gebruikersnaam: sebastiaan.van.vliet@hotmail.nl
+Wachtwoord: admin
+Gebruikersnaam: jochemschippers@gmail.com
+Wachtwoord: admin
+Gebruikersnaam: mmadajev@gmail.com
+Wachtwoord: admin
+Gebruikersnaam: tiemen2@live.nl
+Wachtwoord: admin
