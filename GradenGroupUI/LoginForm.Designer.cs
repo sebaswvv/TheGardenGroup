@@ -36,6 +36,7 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonForgot = new System.Windows.Forms.Button();
             this.panelForgotPassword = new System.Windows.Forms.Panel();
+            this.buttonCancelForgotPassword = new System.Windows.Forms.Button();
             this.labelErrorCode = new System.Windows.Forms.Label();
             this.labelErrorPasswordForgotten = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.panelLogin = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.buttonCancelForgotPassword = new System.Windows.Forms.Button();
             this.panelForgotPassword.SuspendLayout();
             this.panelNewPassword.SuspendLayout();
             this.panelLogin.SuspendLayout();
@@ -150,6 +150,16 @@
             this.panelForgotPassword.Size = new System.Drawing.Size(545, 502);
             this.panelForgotPassword.TabIndex = 8;
             this.panelForgotPassword.Visible = false;
+            // 
+            // buttonCancelForgotPassword
+            // 
+            this.buttonCancelForgotPassword.Location = new System.Drawing.Point(139, 404);
+            this.buttonCancelForgotPassword.Name = "buttonCancelForgotPassword";
+            this.buttonCancelForgotPassword.Size = new System.Drawing.Size(117, 28);
+            this.buttonCancelForgotPassword.TabIndex = 11;
+            this.buttonCancelForgotPassword.Text = "Cancel";
+            this.buttonCancelForgotPassword.UseVisualStyleBackColor = true;
+            this.buttonCancelForgotPassword.Click += new System.EventHandler(this.buttonCancelForgotPassword_Click);
             // 
             // labelErrorCode
             // 
@@ -366,16 +376,6 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "The Garden Group Login";
             // 
-            // buttonCancelForgotPassword
-            // 
-            this.buttonCancelForgotPassword.Location = new System.Drawing.Point(139, 404);
-            this.buttonCancelForgotPassword.Name = "buttonCancelForgotPassword";
-            this.buttonCancelForgotPassword.Size = new System.Drawing.Size(117, 28);
-            this.buttonCancelForgotPassword.TabIndex = 11;
-            this.buttonCancelForgotPassword.Text = "Cancel";
-            this.buttonCancelForgotPassword.UseVisualStyleBackColor = true;
-            this.buttonCancelForgotPassword.Click += new System.EventHandler(this.buttonCancelForgotPassword_Click);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -387,7 +387,7 @@
             this.Controls.Add(this.panelForgotPassword);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LoginForm";
-            this.Text = "FormLogin";
+            this.Text = "Login";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panelForgotPassword.ResumeLayout(false);
